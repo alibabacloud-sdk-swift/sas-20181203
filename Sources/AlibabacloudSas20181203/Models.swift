@@ -8684,6 +8684,51 @@ public class CreateAgentlessScanTaskResponse : Tea.TeaModel {
 }
 
 public class CreateAntiBruteForceRuleRequest : Tea.TeaModel {
+    public class ProtocolType : Tea.TeaModel {
+        public var rdp: String?
+
+        public var sqlServer: String?
+
+        public var ssh: String?
+
+        public override init() {
+            super.init()
+        }
+
+        public init(_ dict: [String: Any]) {
+            super.init()
+            self.fromMap(dict)
+        }
+
+        public override func validate() throws -> Void {
+        }
+
+        public override func toMap() -> [String : Any] {
+            var map = super.toMap()
+            if self.rdp != nil {
+                map["Rdp"] = self.rdp!
+            }
+            if self.sqlServer != nil {
+                map["SqlServer"] = self.sqlServer!
+            }
+            if self.ssh != nil {
+                map["Ssh"] = self.ssh!
+            }
+            return map
+        }
+
+        public override func fromMap(_ dict: [String: Any]) -> Void {
+            if dict.keys.contains("Rdp") {
+                self.rdp = dict["Rdp"] as! String
+            }
+            if dict.keys.contains("SqlServer") {
+                self.sqlServer = dict["SqlServer"] as! String
+            }
+            if dict.keys.contains("Ssh") {
+                self.ssh = dict["Ssh"] as! String
+            }
+        }
+    }
     public var defaultRule: Bool?
 
     public var failCount: Int32?
@@ -8691,6 +8736,105 @@ public class CreateAntiBruteForceRuleRequest : Tea.TeaModel {
     public var forbiddenTime: Int32?
 
     public var name: String?
+
+    public var protocolType: CreateAntiBruteForceRuleRequest.ProtocolType?
+
+    public var resourceOwnerId: Int64?
+
+    public var sourceIp: String?
+
+    public var span: Int32?
+
+    public var uuidList: [String]?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.protocolType?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.defaultRule != nil {
+            map["DefaultRule"] = self.defaultRule!
+        }
+        if self.failCount != nil {
+            map["FailCount"] = self.failCount!
+        }
+        if self.forbiddenTime != nil {
+            map["ForbiddenTime"] = self.forbiddenTime!
+        }
+        if self.name != nil {
+            map["Name"] = self.name!
+        }
+        if self.protocolType != nil {
+            map["ProtocolType"] = self.protocolType?.toMap()
+        }
+        if self.resourceOwnerId != nil {
+            map["ResourceOwnerId"] = self.resourceOwnerId!
+        }
+        if self.sourceIp != nil {
+            map["SourceIp"] = self.sourceIp!
+        }
+        if self.span != nil {
+            map["Span"] = self.span!
+        }
+        if self.uuidList != nil {
+            map["UuidList"] = self.uuidList!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any]) -> Void {
+        if dict.keys.contains("DefaultRule") {
+            self.defaultRule = dict["DefaultRule"] as! Bool
+        }
+        if dict.keys.contains("FailCount") {
+            self.failCount = dict["FailCount"] as! Int32
+        }
+        if dict.keys.contains("ForbiddenTime") {
+            self.forbiddenTime = dict["ForbiddenTime"] as! Int32
+        }
+        if dict.keys.contains("Name") {
+            self.name = dict["Name"] as! String
+        }
+        if dict.keys.contains("ProtocolType") {
+            var model = CreateAntiBruteForceRuleRequest.ProtocolType()
+            model.fromMap(dict["ProtocolType"] as! [String: Any])
+            self.protocolType = model
+        }
+        if dict.keys.contains("ResourceOwnerId") {
+            self.resourceOwnerId = dict["ResourceOwnerId"] as! Int64
+        }
+        if dict.keys.contains("SourceIp") {
+            self.sourceIp = dict["SourceIp"] as! String
+        }
+        if dict.keys.contains("Span") {
+            self.span = dict["Span"] as! Int32
+        }
+        if dict.keys.contains("UuidList") {
+            self.uuidList = dict["UuidList"] as! [String]
+        }
+    }
+}
+
+public class CreateAntiBruteForceRuleShrinkRequest : Tea.TeaModel {
+    public var defaultRule: Bool?
+
+    public var failCount: Int32?
+
+    public var forbiddenTime: Int32?
+
+    public var name: String?
+
+    public var protocolTypeShrink: String?
 
     public var resourceOwnerId: Int64?
 
@@ -8726,6 +8870,9 @@ public class CreateAntiBruteForceRuleRequest : Tea.TeaModel {
         if self.name != nil {
             map["Name"] = self.name!
         }
+        if self.protocolTypeShrink != nil {
+            map["ProtocolType"] = self.protocolTypeShrink!
+        }
         if self.resourceOwnerId != nil {
             map["ResourceOwnerId"] = self.resourceOwnerId!
         }
@@ -8753,6 +8900,9 @@ public class CreateAntiBruteForceRuleRequest : Tea.TeaModel {
         }
         if dict.keys.contains("Name") {
             self.name = dict["Name"] as! String
+        }
+        if dict.keys.contains("ProtocolType") {
+            self.protocolTypeShrink = dict["ProtocolType"] as! String
         }
         if dict.keys.contains("ResourceOwnerId") {
             self.resourceOwnerId = dict["ResourceOwnerId"] as! Int64
@@ -29440,6 +29590,51 @@ public class DescribeAntiBruteForceRulesResponseBody : Tea.TeaModel {
         }
     }
     public class Rules : Tea.TeaModel {
+        public class ProtocolType : Tea.TeaModel {
+            public var rdp: String?
+
+            public var sqlServer: String?
+
+            public var ssh: String?
+
+            public override init() {
+                super.init()
+            }
+
+            public init(_ dict: [String: Any]) {
+                super.init()
+                self.fromMap(dict)
+            }
+
+            public override func validate() throws -> Void {
+            }
+
+            public override func toMap() -> [String : Any] {
+                var map = super.toMap()
+                if self.rdp != nil {
+                    map["Rdp"] = self.rdp!
+                }
+                if self.sqlServer != nil {
+                    map["SqlServer"] = self.sqlServer!
+                }
+                if self.ssh != nil {
+                    map["Ssh"] = self.ssh!
+                }
+                return map
+            }
+
+            public override func fromMap(_ dict: [String: Any]) -> Void {
+                if dict.keys.contains("Rdp") {
+                    self.rdp = dict["Rdp"] as! String
+                }
+                if dict.keys.contains("SqlServer") {
+                    self.sqlServer = dict["SqlServer"] as! String
+                }
+                if dict.keys.contains("Ssh") {
+                    self.ssh = dict["Ssh"] as! String
+                }
+            }
+        }
         public var createTimestamp: Int64?
 
         public var defaultRule: Bool?
@@ -29456,6 +29651,8 @@ public class DescribeAntiBruteForceRulesResponseBody : Tea.TeaModel {
 
         public var name: String?
 
+        public var protocolType: DescribeAntiBruteForceRulesResponseBody.Rules.ProtocolType?
+
         public var span: Int32?
 
         public var uuidList: [String]?
@@ -29470,6 +29667,7 @@ public class DescribeAntiBruteForceRulesResponseBody : Tea.TeaModel {
         }
 
         public override func validate() throws -> Void {
+            try self.protocolType?.validate()
         }
 
         public override func toMap() -> [String : Any] {
@@ -29497,6 +29695,9 @@ public class DescribeAntiBruteForceRulesResponseBody : Tea.TeaModel {
             }
             if self.name != nil {
                 map["Name"] = self.name!
+            }
+            if self.protocolType != nil {
+                map["ProtocolType"] = self.protocolType?.toMap()
             }
             if self.span != nil {
                 map["Span"] = self.span!
@@ -29531,6 +29732,11 @@ public class DescribeAntiBruteForceRulesResponseBody : Tea.TeaModel {
             }
             if dict.keys.contains("Name") {
                 self.name = dict["Name"] as! String
+            }
+            if dict.keys.contains("ProtocolType") {
+                var model = DescribeAntiBruteForceRulesResponseBody.Rules.ProtocolType()
+                model.fromMap(dict["ProtocolType"] as! [String: Any])
+                self.protocolType = model
             }
             if dict.keys.contains("Span") {
                 self.span = dict["Span"] as! Int32
@@ -173686,6 +173892,51 @@ public class ModifyAccessKeyLeakDealResponse : Tea.TeaModel {
 }
 
 public class ModifyAntiBruteForceRuleRequest : Tea.TeaModel {
+    public class ProtocolType : Tea.TeaModel {
+        public var rdp: String?
+
+        public var sqlServer: String?
+
+        public var ssh: String?
+
+        public override init() {
+            super.init()
+        }
+
+        public init(_ dict: [String: Any]) {
+            super.init()
+            self.fromMap(dict)
+        }
+
+        public override func validate() throws -> Void {
+        }
+
+        public override func toMap() -> [String : Any] {
+            var map = super.toMap()
+            if self.rdp != nil {
+                map["Rdp"] = self.rdp!
+            }
+            if self.sqlServer != nil {
+                map["SqlServer"] = self.sqlServer!
+            }
+            if self.ssh != nil {
+                map["Ssh"] = self.ssh!
+            }
+            return map
+        }
+
+        public override func fromMap(_ dict: [String: Any]) -> Void {
+            if dict.keys.contains("Rdp") {
+                self.rdp = dict["Rdp"] as! String
+            }
+            if dict.keys.contains("SqlServer") {
+                self.sqlServer = dict["SqlServer"] as! String
+            }
+            if dict.keys.contains("Ssh") {
+                self.ssh = dict["Ssh"] as! String
+            }
+        }
+    }
     public var defaultRule: Bool?
 
     public var failCount: Int32?
@@ -173695,6 +173946,113 @@ public class ModifyAntiBruteForceRuleRequest : Tea.TeaModel {
     public var id: Int64?
 
     public var name: String?
+
+    public var protocolType: ModifyAntiBruteForceRuleRequest.ProtocolType?
+
+    public var resourceOwnerId: Int64?
+
+    public var sourceIp: String?
+
+    public var span: Int32?
+
+    public var uuidList: [String]?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.protocolType?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.defaultRule != nil {
+            map["DefaultRule"] = self.defaultRule!
+        }
+        if self.failCount != nil {
+            map["FailCount"] = self.failCount!
+        }
+        if self.forbiddenTime != nil {
+            map["ForbiddenTime"] = self.forbiddenTime!
+        }
+        if self.id != nil {
+            map["Id"] = self.id!
+        }
+        if self.name != nil {
+            map["Name"] = self.name!
+        }
+        if self.protocolType != nil {
+            map["ProtocolType"] = self.protocolType?.toMap()
+        }
+        if self.resourceOwnerId != nil {
+            map["ResourceOwnerId"] = self.resourceOwnerId!
+        }
+        if self.sourceIp != nil {
+            map["SourceIp"] = self.sourceIp!
+        }
+        if self.span != nil {
+            map["Span"] = self.span!
+        }
+        if self.uuidList != nil {
+            map["UuidList"] = self.uuidList!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any]) -> Void {
+        if dict.keys.contains("DefaultRule") {
+            self.defaultRule = dict["DefaultRule"] as! Bool
+        }
+        if dict.keys.contains("FailCount") {
+            self.failCount = dict["FailCount"] as! Int32
+        }
+        if dict.keys.contains("ForbiddenTime") {
+            self.forbiddenTime = dict["ForbiddenTime"] as! Int32
+        }
+        if dict.keys.contains("Id") {
+            self.id = dict["Id"] as! Int64
+        }
+        if dict.keys.contains("Name") {
+            self.name = dict["Name"] as! String
+        }
+        if dict.keys.contains("ProtocolType") {
+            var model = ModifyAntiBruteForceRuleRequest.ProtocolType()
+            model.fromMap(dict["ProtocolType"] as! [String: Any])
+            self.protocolType = model
+        }
+        if dict.keys.contains("ResourceOwnerId") {
+            self.resourceOwnerId = dict["ResourceOwnerId"] as! Int64
+        }
+        if dict.keys.contains("SourceIp") {
+            self.sourceIp = dict["SourceIp"] as! String
+        }
+        if dict.keys.contains("Span") {
+            self.span = dict["Span"] as! Int32
+        }
+        if dict.keys.contains("UuidList") {
+            self.uuidList = dict["UuidList"] as! [String]
+        }
+    }
+}
+
+public class ModifyAntiBruteForceRuleShrinkRequest : Tea.TeaModel {
+    public var defaultRule: Bool?
+
+    public var failCount: Int32?
+
+    public var forbiddenTime: Int32?
+
+    public var id: Int64?
+
+    public var name: String?
+
+    public var protocolTypeShrink: String?
 
     public var resourceOwnerId: Int64?
 
@@ -173733,6 +174091,9 @@ public class ModifyAntiBruteForceRuleRequest : Tea.TeaModel {
         if self.name != nil {
             map["Name"] = self.name!
         }
+        if self.protocolTypeShrink != nil {
+            map["ProtocolType"] = self.protocolTypeShrink!
+        }
         if self.resourceOwnerId != nil {
             map["ResourceOwnerId"] = self.resourceOwnerId!
         }
@@ -173763,6 +174124,9 @@ public class ModifyAntiBruteForceRuleRequest : Tea.TeaModel {
         }
         if dict.keys.contains("Name") {
             self.name = dict["Name"] as! String
+        }
+        if dict.keys.contains("ProtocolType") {
+            self.protocolTypeShrink = dict["ProtocolType"] as! String
         }
         if dict.keys.contains("ResourceOwnerId") {
             self.resourceOwnerId = dict["ResourceOwnerId"] as! Int64
