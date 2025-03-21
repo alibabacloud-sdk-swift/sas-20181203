@@ -10889,6 +10889,8 @@ public class CreateCycleTaskRequest : Tea.TeaModel {
 }
 
 public class CreateCycleTaskResponseBody : Tea.TeaModel {
+    public var configId: String?
+
     public var requestId: String?
 
     public override init() {
@@ -10905,6 +10907,9 @@ public class CreateCycleTaskResponseBody : Tea.TeaModel {
 
     public override func toMap() -> [String : Any] {
         var map = super.toMap()
+        if self.configId != nil {
+            map["ConfigId"] = self.configId!
+        }
         if self.requestId != nil {
             map["RequestId"] = self.requestId!
         }
@@ -10912,6 +10917,9 @@ public class CreateCycleTaskResponseBody : Tea.TeaModel {
     }
 
     public override func fromMap(_ dict: [String: Any]) -> Void {
+        if dict.keys.contains("ConfigId") {
+            self.configId = dict["ConfigId"] as! String
+        }
         if dict.keys.contains("RequestId") {
             self.requestId = dict["RequestId"] as! String
         }
@@ -47420,6 +47428,8 @@ public class DescribeCustomizedStrategyTargetsResponse : Tea.TeaModel {
 }
 
 public class DescribeCycleTaskListRequest : Tea.TeaModel {
+    public var configId: String?
+
     public var currentPage: Int32?
 
     public var pageSize: Int32?
@@ -47442,6 +47452,9 @@ public class DescribeCycleTaskListRequest : Tea.TeaModel {
 
     public override func toMap() -> [String : Any] {
         var map = super.toMap()
+        if self.configId != nil {
+            map["ConfigId"] = self.configId!
+        }
         if self.currentPage != nil {
             map["CurrentPage"] = self.currentPage!
         }
@@ -47458,6 +47471,9 @@ public class DescribeCycleTaskListRequest : Tea.TeaModel {
     }
 
     public override func fromMap(_ dict: [String: Any]) -> Void {
+        if dict.keys.contains("ConfigId") {
+            self.configId = dict["ConfigId"] as! String
+        }
         if dict.keys.contains("CurrentPage") {
             self.currentPage = dict["CurrentPage"] as! Int32
         }
