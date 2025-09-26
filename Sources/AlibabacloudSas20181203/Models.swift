@@ -41474,6 +41474,10 @@ public class DescribeCloudCenterInstancesResponseBody : Tea.TeaModel {
 
         public var vendorName: String?
 
+        public var vendorUid: String?
+
+        public var vendorUserName: String?
+
         public var vpcInstanceId: String?
 
         public var vulCount: Int32?
@@ -41653,6 +41657,12 @@ public class DescribeCloudCenterInstancesResponseBody : Tea.TeaModel {
             if self.vendorName != nil {
                 map["VendorName"] = self.vendorName!
             }
+            if self.vendorUid != nil {
+                map["VendorUid"] = self.vendorUid!
+            }
+            if self.vendorUserName != nil {
+                map["VendorUserName"] = self.vendorUserName!
+            }
             if self.vpcInstanceId != nil {
                 map["VpcInstanceId"] = self.vpcInstanceId!
             }
@@ -41825,6 +41835,12 @@ public class DescribeCloudCenterInstancesResponseBody : Tea.TeaModel {
             }
             if let value = dict["VendorName"] as? String {
                 self.vendorName = value
+            }
+            if let value = dict["VendorUid"] as? String {
+                self.vendorUid = value
+            }
+            if let value = dict["VendorUserName"] as? String {
+                self.vendorUserName = value
             }
             if let value = dict["VpcInstanceId"] as? String {
                 self.vpcInstanceId = value
@@ -42347,6 +42363,10 @@ public class DescribeCloudVendorAccountAKListResponseBody : Tea.TeaModel {
 
         public var vendorAuthAlias: String?
 
+        public var vendorUid: String?
+
+        public var vendorUserName: String?
+
         public override init() {
             super.init()
         }
@@ -42398,6 +42418,12 @@ public class DescribeCloudVendorAccountAKListResponseBody : Tea.TeaModel {
             if self.vendorAuthAlias != nil {
                 map["VendorAuthAlias"] = self.vendorAuthAlias!
             }
+            if self.vendorUid != nil {
+                map["VendorUid"] = self.vendorUid!
+            }
+            if self.vendorUserName != nil {
+                map["VendorUserName"] = self.vendorUserName!
+            }
             return map
         }
 
@@ -42445,6 +42471,12 @@ public class DescribeCloudVendorAccountAKListResponseBody : Tea.TeaModel {
             }
             if let value = dict["VendorAuthAlias"] as? String {
                 self.vendorAuthAlias = value
+            }
+            if let value = dict["VendorUid"] as? String {
+                self.vendorUid = value
+            }
+            if let value = dict["VendorUserName"] as? String {
+                self.vendorUserName = value
             }
         }
     }
@@ -127489,6 +127521,8 @@ public class GetCloudAssetDetailResponseBody : Tea.TeaModel {
 
         public var internetIp: String?
 
+        public var originalAssetInfo: String?
+
         public var regionId: String?
 
         public var riskStatus: String?
@@ -127496,6 +127530,10 @@ public class GetCloudAssetDetailResponseBody : Tea.TeaModel {
         public var securityInfo: String?
 
         public var vendor: Int32?
+
+        public var vendorUid: String?
+
+        public var vendorUserName: String?
 
         public override init() {
             super.init()
@@ -127541,6 +127579,9 @@ public class GetCloudAssetDetailResponseBody : Tea.TeaModel {
             if self.internetIp != nil {
                 map["InternetIp"] = self.internetIp!
             }
+            if self.originalAssetInfo != nil {
+                map["OriginalAssetInfo"] = self.originalAssetInfo!
+            }
             if self.regionId != nil {
                 map["RegionId"] = self.regionId!
             }
@@ -127552,6 +127593,12 @@ public class GetCloudAssetDetailResponseBody : Tea.TeaModel {
             }
             if self.vendor != nil {
                 map["Vendor"] = self.vendor!
+            }
+            if self.vendorUid != nil {
+                map["VendorUid"] = self.vendorUid!
+            }
+            if self.vendorUserName != nil {
+                map["VendorUserName"] = self.vendorUserName!
             }
             return map
         }
@@ -127588,6 +127635,9 @@ public class GetCloudAssetDetailResponseBody : Tea.TeaModel {
             if let value = dict["InternetIp"] as? String {
                 self.internetIp = value
             }
+            if let value = dict["OriginalAssetInfo"] as? String {
+                self.originalAssetInfo = value
+            }
             if let value = dict["RegionId"] as? String {
                 self.regionId = value
             }
@@ -127599,6 +127649,12 @@ public class GetCloudAssetDetailResponseBody : Tea.TeaModel {
             }
             if let value = dict["Vendor"] as? Int32 {
                 self.vendor = value
+            }
+            if let value = dict["VendorUid"] as? String {
+                self.vendorUid = value
+            }
+            if let value = dict["VendorUserName"] as? String {
+                self.vendorUserName = value
             }
         }
     }
@@ -155794,6 +155850,8 @@ public class ListCheckInstanceResultResponseBody : Tea.TeaModel {
 
         public var statusMessage: String?
 
+        public var vendorUserName: String?
+
         public override init() {
             super.init()
         }
@@ -155830,6 +155888,9 @@ public class ListCheckInstanceResultResponseBody : Tea.TeaModel {
             if self.statusMessage != nil {
                 map["StatusMessage"] = self.statusMessage!
             }
+            if self.vendorUserName != nil {
+                map["VendorUserName"] = self.vendorUserName!
+            }
             return map
         }
 
@@ -155857,6 +155918,9 @@ public class ListCheckInstanceResultResponseBody : Tea.TeaModel {
             }
             if let value = dict["StatusMessage"] as? String {
                 self.statusMessage = value
+            }
+            if let value = dict["VendorUserName"] as? String {
+                self.vendorUserName = value
             }
         }
     }
@@ -160345,6 +160409,10 @@ public class ListCloudAssetInstancesResponseBody : Tea.TeaModel {
 
         public var vendor: Int32?
 
+        public var vendorUid: String?
+
+        public var vendorUserName: String?
+
         public override init() {
             super.init()
         }
@@ -160401,6 +160469,12 @@ public class ListCloudAssetInstancesResponseBody : Tea.TeaModel {
             if self.vendor != nil {
                 map["Vendor"] = self.vendor!
             }
+            if self.vendorUid != nil {
+                map["VendorUid"] = self.vendorUid!
+            }
+            if self.vendorUserName != nil {
+                map["VendorUserName"] = self.vendorUserName!
+            }
             return map
         }
 
@@ -160447,6 +160521,12 @@ public class ListCloudAssetInstancesResponseBody : Tea.TeaModel {
             }
             if let value = dict["Vendor"] as? Int32 {
                 self.vendor = value
+            }
+            if let value = dict["VendorUid"] as? String {
+                self.vendorUid = value
+            }
+            if let value = dict["VendorUserName"] as? String {
+                self.vendorUserName = value
             }
         }
     }
