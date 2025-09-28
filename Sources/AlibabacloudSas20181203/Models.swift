@@ -76782,6 +76782,102 @@ public class DescribeModuleConfigResponse : Tea.TeaModel {
 }
 
 public class DescribeMonitorAccountsResponseBody : Tea.TeaModel {
+    public class AccountIdInfos : Tea.TeaModel {
+        public var accountId: String?
+
+        public var addTime: Int64?
+
+        public var isCloudSiemAccount: String?
+
+        public var isSasAccount: String?
+
+        public var operatorUid: String?
+
+        public var postBasicService: Int32?
+
+        public var sasVersion: String?
+
+        public var aliUid: String?
+
+        public var isMarked: String?
+
+        public override init() {
+            super.init()
+        }
+
+        public init(_ dict: [String: Any]) {
+            super.init()
+            self.fromMap(dict)
+        }
+
+        public override func validate() throws -> Void {
+        }
+
+        public override func toMap() -> [String : Any] {
+            var map = super.toMap()
+            if self.accountId != nil {
+                map["AccountId"] = self.accountId!
+            }
+            if self.addTime != nil {
+                map["AddTime"] = self.addTime!
+            }
+            if self.isCloudSiemAccount != nil {
+                map["IsCloudSiemAccount"] = self.isCloudSiemAccount!
+            }
+            if self.isSasAccount != nil {
+                map["IsSasAccount"] = self.isSasAccount!
+            }
+            if self.operatorUid != nil {
+                map["OperatorUid"] = self.operatorUid!
+            }
+            if self.postBasicService != nil {
+                map["PostBasicService"] = self.postBasicService!
+            }
+            if self.sasVersion != nil {
+                map["SasVersion"] = self.sasVersion!
+            }
+            if self.aliUid != nil {
+                map["aliUid"] = self.aliUid!
+            }
+            if self.isMarked != nil {
+                map["isMarked"] = self.isMarked!
+            }
+            return map
+        }
+
+        public override func fromMap(_ dict: [String: Any?]?) -> Void {
+            guard let dict else { return }
+            if let value = dict["AccountId"] as? String {
+                self.accountId = value
+            }
+            if let value = dict["AddTime"] as? Int64 {
+                self.addTime = value
+            }
+            if let value = dict["IsCloudSiemAccount"] as? String {
+                self.isCloudSiemAccount = value
+            }
+            if let value = dict["IsSasAccount"] as? String {
+                self.isSasAccount = value
+            }
+            if let value = dict["OperatorUid"] as? String {
+                self.operatorUid = value
+            }
+            if let value = dict["PostBasicService"] as? Int32 {
+                self.postBasicService = value
+            }
+            if let value = dict["SasVersion"] as? String {
+                self.sasVersion = value
+            }
+            if let value = dict["aliUid"] as? String {
+                self.aliUid = value
+            }
+            if let value = dict["isMarked"] as? String {
+                self.isMarked = value
+            }
+        }
+    }
+    public var accountIdInfos: [DescribeMonitorAccountsResponseBody.AccountIdInfos]?
+
     public var accountIds: [String]?
 
     public var requestId: String?
@@ -76800,6 +76896,13 @@ public class DescribeMonitorAccountsResponseBody : Tea.TeaModel {
 
     public override func toMap() -> [String : Any] {
         var map = super.toMap()
+        if self.accountIdInfos != nil {
+            var tmp : [Any] = []
+            for k in self.accountIdInfos! {
+                tmp.append(k.toMap())
+            }
+            map["AccountIdInfos"] = tmp
+        }
         if self.accountIds != nil {
             map["AccountIds"] = self.accountIds!
         }
@@ -76811,6 +76914,19 @@ public class DescribeMonitorAccountsResponseBody : Tea.TeaModel {
 
     public override func fromMap(_ dict: [String: Any?]?) -> Void {
         guard let dict else { return }
+        if let value = dict["AccountIdInfos"] as? [Any?] {
+            var tmp : [DescribeMonitorAccountsResponseBody.AccountIdInfos] = []
+            for v in value {
+                if v != nil {
+                    var model = DescribeMonitorAccountsResponseBody.AccountIdInfos()
+                    if v != nil {
+                        model.fromMap(v as? [String: Any?])
+                    }
+                    tmp.append(model)
+                }
+            }
+            self.accountIdInfos = tmp
+        }
         if let value = dict["AccountIds"] as? [String] {
             self.accountIds = value
         }
@@ -121566,6 +121682,8 @@ public class GetAuthSummaryResponseBody : Tea.TeaModel {
 
     public var autoBind: Int32?
 
+    public var clusterNodeCheck: Int32?
+
     public var defaultAuthToAll: Int32?
 
     public var hasPreBindSetting: Bool?
@@ -121616,6 +121734,9 @@ public class GetAuthSummaryResponseBody : Tea.TeaModel {
         }
         if self.autoBind != nil {
             map["AutoBind"] = self.autoBind!
+        }
+        if self.clusterNodeCheck != nil {
+            map["ClusterNodeCheck"] = self.clusterNodeCheck!
         }
         if self.defaultAuthToAll != nil {
             map["DefaultAuthToAll"] = self.defaultAuthToAll!
@@ -121677,6 +121798,9 @@ public class GetAuthSummaryResponseBody : Tea.TeaModel {
         }
         if let value = dict["AutoBind"] as? Int32 {
             self.autoBind = value
+        }
+        if let value = dict["ClusterNodeCheck"] as? Int32 {
+            self.clusterNodeCheck = value
         }
         if let value = dict["DefaultAuthToAll"] as? Int32 {
             self.defaultAuthToAll = value
@@ -148908,6 +149032,8 @@ public class ListAccountsInResourceDirectoryResponseBody : Tea.TeaModel {
 
         public var isSiemDaAccount: String?
 
+        public var postBasicService: Int32?
+
         public var postPayModuleSwitch: String?
 
         public var saleInstance: String?
@@ -148964,6 +149090,9 @@ public class ListAccountsInResourceDirectoryResponseBody : Tea.TeaModel {
             if self.isSiemDaAccount != nil {
                 map["IsSiemDaAccount"] = self.isSiemDaAccount!
             }
+            if self.postBasicService != nil {
+                map["PostBasicService"] = self.postBasicService!
+            }
             if self.postPayModuleSwitch != nil {
                 map["PostPayModuleSwitch"] = self.postPayModuleSwitch!
             }
@@ -149013,6 +149142,9 @@ public class ListAccountsInResourceDirectoryResponseBody : Tea.TeaModel {
             }
             if let value = dict["IsSiemDaAccount"] as? String {
                 self.isSiemDaAccount = value
+            }
+            if let value = dict["PostBasicService"] as? Int32 {
+                self.postBasicService = value
             }
             if let value = dict["PostPayModuleSwitch"] as? String {
                 self.postPayModuleSwitch = value
