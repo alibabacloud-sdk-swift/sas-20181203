@@ -77319,6 +77319,8 @@ public class DescribeNsasSuspEventTypeRequest : Tea.TeaModel {
 
     public var sourceIp: String?
 
+    public var supportOperateCodeList: [String]?
+
     public var uuids: String?
 
     public override init() {
@@ -77359,6 +77361,9 @@ public class DescribeNsasSuspEventTypeRequest : Tea.TeaModel {
         if self.sourceIp != nil {
             map["SourceIp"] = self.sourceIp!
         }
+        if self.supportOperateCodeList != nil {
+            map["SupportOperateCodeList"] = self.supportOperateCodeList!
+        }
         if self.uuids != nil {
             map["Uuids"] = self.uuids!
         }
@@ -77390,6 +77395,9 @@ public class DescribeNsasSuspEventTypeRequest : Tea.TeaModel {
         }
         if let value = dict["SourceIp"] as? String {
             self.sourceIp = value
+        }
+        if let value = dict["SupportOperateCodeList"] as? [String] {
+            self.supportOperateCodeList = value
         }
         if let value = dict["Uuids"] as? String {
             self.uuids = value
@@ -96100,6 +96108,8 @@ public class DescribeSuspEventDetailResponseBody : Tea.TeaModel {
             }
         }
     }
+    public var alarmUniqueInfo: String?
+
     public var canBeDealOnLine: Bool?
 
     public var dataSource: String?
@@ -96150,6 +96160,9 @@ public class DescribeSuspEventDetailResponseBody : Tea.TeaModel {
 
     public override func toMap() -> [String : Any] {
         var map = super.toMap()
+        if self.alarmUniqueInfo != nil {
+            map["AlarmUniqueInfo"] = self.alarmUniqueInfo!
+        }
         if self.canBeDealOnLine != nil {
             map["CanBeDealOnLine"] = self.canBeDealOnLine!
         }
@@ -96213,6 +96226,9 @@ public class DescribeSuspEventDetailResponseBody : Tea.TeaModel {
 
     public override func fromMap(_ dict: [String: Any?]?) -> Void {
         guard let dict else { return }
+        if let value = dict["AlarmUniqueInfo"] as? String {
+            self.alarmUniqueInfo = value
+        }
         if let value = dict["CanBeDealOnLine"] as? Bool {
             self.canBeDealOnLine = value
         }
@@ -97081,6 +97097,8 @@ public class DescribeSuspEventsRequest : Tea.TeaModel {
 
     public var strictMode: String?
 
+    public var supportOperateCodeList: [String]?
+
     public var tacticId: String?
 
     public var targetType: String?
@@ -97194,6 +97212,9 @@ public class DescribeSuspEventsRequest : Tea.TeaModel {
         if self.strictMode != nil {
             map["StrictMode"] = self.strictMode!
         }
+        if self.supportOperateCodeList != nil {
+            map["SupportOperateCodeList"] = self.supportOperateCodeList!
+        }
         if self.tacticId != nil {
             map["TacticId"] = self.tacticId!
         }
@@ -97304,6 +97325,9 @@ public class DescribeSuspEventsRequest : Tea.TeaModel {
         if let value = dict["StrictMode"] as? String {
             self.strictMode = value
         }
+        if let value = dict["SupportOperateCodeList"] as? [String] {
+            self.supportOperateCodeList = value
+        }
         if let value = dict["TacticId"] as? String {
             self.tacticId = value
         }
@@ -97383,6 +97407,8 @@ public class DescribeSuspEventsShrinkRequest : Tea.TeaModel {
     public var status: String?
 
     public var strictMode: String?
+
+    public var supportOperateCodeList: [String]?
 
     public var tacticId: String?
 
@@ -97497,6 +97523,9 @@ public class DescribeSuspEventsShrinkRequest : Tea.TeaModel {
         if self.strictMode != nil {
             map["StrictMode"] = self.strictMode!
         }
+        if self.supportOperateCodeList != nil {
+            map["SupportOperateCodeList"] = self.supportOperateCodeList!
+        }
         if self.tacticId != nil {
             map["TacticId"] = self.tacticId!
         }
@@ -97606,6 +97635,9 @@ public class DescribeSuspEventsShrinkRequest : Tea.TeaModel {
         }
         if let value = dict["StrictMode"] as? String {
             self.strictMode = value
+        }
+        if let value = dict["SupportOperateCodeList"] as? [String] {
+            self.supportOperateCodeList = value
         }
         if let value = dict["TacticId"] as? String {
             self.tacticId = value
@@ -97870,6 +97902,8 @@ public class DescribeSuspEventsResponseBody : Tea.TeaModel {
 
         public var stages: String?
 
+        public var supportOperateCode: String?
+
         public var tacticItems: [DescribeSuspEventsResponseBody.SuspEvents.TacticItems]?
 
         public var uniqueInfo: String?
@@ -98052,6 +98086,9 @@ public class DescribeSuspEventsResponseBody : Tea.TeaModel {
             }
             if self.stages != nil {
                 map["Stages"] = self.stages!
+            }
+            if self.supportOperateCode != nil {
+                map["SupportOperateCode"] = self.supportOperateCode!
             }
             if self.tacticItems != nil {
                 var tmp : [Any] = []
@@ -98246,6 +98283,9 @@ public class DescribeSuspEventsResponseBody : Tea.TeaModel {
             }
             if let value = dict["Stages"] as? String {
                 self.stages = value
+            }
+            if let value = dict["SupportOperateCode"] as? String {
+                self.supportOperateCode = value
             }
             if let value = dict["TacticItems"] as? [Any?] {
                 var tmp : [DescribeSuspEventsResponseBody.SuspEvents.TacticItems] = []
