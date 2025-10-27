@@ -76787,19 +76787,11 @@ public class DescribeMonitorAccountsResponseBody : Tea.TeaModel {
 
         public var addTime: Int64?
 
-        public var isCloudSiemAccount: String?
-
-        public var isSasAccount: String?
-
         public var operatorUid: String?
 
         public var postBasicService: Int32?
 
         public var sasVersion: String?
-
-        public var aliUid: String?
-
-        public var isMarked: String?
 
         public override init() {
             super.init()
@@ -76821,12 +76813,6 @@ public class DescribeMonitorAccountsResponseBody : Tea.TeaModel {
             if self.addTime != nil {
                 map["AddTime"] = self.addTime!
             }
-            if self.isCloudSiemAccount != nil {
-                map["IsCloudSiemAccount"] = self.isCloudSiemAccount!
-            }
-            if self.isSasAccount != nil {
-                map["IsSasAccount"] = self.isSasAccount!
-            }
             if self.operatorUid != nil {
                 map["OperatorUid"] = self.operatorUid!
             }
@@ -76835,12 +76821,6 @@ public class DescribeMonitorAccountsResponseBody : Tea.TeaModel {
             }
             if self.sasVersion != nil {
                 map["SasVersion"] = self.sasVersion!
-            }
-            if self.aliUid != nil {
-                map["aliUid"] = self.aliUid!
-            }
-            if self.isMarked != nil {
-                map["isMarked"] = self.isMarked!
             }
             return map
         }
@@ -76853,12 +76833,6 @@ public class DescribeMonitorAccountsResponseBody : Tea.TeaModel {
             if let value = dict["AddTime"] as? Int64 {
                 self.addTime = value
             }
-            if let value = dict["IsCloudSiemAccount"] as? String {
-                self.isCloudSiemAccount = value
-            }
-            if let value = dict["IsSasAccount"] as? String {
-                self.isSasAccount = value
-            }
             if let value = dict["OperatorUid"] as? String {
                 self.operatorUid = value
             }
@@ -76867,12 +76841,6 @@ public class DescribeMonitorAccountsResponseBody : Tea.TeaModel {
             }
             if let value = dict["SasVersion"] as? String {
                 self.sasVersion = value
-            }
-            if let value = dict["aliUid"] as? String {
-                self.aliUid = value
-            }
-            if let value = dict["isMarked"] as? String {
-                self.isMarked = value
             }
         }
     }
@@ -107682,6 +107650,8 @@ public class DescribeVulMetaCountStatisticsResponse : Tea.TeaModel {
 public class DescribeVulNumStatisticsRequest : Tea.TeaModel {
     public var from: String?
 
+    public var resourceDirectoryAccountId: Int64?
+
     public override init() {
         super.init()
     }
@@ -107699,6 +107669,9 @@ public class DescribeVulNumStatisticsRequest : Tea.TeaModel {
         if self.from != nil {
             map["From"] = self.from!
         }
+        if self.resourceDirectoryAccountId != nil {
+            map["ResourceDirectoryAccountId"] = self.resourceDirectoryAccountId!
+        }
         return map
     }
 
@@ -107706,6 +107679,9 @@ public class DescribeVulNumStatisticsRequest : Tea.TeaModel {
         guard let dict else { return }
         if let value = dict["From"] as? String {
             self.from = value
+        }
+        if let value = dict["ResourceDirectoryAccountId"] as? Int64 {
+            self.resourceDirectoryAccountId = value
         }
     }
 }
@@ -146460,6 +146436,8 @@ public class GetVirusScanLatestTaskStatisticResponse : Tea.TeaModel {
 public class GetVulStatisticsRequest : Tea.TeaModel {
     public var groupIdList: String?
 
+    public var resourceDirectoryAccountId: Int64?
+
     public var sourceIp: String?
 
     public var typeList: String?
@@ -146481,6 +146459,9 @@ public class GetVulStatisticsRequest : Tea.TeaModel {
         if self.groupIdList != nil {
             map["GroupIdList"] = self.groupIdList!
         }
+        if self.resourceDirectoryAccountId != nil {
+            map["ResourceDirectoryAccountId"] = self.resourceDirectoryAccountId!
+        }
         if self.sourceIp != nil {
             map["SourceIp"] = self.sourceIp!
         }
@@ -146494,6 +146475,9 @@ public class GetVulStatisticsRequest : Tea.TeaModel {
         guard let dict else { return }
         if let value = dict["GroupIdList"] as? String {
             self.groupIdList = value
+        }
+        if let value = dict["ResourceDirectoryAccountId"] as? Int64 {
+            self.resourceDirectoryAccountId = value
         }
         if let value = dict["SourceIp"] as? String {
             self.sourceIp = value
@@ -157924,6 +157908,8 @@ public class ListCheckResultRequest : Tea.TeaModel {
 
     public var requirementIds: [Int64]?
 
+    public var resourceDirectoryAccountId: Int64?
+
     public var riskLevels: [String]?
 
     public var sortTypes: [String]?
@@ -157988,6 +157974,9 @@ public class ListCheckResultRequest : Tea.TeaModel {
         if self.requirementIds != nil {
             map["RequirementIds"] = self.requirementIds!
         }
+        if self.resourceDirectoryAccountId != nil {
+            map["ResourceDirectoryAccountId"] = self.resourceDirectoryAccountId!
+        }
         if self.riskLevels != nil {
             map["RiskLevels"] = self.riskLevels!
         }
@@ -158049,6 +158038,9 @@ public class ListCheckResultRequest : Tea.TeaModel {
         }
         if let value = dict["RequirementIds"] as? [Int64] {
             self.requirementIds = value
+        }
+        if let value = dict["ResourceDirectoryAccountId"] as? Int64 {
+            self.resourceDirectoryAccountId = value
         }
         if let value = dict["RiskLevels"] as? [String] {
             self.riskLevels = value
