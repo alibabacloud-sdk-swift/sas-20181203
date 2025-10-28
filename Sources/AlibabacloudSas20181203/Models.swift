@@ -39231,6 +39231,8 @@ public class DescribeCheckWarningDetailRequest : Tea.TeaModel {
 
     public var checkWarningId: Int64?
 
+    public var containerName: String?
+
     public var lang: String?
 
     public var resourceDirectoryAccountId: Int64?
@@ -39259,6 +39261,9 @@ public class DescribeCheckWarningDetailRequest : Tea.TeaModel {
         if self.checkWarningId != nil {
             map["CheckWarningId"] = self.checkWarningId!
         }
+        if self.containerName != nil {
+            map["ContainerName"] = self.containerName!
+        }
         if self.lang != nil {
             map["Lang"] = self.lang!
         }
@@ -39281,6 +39286,9 @@ public class DescribeCheckWarningDetailRequest : Tea.TeaModel {
         }
         if let value = dict["CheckWarningId"] as? Int64 {
             self.checkWarningId = value
+        }
+        if let value = dict["ContainerName"] as? String {
+            self.containerName = value
         }
         if let value = dict["Lang"] as? String {
             self.lang = value
