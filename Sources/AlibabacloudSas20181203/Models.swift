@@ -145564,6 +145564,8 @@ public class GetSwitchRegionDetailResponseBody : Tea.TeaModel {
 
         public var isNoticed: String?
 
+        public var needNotice: Bool?
+
         public var needSwitch: Bool?
 
         public var regionStatus: [GetSwitchRegionDetailResponseBody.Data.RegionStatus]?
@@ -145594,6 +145596,9 @@ public class GetSwitchRegionDetailResponseBody : Tea.TeaModel {
             if self.isNoticed != nil {
                 map["IsNoticed"] = self.isNoticed!
             }
+            if self.needNotice != nil {
+                map["NeedNotice"] = self.needNotice!
+            }
             if self.needSwitch != nil {
                 map["NeedSwitch"] = self.needSwitch!
             }
@@ -145620,6 +145625,9 @@ public class GetSwitchRegionDetailResponseBody : Tea.TeaModel {
             }
             if let value = dict["IsNoticed"] as? String {
                 self.isNoticed = value
+            }
+            if let value = dict["NeedNotice"] as? Bool {
+                self.needNotice = value
             }
             if let value = dict["NeedSwitch"] as? Bool {
                 self.needSwitch = value
@@ -146805,6 +146813,8 @@ public class GetVulWhitelistResponse : Tea.TeaModel {
 public class GrantSwitchAgreementRequest : Tea.TeaModel {
     public var isAgree: Bool?
 
+    public var isConfirmed: Bool?
+
     public var isImmediate: Bool?
 
     public var lang: String?
@@ -146828,6 +146838,9 @@ public class GrantSwitchAgreementRequest : Tea.TeaModel {
         if self.isAgree != nil {
             map["IsAgree"] = self.isAgree!
         }
+        if self.isConfirmed != nil {
+            map["IsConfirmed"] = self.isConfirmed!
+        }
         if self.isImmediate != nil {
             map["IsImmediate"] = self.isImmediate!
         }
@@ -146844,6 +146857,9 @@ public class GrantSwitchAgreementRequest : Tea.TeaModel {
         guard let dict else { return }
         if let value = dict["IsAgree"] as? Bool {
             self.isAgree = value
+        }
+        if let value = dict["IsConfirmed"] as? Bool {
+            self.isConfirmed = value
         }
         if let value = dict["IsImmediate"] as? Bool {
             self.isImmediate = value
