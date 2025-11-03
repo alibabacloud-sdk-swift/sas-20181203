@@ -15423,6 +15423,8 @@ public class CreateMaliciousFileWhitelistConfigRequest : Tea.TeaModel {
 
     public var operator_: String?
 
+    public var remark: String?
+
     public var source: String?
 
     public var targetType: String?
@@ -15455,6 +15457,9 @@ public class CreateMaliciousFileWhitelistConfigRequest : Tea.TeaModel {
         if self.operator_ != nil {
             map["Operator"] = self.operator_!
         }
+        if self.remark != nil {
+            map["Remark"] = self.remark!
+        }
         if self.source != nil {
             map["Source"] = self.source!
         }
@@ -15480,6 +15485,9 @@ public class CreateMaliciousFileWhitelistConfigRequest : Tea.TeaModel {
         }
         if let value = dict["Operator"] as? String {
             self.operator_ = value
+        }
+        if let value = dict["Remark"] as? String {
+            self.remark = value
         }
         if let value = dict["Source"] as? String {
             self.source = value
@@ -141048,6 +141056,12 @@ public class GetOssBucketScanStatisticResponseBody : Tea.TeaModel {
 
         public var noScanBucket: Int32?
 
+        public var postPayInvokeCount: Int64?
+
+        public var prePayAuthCount: Int64?
+
+        public var prePayInvokeCount: Int64?
+
         public var remainAuth: Int32?
 
         public var riskBucket: Int32?
@@ -141087,6 +141101,15 @@ public class GetOssBucketScanStatisticResponseBody : Tea.TeaModel {
             if self.noScanBucket != nil {
                 map["NoScanBucket"] = self.noScanBucket!
             }
+            if self.postPayInvokeCount != nil {
+                map["PostPayInvokeCount"] = self.postPayInvokeCount!
+            }
+            if self.prePayAuthCount != nil {
+                map["PrePayAuthCount"] = self.prePayAuthCount!
+            }
+            if self.prePayInvokeCount != nil {
+                map["PrePayInvokeCount"] = self.prePayInvokeCount!
+            }
             if self.remainAuth != nil {
                 map["RemainAuth"] = self.remainAuth!
             }
@@ -141121,6 +141144,15 @@ public class GetOssBucketScanStatisticResponseBody : Tea.TeaModel {
             }
             if let value = dict["NoScanBucket"] as? Int32 {
                 self.noScanBucket = value
+            }
+            if let value = dict["PostPayInvokeCount"] as? Int64 {
+                self.postPayInvokeCount = value
+            }
+            if let value = dict["PrePayAuthCount"] as? Int64 {
+                self.prePayAuthCount = value
+            }
+            if let value = dict["PrePayInvokeCount"] as? Int64 {
+                self.prePayInvokeCount = value
             }
             if let value = dict["RemainAuth"] as? Int32 {
                 self.remainAuth = value
@@ -172671,6 +172703,8 @@ public class ListMaliciousFileWhitelistConfigsRequest : Tea.TeaModel {
 
     public var eventName: String?
 
+    public var idList: Int64?
+
     public var lang: String?
 
     public var pageSize: Int32?
@@ -172697,6 +172731,9 @@ public class ListMaliciousFileWhitelistConfigsRequest : Tea.TeaModel {
         if self.eventName != nil {
             map["EventName"] = self.eventName!
         }
+        if self.idList != nil {
+            map["IdList"] = self.idList!
+        }
         if self.lang != nil {
             map["Lang"] = self.lang!
         }
@@ -172716,6 +172753,9 @@ public class ListMaliciousFileWhitelistConfigsRequest : Tea.TeaModel {
         }
         if let value = dict["EventName"] as? String {
             self.eventName = value
+        }
+        if let value = dict["IdList"] as? Int64 {
+            self.idList = value
         }
         if let value = dict["Lang"] as? String {
             self.lang = value
@@ -172746,6 +172786,8 @@ public class ListMaliciousFileWhitelistConfigsResponseBody : Tea.TeaModel {
         public var id: Int64?
 
         public var operator_: String?
+
+        public var remark: String?
 
         public var source: String?
 
@@ -172791,6 +172833,9 @@ public class ListMaliciousFileWhitelistConfigsResponseBody : Tea.TeaModel {
             if self.operator_ != nil {
                 map["Operator"] = self.operator_!
             }
+            if self.remark != nil {
+                map["Remark"] = self.remark!
+            }
             if self.source != nil {
                 map["Source"] = self.source!
             }
@@ -172828,6 +172873,9 @@ public class ListMaliciousFileWhitelistConfigsResponseBody : Tea.TeaModel {
             }
             if let value = dict["Operator"] as? String {
                 self.operator_ = value
+            }
+            if let value = dict["Remark"] as? String {
+                self.remark = value
             }
             if let value = dict["Source"] as? String {
                 self.source = value
@@ -173040,9 +173088,13 @@ public class ListMaliciousFileWhitelistConfigsResponse : Tea.TeaModel {
 }
 
 public class ListObjectScanEventRequest : Tea.TeaModel {
+    public var batchType: String?
+
     public var bucketName: String?
 
     public var currentPage: Int32?
+
+    public var eventId: Int64?
 
     public var eventName: String?
 
@@ -173059,6 +173111,8 @@ public class ListObjectScanEventRequest : Tea.TeaModel {
     public var riskLevel: String?
 
     public var source: String?
+
+    public var status: Int32?
 
     public var timeEnd: Int64?
 
@@ -173078,11 +173132,17 @@ public class ListObjectScanEventRequest : Tea.TeaModel {
 
     public override func toMap() -> [String : Any] {
         var map = super.toMap()
+        if self.batchType != nil {
+            map["BatchType"] = self.batchType!
+        }
         if self.bucketName != nil {
             map["BucketName"] = self.bucketName!
         }
         if self.currentPage != nil {
             map["CurrentPage"] = self.currentPage!
+        }
+        if self.eventId != nil {
+            map["EventId"] = self.eventId!
         }
         if self.eventName != nil {
             map["EventName"] = self.eventName!
@@ -173108,6 +173168,9 @@ public class ListObjectScanEventRequest : Tea.TeaModel {
         if self.source != nil {
             map["Source"] = self.source!
         }
+        if self.status != nil {
+            map["Status"] = self.status!
+        }
         if self.timeEnd != nil {
             map["TimeEnd"] = self.timeEnd!
         }
@@ -173119,11 +173182,17 @@ public class ListObjectScanEventRequest : Tea.TeaModel {
 
     public override func fromMap(_ dict: [String: Any?]?) -> Void {
         guard let dict else { return }
+        if let value = dict["BatchType"] as? String {
+            self.batchType = value
+        }
         if let value = dict["BucketName"] as? String {
             self.bucketName = value
         }
         if let value = dict["CurrentPage"] as? Int32 {
             self.currentPage = value
+        }
+        if let value = dict["EventId"] as? Int64 {
+            self.eventId = value
         }
         if let value = dict["EventName"] as? String {
             self.eventName = value
@@ -173148,6 +173217,9 @@ public class ListObjectScanEventRequest : Tea.TeaModel {
         }
         if let value = dict["Source"] as? String {
             self.source = value
+        }
+        if let value = dict["Status"] as? Int32 {
+            self.status = value
         }
         if let value = dict["TimeEnd"] as? Int64 {
             self.timeEnd = value
@@ -173228,6 +173300,8 @@ public class ListObjectScanEventResponseBody : Tea.TeaModel {
 
         public var displaySandboxResult: String?
 
+        public var errorMsg: String?
+
         public var eventId: Int64?
 
         public var eventName: String?
@@ -173240,9 +173314,15 @@ public class ListObjectScanEventResponseBody : Tea.TeaModel {
 
         public var lastTime: Int64?
 
+        public var matchedWhiteListRuleI18nStr: String?
+
         public var md5: String?
 
+        public var operateResult: String?
+
         public var ossKey: String?
+
+        public var remark: String?
 
         public var riskLevel: String?
 
@@ -173251,6 +173331,8 @@ public class ListObjectScanEventResponseBody : Tea.TeaModel {
         public var sha256: String?
 
         public var source: String?
+
+        public var status: Int32?
 
         public override init() {
             super.init()
@@ -173279,6 +173361,9 @@ public class ListObjectScanEventResponseBody : Tea.TeaModel {
             if self.displaySandboxResult != nil {
                 map["DisplaySandboxResult"] = self.displaySandboxResult!
             }
+            if self.errorMsg != nil {
+                map["ErrorMsg"] = self.errorMsg!
+            }
             if self.eventId != nil {
                 map["EventId"] = self.eventId!
             }
@@ -173297,11 +173382,20 @@ public class ListObjectScanEventResponseBody : Tea.TeaModel {
             if self.lastTime != nil {
                 map["LastTime"] = self.lastTime!
             }
+            if self.matchedWhiteListRuleI18nStr != nil {
+                map["MatchedWhiteListRuleI18nStr"] = self.matchedWhiteListRuleI18nStr!
+            }
             if self.md5 != nil {
                 map["Md5"] = self.md5!
             }
+            if self.operateResult != nil {
+                map["OperateResult"] = self.operateResult!
+            }
             if self.ossKey != nil {
                 map["OssKey"] = self.ossKey!
+            }
+            if self.remark != nil {
+                map["Remark"] = self.remark!
             }
             if self.riskLevel != nil {
                 map["RiskLevel"] = self.riskLevel!
@@ -173314,6 +173408,9 @@ public class ListObjectScanEventResponseBody : Tea.TeaModel {
             }
             if self.source != nil {
                 map["Source"] = self.source!
+            }
+            if self.status != nil {
+                map["Status"] = self.status!
             }
             return map
         }
@@ -173339,6 +173436,9 @@ public class ListObjectScanEventResponseBody : Tea.TeaModel {
             if let value = dict["DisplaySandboxResult"] as? String {
                 self.displaySandboxResult = value
             }
+            if let value = dict["ErrorMsg"] as? String {
+                self.errorMsg = value
+            }
             if let value = dict["EventId"] as? Int64 {
                 self.eventId = value
             }
@@ -173357,11 +173457,20 @@ public class ListObjectScanEventResponseBody : Tea.TeaModel {
             if let value = dict["LastTime"] as? Int64 {
                 self.lastTime = value
             }
+            if let value = dict["MatchedWhiteListRuleI18nStr"] as? String {
+                self.matchedWhiteListRuleI18nStr = value
+            }
             if let value = dict["Md5"] as? String {
                 self.md5 = value
             }
+            if let value = dict["OperateResult"] as? String {
+                self.operateResult = value
+            }
             if let value = dict["OssKey"] as? String {
                 self.ossKey = value
+            }
+            if let value = dict["Remark"] as? String {
+                self.remark = value
             }
             if let value = dict["RiskLevel"] as? String {
                 self.riskLevel = value
@@ -173374,6 +173483,9 @@ public class ListObjectScanEventResponseBody : Tea.TeaModel {
             }
             if let value = dict["Source"] as? String {
                 self.source = value
+            }
+            if let value = dict["Status"] as? Int32 {
+                self.status = value
             }
         }
     }
@@ -211687,6 +211799,8 @@ public class UpdateMaliciousFileWhitelistConfigRequest : Tea.TeaModel {
 
     public var operator_: String?
 
+    public var remark: String?
+
     public var source: String?
 
     public var targetType: String?
@@ -211722,6 +211836,9 @@ public class UpdateMaliciousFileWhitelistConfigRequest : Tea.TeaModel {
         if self.operator_ != nil {
             map["Operator"] = self.operator_!
         }
+        if self.remark != nil {
+            map["Remark"] = self.remark!
+        }
         if self.source != nil {
             map["Source"] = self.source!
         }
@@ -211750,6 +211867,9 @@ public class UpdateMaliciousFileWhitelistConfigRequest : Tea.TeaModel {
         }
         if let value = dict["Operator"] as? String {
             self.operator_ = value
+        }
+        if let value = dict["Remark"] as? String {
+            self.remark = value
         }
         if let value = dict["Source"] as? String {
             self.source = value
