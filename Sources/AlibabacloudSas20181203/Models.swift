@@ -56405,6 +56405,8 @@ public class DescribeExposedStatisticsResponse : Tea.TeaModel {
 }
 
 public class DescribeExposedStatisticsDetailRequest : Tea.TeaModel {
+    public var criteria: String?
+
     public var currentPage: Int32?
 
     public var pageSize: Int32?
@@ -56416,6 +56418,8 @@ public class DescribeExposedStatisticsDetailRequest : Tea.TeaModel {
     public var statisticsTypeGatewayType: String?
 
     public var statisticsTypeInstanceValue: String?
+
+    public var uuid: String?
 
     public override init() {
         super.init()
@@ -56431,6 +56435,9 @@ public class DescribeExposedStatisticsDetailRequest : Tea.TeaModel {
 
     public override func toMap() -> [String : Any] {
         var map = super.toMap()
+        if self.criteria != nil {
+            map["Criteria"] = self.criteria!
+        }
         if self.currentPage != nil {
             map["CurrentPage"] = self.currentPage!
         }
@@ -56449,11 +56456,17 @@ public class DescribeExposedStatisticsDetailRequest : Tea.TeaModel {
         if self.statisticsTypeInstanceValue != nil {
             map["StatisticsTypeInstanceValue"] = self.statisticsTypeInstanceValue!
         }
+        if self.uuid != nil {
+            map["Uuid"] = self.uuid!
+        }
         return map
     }
 
     public override func fromMap(_ dict: [String: Any?]?) -> Void {
         guard let dict else { return }
+        if let value = dict["Criteria"] as? String {
+            self.criteria = value
+        }
         if let value = dict["CurrentPage"] as? Int32 {
             self.currentPage = value
         }
@@ -56471,6 +56484,9 @@ public class DescribeExposedStatisticsDetailRequest : Tea.TeaModel {
         }
         if let value = dict["StatisticsTypeInstanceValue"] as? String {
             self.statisticsTypeInstanceValue = value
+        }
+        if let value = dict["Uuid"] as? String {
+            self.uuid = value
         }
     }
 }
@@ -56545,6 +56561,8 @@ public class DescribeExposedStatisticsDetailResponseBody : Tea.TeaModel {
 
         public var exposureTypeInstanceName: String?
 
+        public var forwardPort: String?
+
         public var regionId: String?
 
         public override init() {
@@ -56582,6 +56600,9 @@ public class DescribeExposedStatisticsDetailResponseBody : Tea.TeaModel {
             if self.exposureTypeInstanceName != nil {
                 map["ExposureTypeInstanceName"] = self.exposureTypeInstanceName!
             }
+            if self.forwardPort != nil {
+                map["ForwardPort"] = self.forwardPort!
+            }
             if self.regionId != nil {
                 map["RegionId"] = self.regionId!
             }
@@ -56610,6 +56631,9 @@ public class DescribeExposedStatisticsDetailResponseBody : Tea.TeaModel {
             }
             if let value = dict["ExposureTypeInstanceName"] as? String {
                 self.exposureTypeInstanceName = value
+            }
+            if let value = dict["ForwardPort"] as? String {
+                self.forwardPort = value
             }
             if let value = dict["RegionId"] as? String {
                 self.regionId = value
@@ -120039,6 +120063,8 @@ public class GetAssetsPropertyItemResponse : Tea.TeaModel {
 public class GetAttackPathEventDetailRequest : Tea.TeaModel {
     public var eventId: Int64?
 
+    public var eventSource: String?
+
     public var lang: String?
 
     public override init() {
@@ -120058,6 +120084,9 @@ public class GetAttackPathEventDetailRequest : Tea.TeaModel {
         if self.eventId != nil {
             map["EventId"] = self.eventId!
         }
+        if self.eventSource != nil {
+            map["EventSource"] = self.eventSource!
+        }
         if self.lang != nil {
             map["Lang"] = self.lang!
         }
@@ -120068,6 +120097,9 @@ public class GetAttackPathEventDetailRequest : Tea.TeaModel {
         guard let dict else { return }
         if let value = dict["EventId"] as? Int64 {
             self.eventId = value
+        }
+        if let value = dict["EventSource"] as? String {
+            self.eventSource = value
         }
         if let value = dict["Lang"] as? String {
             self.lang = value
@@ -120226,6 +120258,8 @@ public class GetAttackPathEventDetailResponseBody : Tea.TeaModel {
             }
         }
         public class PathEventNodeList : Tea.TeaModel {
+            public var aiAssetFlag: Int32?
+
             public var elementType: String?
 
             public var nodeDetail: String?
@@ -120252,6 +120286,9 @@ public class GetAttackPathEventDetailResponseBody : Tea.TeaModel {
 
             public override func toMap() -> [String : Any] {
                 var map = super.toMap()
+                if self.aiAssetFlag != nil {
+                    map["AiAssetFlag"] = self.aiAssetFlag!
+                }
                 if self.elementType != nil {
                     map["ElementType"] = self.elementType!
                 }
@@ -120275,6 +120312,9 @@ public class GetAttackPathEventDetailResponseBody : Tea.TeaModel {
 
             public override func fromMap(_ dict: [String: Any?]?) -> Void {
                 guard let dict else { return }
+                if let value = dict["AiAssetFlag"] as? Int32 {
+                    self.aiAssetFlag = value
+                }
                 if let value = dict["ElementType"] as? String {
                     self.elementType = value
                 }
@@ -157110,6 +157150,8 @@ public class ListCheckItemWarningMachineResponseBody : Tea.TeaModel {
                 }
             }
         }
+        public var assetType: String?
+
         public var authVersion: Int32?
 
         public var bind: Bool?
@@ -157166,6 +157208,9 @@ public class ListCheckItemWarningMachineResponseBody : Tea.TeaModel {
 
         public override func toMap() -> [String : Any] {
             var map = super.toMap()
+            if self.assetType != nil {
+                map["AssetType"] = self.assetType!
+            }
             if self.authVersion != nil {
                 map["AuthVersion"] = self.authVersion!
             }
@@ -157242,6 +157287,9 @@ public class ListCheckItemWarningMachineResponseBody : Tea.TeaModel {
 
         public override func fromMap(_ dict: [String: Any?]?) -> Void {
             guard let dict else { return }
+            if let value = dict["AssetType"] as? String {
+                self.assetType = value
+            }
             if let value = dict["AuthVersion"] as? Int32 {
                 self.authVersion = value
             }
