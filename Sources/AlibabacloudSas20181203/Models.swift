@@ -41454,6 +41454,8 @@ public class DescribeCloudCenterInstancesResponseBody : Tea.TeaModel {
 
         public var mem: Int32?
 
+        public var namespace: String?
+
         public var os: String?
 
         public var osName: String?
@@ -41618,6 +41620,9 @@ public class DescribeCloudCenterInstancesResponseBody : Tea.TeaModel {
             }
             if self.mem != nil {
                 map["Mem"] = self.mem!
+            }
+            if self.namespace != nil {
+                map["Namespace"] = self.namespace!
             }
             if self.os != nil {
                 map["Os"] = self.os!
@@ -41797,6 +41802,9 @@ public class DescribeCloudCenterInstancesResponseBody : Tea.TeaModel {
             }
             if let value = dict["Mem"] as? Int32 {
                 self.mem = value
+            }
+            if let value = dict["Namespace"] as? String {
+                self.namespace = value
             }
             if let value = dict["Os"] as? String {
                 self.os = value
