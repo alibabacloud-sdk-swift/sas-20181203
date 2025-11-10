@@ -70500,6 +70500,8 @@ public class DescribeImageRepoListRequest : Tea.TeaModel {
 
     public var repoNamespace: String?
 
+    public var selected: Int32?
+
     public var targetType: String?
 
     public var type: String?
@@ -70539,6 +70541,9 @@ public class DescribeImageRepoListRequest : Tea.TeaModel {
         if self.repoNamespace != nil {
             map["RepoNamespace"] = self.repoNamespace!
         }
+        if self.selected != nil {
+            map["Selected"] = self.selected!
+        }
         if self.targetType != nil {
             map["TargetType"] = self.targetType!
         }
@@ -70571,6 +70576,9 @@ public class DescribeImageRepoListRequest : Tea.TeaModel {
         if let value = dict["RepoNamespace"] as? String {
             self.repoNamespace = value
         }
+        if let value = dict["Selected"] as? Int32 {
+            self.selected = value
+        }
         if let value = dict["TargetType"] as? String {
             self.targetType = value
         }
@@ -70583,6 +70591,8 @@ public class DescribeImageRepoListRequest : Tea.TeaModel {
 public class DescribeImageRepoListResponseBody : Tea.TeaModel {
     public class ImageRepoList : Tea.TeaModel {
         public var flag: String?
+
+        public var imageCount: Int32?
 
         public var repoName: String?
 
@@ -70605,6 +70615,9 @@ public class DescribeImageRepoListResponseBody : Tea.TeaModel {
             if self.flag != nil {
                 map["Flag"] = self.flag!
             }
+            if self.imageCount != nil {
+                map["ImageCount"] = self.imageCount!
+            }
             if self.repoName != nil {
                 map["RepoName"] = self.repoName!
             }
@@ -70618,6 +70631,9 @@ public class DescribeImageRepoListResponseBody : Tea.TeaModel {
             guard let dict else { return }
             if let value = dict["Flag"] as? String {
                 self.flag = value
+            }
+            if let value = dict["ImageCount"] as? Int32 {
+                self.imageCount = value
             }
             if let value = dict["RepoName"] as? String {
                 self.repoName = value
