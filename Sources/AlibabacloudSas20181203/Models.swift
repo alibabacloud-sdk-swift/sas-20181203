@@ -6648,6 +6648,8 @@ public class ChangeCheckConfigRequest : Tea.TeaModel {
 
     public var removedCheck: [ChangeCheckConfigRequest.RemovedCheck]?
 
+    public var resourceDirectoryAccountId: Int64?
+
     public var standardIds: [Int64]?
 
     public var startTime: Int32?
@@ -6709,6 +6711,9 @@ public class ChangeCheckConfigRequest : Tea.TeaModel {
                 tmp.append(k.toMap())
             }
             map["RemovedCheck"] = tmp
+        }
+        if self.resourceDirectoryAccountId != nil {
+            map["ResourceDirectoryAccountId"] = self.resourceDirectoryAccountId!
         }
         if self.standardIds != nil {
             map["StandardIds"] = self.standardIds!
@@ -6780,6 +6785,9 @@ public class ChangeCheckConfigRequest : Tea.TeaModel {
                 }
             }
             self.removedCheck = tmp
+        }
+        if let value = dict["ResourceDirectoryAccountId"] as? Int64 {
+            self.resourceDirectoryAccountId = value
         }
         if let value = dict["StandardIds"] as? [Int64] {
             self.standardIds = value
@@ -6893,6 +6901,8 @@ public class ChangeCheckConfigShrinkRequest : Tea.TeaModel {
 
     public var removedCheck: [ChangeCheckConfigShrinkRequest.RemovedCheck]?
 
+    public var resourceDirectoryAccountId: Int64?
+
     public var standardIds: [Int64]?
 
     public var startTime: Int32?
@@ -6952,6 +6962,9 @@ public class ChangeCheckConfigShrinkRequest : Tea.TeaModel {
                 tmp.append(k.toMap())
             }
             map["RemovedCheck"] = tmp
+        }
+        if self.resourceDirectoryAccountId != nil {
+            map["ResourceDirectoryAccountId"] = self.resourceDirectoryAccountId!
         }
         if self.standardIds != nil {
             map["StandardIds"] = self.standardIds!
@@ -7019,6 +7032,9 @@ public class ChangeCheckConfigShrinkRequest : Tea.TeaModel {
                 }
             }
             self.removedCheck = tmp
+        }
+        if let value = dict["ResourceDirectoryAccountId"] as? Int64 {
+            self.resourceDirectoryAccountId = value
         }
         if let value = dict["StandardIds"] as? [Int64] {
             self.standardIds = value
