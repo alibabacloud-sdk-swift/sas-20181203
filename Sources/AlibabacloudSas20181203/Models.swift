@@ -108158,6 +108158,8 @@ public class DescribeVulListResponseBody : Tea.TeaModel {
 
         public var bind: Bool?
 
+        public var containerId: String?
+
         public var extendContentJson: DescribeVulListResponseBody.VulRecords.ExtendContentJson?
 
         public var firstTs: Int64?
@@ -108253,6 +108255,9 @@ public class DescribeVulListResponseBody : Tea.TeaModel {
             }
             if self.bind != nil {
                 map["Bind"] = self.bind!
+            }
+            if self.containerId != nil {
+                map["ContainerId"] = self.containerId!
             }
             if self.extendContentJson != nil {
                 map["ExtendContentJson"] = self.extendContentJson?.toMap()
@@ -108375,6 +108380,9 @@ public class DescribeVulListResponseBody : Tea.TeaModel {
             }
             if let value = dict["Bind"] as? Bool {
                 self.bind = value
+            }
+            if let value = dict["ContainerId"] as? String {
+                self.containerId = value
             }
             if let value = dict["ExtendContentJson"] as? [String: Any?] {
                 var model = DescribeVulListResponseBody.VulRecords.ExtendContentJson()
