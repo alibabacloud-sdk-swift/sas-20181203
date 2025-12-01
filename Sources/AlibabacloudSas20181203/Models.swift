@@ -680,6 +680,8 @@ public class AddCheckInstanceResultWhiteListResponse : Tea.TeaModel {
 public class AddCheckResultWhiteListRequest : Tea.TeaModel {
     public var checkIds: [Int64]?
 
+    public var instanceIds: [String]?
+
     public var remark: String?
 
     public var ruleType: String?
@@ -701,6 +703,9 @@ public class AddCheckResultWhiteListRequest : Tea.TeaModel {
         if self.checkIds != nil {
             map["CheckIds"] = self.checkIds!
         }
+        if self.instanceIds != nil {
+            map["InstanceIds"] = self.instanceIds!
+        }
         if self.remark != nil {
             map["Remark"] = self.remark!
         }
@@ -714,6 +719,9 @@ public class AddCheckResultWhiteListRequest : Tea.TeaModel {
         guard let dict else { return }
         if let value = dict["CheckIds"] as? [Int64] {
             self.checkIds = value
+        }
+        if let value = dict["InstanceIds"] as? [String] {
+            self.instanceIds = value
         }
         if let value = dict["Remark"] as? String {
             self.remark = value
@@ -208509,6 +208517,8 @@ public class RemoveCheckResultWhiteListRequest : Tea.TeaModel {
 
     public var checkIds: [Int64]?
 
+    public var instanceIds: [String]?
+
     public var ruleId: Int64?
 
     public var type: String?
@@ -208533,6 +208543,9 @@ public class RemoveCheckResultWhiteListRequest : Tea.TeaModel {
         if self.checkIds != nil {
             map["CheckIds"] = self.checkIds!
         }
+        if self.instanceIds != nil {
+            map["InstanceIds"] = self.instanceIds!
+        }
         if self.ruleId != nil {
             map["RuleId"] = self.ruleId!
         }
@@ -208549,6 +208562,9 @@ public class RemoveCheckResultWhiteListRequest : Tea.TeaModel {
         }
         if let value = dict["CheckIds"] as? [Int64] {
             self.checkIds = value
+        }
+        if let value = dict["InstanceIds"] as? [String] {
+            self.instanceIds = value
         }
         if let value = dict["RuleId"] as? Int64 {
             self.ruleId = value
@@ -223409,6 +223425,8 @@ public class VerifyCheckCustomConfigResponse : Tea.TeaModel {
 public class VerifyCheckInstanceResultRequest : Tea.TeaModel {
     public var checkId: Int64?
 
+    public var checkIds: [Int64]?
+
     public var instanceIds: [String]?
 
     public var taskSource: String?
@@ -223430,6 +223448,9 @@ public class VerifyCheckInstanceResultRequest : Tea.TeaModel {
         if self.checkId != nil {
             map["CheckId"] = self.checkId!
         }
+        if self.checkIds != nil {
+            map["CheckIds"] = self.checkIds!
+        }
         if self.instanceIds != nil {
             map["InstanceIds"] = self.instanceIds!
         }
@@ -223443,6 +223464,9 @@ public class VerifyCheckInstanceResultRequest : Tea.TeaModel {
         guard let dict else { return }
         if let value = dict["CheckId"] as? Int64 {
             self.checkId = value
+        }
+        if let value = dict["CheckIds"] as? [Int64] {
+            self.checkIds = value
         }
         if let value = dict["InstanceIds"] as? [String] {
             self.instanceIds = value
@@ -223594,6 +223618,8 @@ public class VerifyCheckInstanceResultResponse : Tea.TeaModel {
 public class VerifyCheckResultRequest : Tea.TeaModel {
     public var checkIds: [Int64]?
 
+    public var instanceIds: [String]?
+
     public var taskSource: String?
 
     public override init() {
@@ -223613,6 +223639,9 @@ public class VerifyCheckResultRequest : Tea.TeaModel {
         if self.checkIds != nil {
             map["CheckIds"] = self.checkIds!
         }
+        if self.instanceIds != nil {
+            map["InstanceIds"] = self.instanceIds!
+        }
         if self.taskSource != nil {
             map["TaskSource"] = self.taskSource!
         }
@@ -223623,6 +223652,9 @@ public class VerifyCheckResultRequest : Tea.TeaModel {
         guard let dict else { return }
         if let value = dict["CheckIds"] as? [Int64] {
             self.checkIds = value
+        }
+        if let value = dict["InstanceIds"] as? [String] {
+            self.instanceIds = value
         }
         if let value = dict["TaskSource"] as? String {
             self.taskSource = value
