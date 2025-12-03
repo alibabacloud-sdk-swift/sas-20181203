@@ -55801,6 +55801,8 @@ public class DescribeExcludeSystemPathResponse : Tea.TeaModel {
 public class DescribeExportInfoRequest : Tea.TeaModel {
     public var exportId: Int64?
 
+    public var resourceDirectoryAccountId: Int64?
+
     public override init() {
         super.init()
     }
@@ -55818,6 +55820,9 @@ public class DescribeExportInfoRequest : Tea.TeaModel {
         if self.exportId != nil {
             map["ExportId"] = self.exportId!
         }
+        if self.resourceDirectoryAccountId != nil {
+            map["ResourceDirectoryAccountId"] = self.resourceDirectoryAccountId!
+        }
         return map
     }
 
@@ -55825,6 +55830,9 @@ public class DescribeExportInfoRequest : Tea.TeaModel {
         guard let dict else { return }
         if let value = dict["ExportId"] as? Int64 {
             self.exportId = value
+        }
+        if let value = dict["ResourceDirectoryAccountId"] as? Int64 {
+            self.resourceDirectoryAccountId = value
         }
     }
 }
@@ -78431,6 +78439,8 @@ public class DescribeNeedAsyncQueryResponse : Tea.TeaModel {
 }
 
 public class DescribeNoticeConfigRequest : Tea.TeaModel {
+    public var bizType: String?
+
     public var sourceIp: String?
 
     public override init() {
@@ -78447,6 +78457,9 @@ public class DescribeNoticeConfigRequest : Tea.TeaModel {
 
     public override func toMap() -> [String : Any] {
         var map = super.toMap()
+        if self.bizType != nil {
+            map["BizType"] = self.bizType!
+        }
         if self.sourceIp != nil {
             map["SourceIp"] = self.sourceIp!
         }
@@ -78455,6 +78468,9 @@ public class DescribeNoticeConfigRequest : Tea.TeaModel {
 
     public override func fromMap(_ dict: [String: Any?]?) -> Void {
         guard let dict else { return }
+        if let value = dict["BizType"] as? String {
+            self.bizType = value
+        }
         if let value = dict["SourceIp"] as? String {
             self.sourceIp = value
         }
@@ -78464,6 +78480,8 @@ public class DescribeNoticeConfigRequest : Tea.TeaModel {
 public class DescribeNoticeConfigResponseBody : Tea.TeaModel {
     public class NoticeConfigList : Tea.TeaModel {
         public var aliUid: Int64?
+
+        public var category: String?
 
         public var currentPage: Int32?
 
@@ -78490,6 +78508,9 @@ public class DescribeNoticeConfigResponseBody : Tea.TeaModel {
             if self.aliUid != nil {
                 map["AliUid"] = self.aliUid!
             }
+            if self.category != nil {
+                map["Category"] = self.category!
+            }
             if self.currentPage != nil {
                 map["CurrentPage"] = self.currentPage!
             }
@@ -78509,6 +78530,9 @@ public class DescribeNoticeConfigResponseBody : Tea.TeaModel {
             guard let dict else { return }
             if let value = dict["AliUid"] as? Int64 {
                 self.aliUid = value
+            }
+            if let value = dict["Category"] as? String {
+                self.category = value
             }
             if let value = dict["CurrentPage"] as? Int32 {
                 self.currentPage = value
@@ -90390,6 +90414,8 @@ public class DescribeSecureSuggestionRequest : Tea.TeaModel {
 
     public var lang: String?
 
+    public var resourceDirectoryAccountId: Int64?
+
     public var source: Int32?
 
     public var sourceIp: String?
@@ -90414,6 +90440,9 @@ public class DescribeSecureSuggestionRequest : Tea.TeaModel {
         if self.lang != nil {
             map["Lang"] = self.lang!
         }
+        if self.resourceDirectoryAccountId != nil {
+            map["ResourceDirectoryAccountId"] = self.resourceDirectoryAccountId!
+        }
         if self.source != nil {
             map["Source"] = self.source!
         }
@@ -90430,6 +90459,9 @@ public class DescribeSecureSuggestionRequest : Tea.TeaModel {
         }
         if let value = dict["Lang"] as? String {
             self.lang = value
+        }
+        if let value = dict["ResourceDirectoryAccountId"] as? Int64 {
+            self.resourceDirectoryAccountId = value
         }
         if let value = dict["Source"] as? Int32 {
             self.source = value
@@ -115949,6 +115981,8 @@ public class ExportRecordRequest : Tea.TeaModel {
 
     public var params: String?
 
+    public var resourceDirectoryAccountId: Int64?
+
     public override init() {
         super.init()
     }
@@ -115975,6 +116009,9 @@ public class ExportRecordRequest : Tea.TeaModel {
         if self.params != nil {
             map["Params"] = self.params!
         }
+        if self.resourceDirectoryAccountId != nil {
+            map["ResourceDirectoryAccountId"] = self.resourceDirectoryAccountId!
+        }
         return map
     }
 
@@ -115991,6 +116028,9 @@ public class ExportRecordRequest : Tea.TeaModel {
         }
         if let value = dict["Params"] as? String {
             self.params = value
+        }
+        if let value = dict["ResourceDirectoryAccountId"] as? Int64 {
+            self.resourceDirectoryAccountId = value
         }
     }
 }
@@ -196742,6 +196782,8 @@ public class ModifyLoginSwitchConfigResponse : Tea.TeaModel {
 }
 
 public class ModifyNoticeConfigRequest : Tea.TeaModel {
+    public var bizType: String?
+
     public var project: String?
 
     public var route: Int32?
@@ -196764,6 +196806,9 @@ public class ModifyNoticeConfigRequest : Tea.TeaModel {
 
     public override func toMap() -> [String : Any] {
         var map = super.toMap()
+        if self.bizType != nil {
+            map["BizType"] = self.bizType!
+        }
         if self.project != nil {
             map["Project"] = self.project!
         }
@@ -196781,6 +196826,9 @@ public class ModifyNoticeConfigRequest : Tea.TeaModel {
 
     public override func fromMap(_ dict: [String: Any?]?) -> Void {
         guard let dict else { return }
+        if let value = dict["BizType"] as? String {
+            self.bizType = value
+        }
         if let value = dict["Project"] as? String {
             self.project = value
         }
@@ -215958,9 +216006,31 @@ public class UpdateCustomizeReportStatusResponse : Tea.TeaModel {
 }
 
 public class UpdateFileProtectEventStatusRequest : Tea.TeaModel {
+    public var alertLevels: [Int32]?
+
+    public var endTime: Int64?
+
     public var id: [Int64]?
 
+    public var instanceId: String?
+
+    public var instanceName: String?
+
+    public var internetIp: String?
+
+    public var intranetIp: String?
+
+    public var operation: String?
+
+    public var ruleName: String?
+
+    public var selectAllAcrossPages: Bool?
+
+    public var startTime: Int64?
+
     public var status: Int32?
+
+    public var uuid: String?
 
     public override init() {
         super.init()
@@ -215976,22 +216046,88 @@ public class UpdateFileProtectEventStatusRequest : Tea.TeaModel {
 
     public override func toMap() -> [String : Any] {
         var map = super.toMap()
+        if self.alertLevels != nil {
+            map["AlertLevels"] = self.alertLevels!
+        }
+        if self.endTime != nil {
+            map["EndTime"] = self.endTime!
+        }
         if self.id != nil {
             map["Id"] = self.id!
         }
+        if self.instanceId != nil {
+            map["InstanceId"] = self.instanceId!
+        }
+        if self.instanceName != nil {
+            map["InstanceName"] = self.instanceName!
+        }
+        if self.internetIp != nil {
+            map["InternetIp"] = self.internetIp!
+        }
+        if self.intranetIp != nil {
+            map["IntranetIp"] = self.intranetIp!
+        }
+        if self.operation != nil {
+            map["Operation"] = self.operation!
+        }
+        if self.ruleName != nil {
+            map["RuleName"] = self.ruleName!
+        }
+        if self.selectAllAcrossPages != nil {
+            map["SelectAllAcrossPages"] = self.selectAllAcrossPages!
+        }
+        if self.startTime != nil {
+            map["StartTime"] = self.startTime!
+        }
         if self.status != nil {
             map["Status"] = self.status!
+        }
+        if self.uuid != nil {
+            map["Uuid"] = self.uuid!
         }
         return map
     }
 
     public override func fromMap(_ dict: [String: Any?]?) -> Void {
         guard let dict else { return }
+        if let value = dict["AlertLevels"] as? [Int32] {
+            self.alertLevels = value
+        }
+        if let value = dict["EndTime"] as? Int64 {
+            self.endTime = value
+        }
         if let value = dict["Id"] as? [Int64] {
             self.id = value
         }
+        if let value = dict["InstanceId"] as? String {
+            self.instanceId = value
+        }
+        if let value = dict["InstanceName"] as? String {
+            self.instanceName = value
+        }
+        if let value = dict["InternetIp"] as? String {
+            self.internetIp = value
+        }
+        if let value = dict["IntranetIp"] as? String {
+            self.intranetIp = value
+        }
+        if let value = dict["Operation"] as? String {
+            self.operation = value
+        }
+        if let value = dict["RuleName"] as? String {
+            self.ruleName = value
+        }
+        if let value = dict["SelectAllAcrossPages"] as? Bool {
+            self.selectAllAcrossPages = value
+        }
+        if let value = dict["StartTime"] as? Int64 {
+            self.startTime = value
+        }
         if let value = dict["Status"] as? Int32 {
             self.status = value
+        }
+        if let value = dict["Uuid"] as? String {
+            self.uuid = value
         }
     }
 }
@@ -216078,9 +216214,33 @@ public class UpdateFileProtectEventStatusResponse : Tea.TeaModel {
 }
 
 public class UpdateFileProtectRemarkRequest : Tea.TeaModel {
+    public var alertLevels: [Int32]?
+
+    public var endTime: Int64?
+
     public var id: Int64?
 
+    public var idList: [Int64]?
+
+    public var instanceId: String?
+
+    public var instanceName: String?
+
+    public var internetIp: String?
+
+    public var intranetIp: String?
+
+    public var operation: String?
+
     public var remark: [String]?
+
+    public var ruleName: String?
+
+    public var selectAllAcrossPages: Bool?
+
+    public var startTime: Int64?
+
+    public var uuid: String?
 
     public override init() {
         super.init()
@@ -216096,22 +216256,94 @@ public class UpdateFileProtectRemarkRequest : Tea.TeaModel {
 
     public override func toMap() -> [String : Any] {
         var map = super.toMap()
+        if self.alertLevels != nil {
+            map["AlertLevels"] = self.alertLevels!
+        }
+        if self.endTime != nil {
+            map["EndTime"] = self.endTime!
+        }
         if self.id != nil {
             map["Id"] = self.id!
         }
+        if self.idList != nil {
+            map["IdList"] = self.idList!
+        }
+        if self.instanceId != nil {
+            map["InstanceId"] = self.instanceId!
+        }
+        if self.instanceName != nil {
+            map["InstanceName"] = self.instanceName!
+        }
+        if self.internetIp != nil {
+            map["InternetIp"] = self.internetIp!
+        }
+        if self.intranetIp != nil {
+            map["IntranetIp"] = self.intranetIp!
+        }
+        if self.operation != nil {
+            map["Operation"] = self.operation!
+        }
         if self.remark != nil {
             map["Remark"] = self.remark!
+        }
+        if self.ruleName != nil {
+            map["RuleName"] = self.ruleName!
+        }
+        if self.selectAllAcrossPages != nil {
+            map["SelectAllAcrossPages"] = self.selectAllAcrossPages!
+        }
+        if self.startTime != nil {
+            map["StartTime"] = self.startTime!
+        }
+        if self.uuid != nil {
+            map["Uuid"] = self.uuid!
         }
         return map
     }
 
     public override func fromMap(_ dict: [String: Any?]?) -> Void {
         guard let dict else { return }
+        if let value = dict["AlertLevels"] as? [Int32] {
+            self.alertLevels = value
+        }
+        if let value = dict["EndTime"] as? Int64 {
+            self.endTime = value
+        }
         if let value = dict["Id"] as? Int64 {
             self.id = value
         }
+        if let value = dict["IdList"] as? [Int64] {
+            self.idList = value
+        }
+        if let value = dict["InstanceId"] as? String {
+            self.instanceId = value
+        }
+        if let value = dict["InstanceName"] as? String {
+            self.instanceName = value
+        }
+        if let value = dict["InternetIp"] as? String {
+            self.internetIp = value
+        }
+        if let value = dict["IntranetIp"] as? String {
+            self.intranetIp = value
+        }
+        if let value = dict["Operation"] as? String {
+            self.operation = value
+        }
         if let value = dict["Remark"] as? [String] {
             self.remark = value
+        }
+        if let value = dict["RuleName"] as? String {
+            self.ruleName = value
+        }
+        if let value = dict["SelectAllAcrossPages"] as? Bool {
+            self.selectAllAcrossPages = value
+        }
+        if let value = dict["StartTime"] as? Int64 {
+            self.startTime = value
+        }
+        if let value = dict["Uuid"] as? String {
+            self.uuid = value
         }
     }
 }
