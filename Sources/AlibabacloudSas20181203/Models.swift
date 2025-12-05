@@ -153128,9 +153128,49 @@ public class ListAgentlessMaliciousFilesResponse : Tea.TeaModel {
 }
 
 public class ListAgentlessRegionResponseBody : Tea.TeaModel {
+    public class VendorRegionList : Tea.TeaModel {
+        public var regionId: String?
+
+        public var vendor: Int32?
+
+        public override init() {
+            super.init()
+        }
+
+        public init(_ dict: [String: Any]) {
+            super.init()
+            self.fromMap(dict)
+        }
+
+        public override func validate() throws -> Void {
+        }
+
+        public override func toMap() -> [String : Any] {
+            var map = super.toMap()
+            if self.regionId != nil {
+                map["RegionId"] = self.regionId!
+            }
+            if self.vendor != nil {
+                map["Vendor"] = self.vendor!
+            }
+            return map
+        }
+
+        public override func fromMap(_ dict: [String: Any?]?) -> Void {
+            guard let dict else { return }
+            if let value = dict["RegionId"] as? String {
+                self.regionId = value
+            }
+            if let value = dict["Vendor"] as? Int32 {
+                self.vendor = value
+            }
+        }
+    }
     public var regionList: [String]?
 
     public var requestId: String?
+
+    public var vendorRegionList: [ListAgentlessRegionResponseBody.VendorRegionList]?
 
     public override init() {
         super.init()
@@ -153152,6 +153192,13 @@ public class ListAgentlessRegionResponseBody : Tea.TeaModel {
         if self.requestId != nil {
             map["RequestId"] = self.requestId!
         }
+        if self.vendorRegionList != nil {
+            var tmp : [Any] = []
+            for k in self.vendorRegionList! {
+                tmp.append(k.toMap())
+            }
+            map["VendorRegionList"] = tmp
+        }
         return map
     }
 
@@ -153162,6 +153209,19 @@ public class ListAgentlessRegionResponseBody : Tea.TeaModel {
         }
         if let value = dict["RequestId"] as? String {
             self.requestId = value
+        }
+        if let value = dict["VendorRegionList"] as? [Any?] {
+            var tmp : [ListAgentlessRegionResponseBody.VendorRegionList] = []
+            for v in value {
+                if v != nil {
+                    var model = ListAgentlessRegionResponseBody.VendorRegionList()
+                    if v != nil {
+                        model.fromMap(v as? [String: Any?])
+                    }
+                    tmp.append(model)
+                }
+            }
+            self.vendorRegionList = tmp
         }
     }
 }
