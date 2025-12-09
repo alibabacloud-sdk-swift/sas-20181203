@@ -43559,6 +43559,134 @@ public class DescribeCloudVendorAccountAKListResponse : Tea.TeaModel {
     }
 }
 
+public class DescribeCloudVendorProductTemplateConfigRequest : Tea.TeaModel {
+    public var lang: String?
+
+    public var vendor: String?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.lang != nil {
+            map["Lang"] = self.lang!
+        }
+        if self.vendor != nil {
+            map["Vendor"] = self.vendor!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["Lang"] as? String {
+            self.lang = value
+        }
+        if let value = dict["Vendor"] as? String {
+            self.vendor = value
+        }
+    }
+}
+
+public class DescribeCloudVendorProductTemplateConfigResponseBody : Tea.TeaModel {
+    public var data: String?
+
+    public var requestId: String?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.data != nil {
+            map["Data"] = self.data!
+        }
+        if self.requestId != nil {
+            map["RequestId"] = self.requestId!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["Data"] as? String {
+            self.data = value
+        }
+        if let value = dict["RequestId"] as? String {
+            self.requestId = value
+        }
+    }
+}
+
+public class DescribeCloudVendorProductTemplateConfigResponse : Tea.TeaModel {
+    public var headers: [String: String]?
+
+    public var statusCode: Int32?
+
+    public var body: DescribeCloudVendorProductTemplateConfigResponseBody?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.body?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.headers != nil {
+            map["headers"] = self.headers!
+        }
+        if self.statusCode != nil {
+            map["statusCode"] = self.statusCode!
+        }
+        if self.body != nil {
+            map["body"] = self.body?.toMap()
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["headers"] as? [String: String] {
+            self.headers = value
+        }
+        if let value = dict["statusCode"] as? Int32 {
+            self.statusCode = value
+        }
+        if let value = dict["body"] as? [String: Any?] {
+            var model = DescribeCloudVendorProductTemplateConfigResponseBody()
+            model.fromMap(value)
+            self.body = model
+        }
+    }
+}
+
 public class DescribeCloudVendorTrialConfigRequest : Tea.TeaModel {
     public var authId: Int64?
 
@@ -54852,6 +54980,8 @@ public class DescribeEmgVulItemRequest : Tea.TeaModel {
 
     public var pageSize: Int32?
 
+    public var resourceDirectoryAccountId: Int64?
+
     public var riskStatus: String?
 
     public var scanType: String?
@@ -54884,6 +55014,9 @@ public class DescribeEmgVulItemRequest : Tea.TeaModel {
         if self.pageSize != nil {
             map["PageSize"] = self.pageSize!
         }
+        if self.resourceDirectoryAccountId != nil {
+            map["ResourceDirectoryAccountId"] = self.resourceDirectoryAccountId!
+        }
         if self.riskStatus != nil {
             map["RiskStatus"] = self.riskStatus!
         }
@@ -54909,6 +55042,9 @@ public class DescribeEmgVulItemRequest : Tea.TeaModel {
         }
         if let value = dict["PageSize"] as? Int32 {
             self.pageSize = value
+        }
+        if let value = dict["ResourceDirectoryAccountId"] as? Int64 {
+            self.resourceDirectoryAccountId = value
         }
         if let value = dict["RiskStatus"] as? String {
             self.riskStatus = value
@@ -194751,6 +194887,8 @@ public class ModifyEmgVulSubmitRequest : Tea.TeaModel {
 
     public var name: String?
 
+    public var resourceDirectoryAccountId: Int64?
+
     public var userAgreement: String?
 
     public override init() {
@@ -194773,6 +194911,9 @@ public class ModifyEmgVulSubmitRequest : Tea.TeaModel {
         if self.name != nil {
             map["Name"] = self.name!
         }
+        if self.resourceDirectoryAccountId != nil {
+            map["ResourceDirectoryAccountId"] = self.resourceDirectoryAccountId!
+        }
         if self.userAgreement != nil {
             map["UserAgreement"] = self.userAgreement!
         }
@@ -194786,6 +194927,9 @@ public class ModifyEmgVulSubmitRequest : Tea.TeaModel {
         }
         if let value = dict["Name"] as? String {
             self.name = value
+        }
+        if let value = dict["ResourceDirectoryAccountId"] as? Int64 {
+            self.resourceDirectoryAccountId = value
         }
         if let value = dict["UserAgreement"] as? String {
             self.userAgreement = value
