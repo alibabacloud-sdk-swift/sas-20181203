@@ -90719,6 +90719,8 @@ public class DescribeSecureSuggestionResponseBody : Tea.TeaModel {
 
     public var requestId: String?
 
+    public var score: String?
+
     public var suggestions: [DescribeSecureSuggestionResponseBody.Suggestions]?
 
     public var totalCount: Int32?
@@ -90743,6 +90745,9 @@ public class DescribeSecureSuggestionResponseBody : Tea.TeaModel {
         if self.requestId != nil {
             map["RequestId"] = self.requestId!
         }
+        if self.score != nil {
+            map["Score"] = self.score!
+        }
         if self.suggestions != nil {
             var tmp : [Any] = []
             for k in self.suggestions! {
@@ -90763,6 +90768,9 @@ public class DescribeSecureSuggestionResponseBody : Tea.TeaModel {
         }
         if let value = dict["RequestId"] as? String {
             self.requestId = value
+        }
+        if let value = dict["Score"] as? String {
+            self.score = value
         }
         if let value = dict["Suggestions"] as? [Any?] {
             var tmp : [DescribeSecureSuggestionResponseBody.Suggestions] = []
@@ -163840,6 +163848,44 @@ public class ListClientUserDefineRulesResponse : Tea.TeaModel {
 }
 
 public class ListCloudAssetInstancesRequest : Tea.TeaModel {
+    public class CloudAssetQueryData : Tea.TeaModel {
+        public var data: String?
+
+        public var operator_: String?
+
+        public override init() {
+            super.init()
+        }
+
+        public init(_ dict: [String: Any]) {
+            super.init()
+            self.fromMap(dict)
+        }
+
+        public override func validate() throws -> Void {
+        }
+
+        public override func toMap() -> [String : Any] {
+            var map = super.toMap()
+            if self.data != nil {
+                map["Data"] = self.data!
+            }
+            if self.operator_ != nil {
+                map["Operator"] = self.operator_!
+            }
+            return map
+        }
+
+        public override func fromMap(_ dict: [String: Any?]?) -> Void {
+            guard let dict else { return }
+            if let value = dict["Data"] as? String {
+                self.data = value
+            }
+            if let value = dict["Operator"] as? String {
+                self.operator_ = value
+            }
+        }
+    }
     public class CloudAssetTypes : Tea.TeaModel {
         public var assetSubType: Int32?
 
@@ -163886,6 +163932,8 @@ public class ListCloudAssetInstancesRequest : Tea.TeaModel {
             }
         }
     }
+    public var cloudAssetQueryData: [ListCloudAssetInstancesRequest.CloudAssetQueryData]?
+
     public var cloudAssetTypes: [ListCloudAssetInstancesRequest.CloudAssetTypes]?
 
     public var criteria: String?
@@ -163912,6 +163960,13 @@ public class ListCloudAssetInstancesRequest : Tea.TeaModel {
 
     public override func toMap() -> [String : Any] {
         var map = super.toMap()
+        if self.cloudAssetQueryData != nil {
+            var tmp : [Any] = []
+            for k in self.cloudAssetQueryData! {
+                tmp.append(k.toMap())
+            }
+            map["CloudAssetQueryData"] = tmp
+        }
         if self.cloudAssetTypes != nil {
             var tmp : [Any] = []
             for k in self.cloudAssetTypes! {
@@ -163939,6 +163994,19 @@ public class ListCloudAssetInstancesRequest : Tea.TeaModel {
 
     public override func fromMap(_ dict: [String: Any?]?) -> Void {
         guard let dict else { return }
+        if let value = dict["CloudAssetQueryData"] as? [Any?] {
+            var tmp : [ListCloudAssetInstancesRequest.CloudAssetQueryData] = []
+            for v in value {
+                if v != nil {
+                    var model = ListCloudAssetInstancesRequest.CloudAssetQueryData()
+                    if v != nil {
+                        model.fromMap(v as? [String: Any?])
+                    }
+                    tmp.append(model)
+                }
+            }
+            self.cloudAssetQueryData = tmp
+        }
         if let value = dict["CloudAssetTypes"] as? [Any?] {
             var tmp : [ListCloudAssetInstancesRequest.CloudAssetTypes] = []
             for v in value {
