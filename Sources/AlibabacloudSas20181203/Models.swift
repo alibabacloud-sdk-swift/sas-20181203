@@ -80791,11 +80791,15 @@ public class DescribePropertyCronDetailRequest : Tea.TeaModel {
 
     public var extend: String?
 
+    public var nextToken: String?
+
     public var pageSize: Int32?
 
     public var remark: String?
 
     public var source: String?
+
+    public var useNextToken: Bool?
 
     public var user: String?
 
@@ -80821,6 +80825,9 @@ public class DescribePropertyCronDetailRequest : Tea.TeaModel {
         if self.extend != nil {
             map["Extend"] = self.extend!
         }
+        if self.nextToken != nil {
+            map["NextToken"] = self.nextToken!
+        }
         if self.pageSize != nil {
             map["PageSize"] = self.pageSize!
         }
@@ -80829,6 +80836,9 @@ public class DescribePropertyCronDetailRequest : Tea.TeaModel {
         }
         if self.source != nil {
             map["Source"] = self.source!
+        }
+        if self.useNextToken != nil {
+            map["UseNextToken"] = self.useNextToken!
         }
         if self.user != nil {
             map["User"] = self.user!
@@ -80847,6 +80857,9 @@ public class DescribePropertyCronDetailRequest : Tea.TeaModel {
         if let value = dict["Extend"] as? String {
             self.extend = value
         }
+        if let value = dict["NextToken"] as? String {
+            self.nextToken = value
+        }
         if let value = dict["PageSize"] as? Int32 {
             self.pageSize = value
         }
@@ -80855,6 +80868,9 @@ public class DescribePropertyCronDetailRequest : Tea.TeaModel {
         }
         if let value = dict["Source"] as? String {
             self.source = value
+        }
+        if let value = dict["UseNextToken"] as? Bool {
+            self.useNextToken = value
         }
         if let value = dict["User"] as? String {
             self.user = value
@@ -80870,6 +80886,8 @@ public class DescribePropertyCronDetailResponseBody : Tea.TeaModel {
         public var count: Int32?
 
         public var currentPage: Int32?
+
+        public var nextToken: String?
 
         public var pageSize: Int32?
 
@@ -80895,6 +80913,9 @@ public class DescribePropertyCronDetailResponseBody : Tea.TeaModel {
             if self.currentPage != nil {
                 map["CurrentPage"] = self.currentPage!
             }
+            if self.nextToken != nil {
+                map["NextToken"] = self.nextToken!
+            }
             if self.pageSize != nil {
                 map["PageSize"] = self.pageSize!
             }
@@ -80911,6 +80932,9 @@ public class DescribePropertyCronDetailResponseBody : Tea.TeaModel {
             }
             if let value = dict["CurrentPage"] as? Int32 {
                 self.currentPage = value
+            }
+            if let value = dict["NextToken"] as? String {
+                self.nextToken = value
             }
             if let value = dict["PageSize"] as? Int32 {
                 self.pageSize = value
@@ -81419,6 +81443,8 @@ public class DescribePropertyPortDetailRequest : Tea.TeaModel {
 
     public var extend: String?
 
+    public var nextToken: String?
+
     public var pageSize: Int32?
 
     public var port: String?
@@ -81428,6 +81454,8 @@ public class DescribePropertyPortDetailRequest : Tea.TeaModel {
     public var remark: String?
 
     public var resourceDirectoryAccountId: Int64?
+
+    public var useNextToken: Bool?
 
     public var uuid: String?
 
@@ -81454,6 +81482,9 @@ public class DescribePropertyPortDetailRequest : Tea.TeaModel {
         if self.extend != nil {
             map["Extend"] = self.extend!
         }
+        if self.nextToken != nil {
+            map["NextToken"] = self.nextToken!
+        }
         if self.pageSize != nil {
             map["PageSize"] = self.pageSize!
         }
@@ -81468,6 +81499,9 @@ public class DescribePropertyPortDetailRequest : Tea.TeaModel {
         }
         if self.resourceDirectoryAccountId != nil {
             map["ResourceDirectoryAccountId"] = self.resourceDirectoryAccountId!
+        }
+        if self.useNextToken != nil {
+            map["UseNextToken"] = self.useNextToken!
         }
         if self.uuid != nil {
             map["Uuid"] = self.uuid!
@@ -81486,6 +81520,9 @@ public class DescribePropertyPortDetailRequest : Tea.TeaModel {
         if let value = dict["Extend"] as? String {
             self.extend = value
         }
+        if let value = dict["NextToken"] as? String {
+            self.nextToken = value
+        }
         if let value = dict["PageSize"] as? Int32 {
             self.pageSize = value
         }
@@ -81501,6 +81538,9 @@ public class DescribePropertyPortDetailRequest : Tea.TeaModel {
         if let value = dict["ResourceDirectoryAccountId"] as? Int64 {
             self.resourceDirectoryAccountId = value
         }
+        if let value = dict["UseNextToken"] as? Bool {
+            self.useNextToken = value
+        }
         if let value = dict["Uuid"] as? String {
             self.uuid = value
         }
@@ -81512,6 +81552,8 @@ public class DescribePropertyPortDetailResponseBody : Tea.TeaModel {
         public var count: Int32?
 
         public var currentPage: Int32?
+
+        public var nextToken: String?
 
         public var pageSize: Int32?
 
@@ -81537,6 +81579,9 @@ public class DescribePropertyPortDetailResponseBody : Tea.TeaModel {
             if self.currentPage != nil {
                 map["CurrentPage"] = self.currentPage!
             }
+            if self.nextToken != nil {
+                map["NextToken"] = self.nextToken!
+            }
             if self.pageSize != nil {
                 map["PageSize"] = self.pageSize!
             }
@@ -81553,6 +81598,9 @@ public class DescribePropertyPortDetailResponseBody : Tea.TeaModel {
             }
             if let value = dict["CurrentPage"] as? Int32 {
                 self.currentPage = value
+            }
+            if let value = dict["NextToken"] as? String {
+                self.nextToken = value
             }
             if let value = dict["PageSize"] as? Int32 {
                 self.pageSize = value
@@ -82071,6 +82119,8 @@ public class DescribePropertyProcDetailRequest : Tea.TeaModel {
 
     public var name: String?
 
+    public var nextToken: String?
+
     public var pageSize: Int32?
 
     public var procTimeEnd: Int64?
@@ -82080,6 +82130,8 @@ public class DescribePropertyProcDetailRequest : Tea.TeaModel {
     public var remark: String?
 
     public var resourceDirectoryAccountId: Int64?
+
+    public var useNextToken: Bool?
 
     public var user: String?
 
@@ -82111,6 +82163,9 @@ public class DescribePropertyProcDetailRequest : Tea.TeaModel {
         if self.name != nil {
             map["Name"] = self.name!
         }
+        if self.nextToken != nil {
+            map["NextToken"] = self.nextToken!
+        }
         if self.pageSize != nil {
             map["PageSize"] = self.pageSize!
         }
@@ -82125,6 +82180,9 @@ public class DescribePropertyProcDetailRequest : Tea.TeaModel {
         }
         if self.resourceDirectoryAccountId != nil {
             map["ResourceDirectoryAccountId"] = self.resourceDirectoryAccountId!
+        }
+        if self.useNextToken != nil {
+            map["UseNextToken"] = self.useNextToken!
         }
         if self.user != nil {
             map["User"] = self.user!
@@ -82149,6 +82207,9 @@ public class DescribePropertyProcDetailRequest : Tea.TeaModel {
         if let value = dict["Name"] as? String {
             self.name = value
         }
+        if let value = dict["NextToken"] as? String {
+            self.nextToken = value
+        }
         if let value = dict["PageSize"] as? Int32 {
             self.pageSize = value
         }
@@ -82164,6 +82225,9 @@ public class DescribePropertyProcDetailRequest : Tea.TeaModel {
         if let value = dict["ResourceDirectoryAccountId"] as? Int64 {
             self.resourceDirectoryAccountId = value
         }
+        if let value = dict["UseNextToken"] as? Bool {
+            self.useNextToken = value
+        }
         if let value = dict["User"] as? String {
             self.user = value
         }
@@ -82178,6 +82242,8 @@ public class DescribePropertyProcDetailResponseBody : Tea.TeaModel {
         public var count: Int32?
 
         public var currentPage: Int32?
+
+        public var nextToken: String?
 
         public var pageSize: Int32?
 
@@ -82203,6 +82269,9 @@ public class DescribePropertyProcDetailResponseBody : Tea.TeaModel {
             if self.currentPage != nil {
                 map["CurrentPage"] = self.currentPage!
             }
+            if self.nextToken != nil {
+                map["NextToken"] = self.nextToken!
+            }
             if self.pageSize != nil {
                 map["PageSize"] = self.pageSize!
             }
@@ -82219,6 +82288,9 @@ public class DescribePropertyProcDetailResponseBody : Tea.TeaModel {
             }
             if let value = dict["CurrentPage"] as? Int32 {
                 self.currentPage = value
+            }
+            if let value = dict["NextToken"] as? String {
+                self.nextToken = value
             }
             if let value = dict["PageSize"] as? Int32 {
                 self.pageSize = value
@@ -82787,6 +82859,8 @@ public class DescribePropertyScaDetailRequest : Tea.TeaModel {
 
     public var name: Int64?
 
+    public var nextToken: String?
+
     public var pageSize: Int32?
 
     public var pid: String?
@@ -82812,6 +82886,8 @@ public class DescribePropertyScaDetailRequest : Tea.TeaModel {
     public var searchItem: String?
 
     public var searchItemSub: String?
+
+    public var useNextToken: Bool?
 
     public var user: String?
 
@@ -82845,6 +82921,9 @@ public class DescribePropertyScaDetailRequest : Tea.TeaModel {
         }
         if self.name != nil {
             map["Name"] = self.name!
+        }
+        if self.nextToken != nil {
+            map["NextToken"] = self.nextToken!
         }
         if self.pageSize != nil {
             map["PageSize"] = self.pageSize!
@@ -82885,6 +82964,9 @@ public class DescribePropertyScaDetailRequest : Tea.TeaModel {
         if self.searchItemSub != nil {
             map["SearchItemSub"] = self.searchItemSub!
         }
+        if self.useNextToken != nil {
+            map["UseNextToken"] = self.useNextToken!
+        }
         if self.user != nil {
             map["User"] = self.user!
         }
@@ -82910,6 +82992,9 @@ public class DescribePropertyScaDetailRequest : Tea.TeaModel {
         }
         if let value = dict["Name"] as? Int64 {
             self.name = value
+        }
+        if let value = dict["NextToken"] as? String {
+            self.nextToken = value
         }
         if let value = dict["PageSize"] as? Int32 {
             self.pageSize = value
@@ -82950,6 +83035,9 @@ public class DescribePropertyScaDetailRequest : Tea.TeaModel {
         if let value = dict["SearchItemSub"] as? String {
             self.searchItemSub = value
         }
+        if let value = dict["UseNextToken"] as? Bool {
+            self.useNextToken = value
+        }
         if let value = dict["User"] as? String {
             self.user = value
         }
@@ -82964,6 +83052,8 @@ public class DescribePropertyScaDetailResponseBody : Tea.TeaModel {
         public var count: Int32?
 
         public var currentPage: Int32?
+
+        public var nextToken: String?
 
         public var pageSize: Int32?
 
@@ -82989,6 +83079,9 @@ public class DescribePropertyScaDetailResponseBody : Tea.TeaModel {
             if self.currentPage != nil {
                 map["CurrentPage"] = self.currentPage!
             }
+            if self.nextToken != nil {
+                map["NextToken"] = self.nextToken!
+            }
             if self.pageSize != nil {
                 map["PageSize"] = self.pageSize!
             }
@@ -83005,6 +83098,9 @@ public class DescribePropertyScaDetailResponseBody : Tea.TeaModel {
             }
             if let value = dict["CurrentPage"] as? Int32 {
                 self.currentPage = value
+            }
+            if let value = dict["NextToken"] as? String {
+                self.nextToken = value
             }
             if let value = dict["PageSize"] as? Int32 {
                 self.pageSize = value
@@ -84162,6 +84258,8 @@ public class DescribePropertySoftwareDetailRequest : Tea.TeaModel {
 
     public var name: String?
 
+    public var nextToken: String?
+
     public var pageSize: Int32?
 
     public var path: String?
@@ -84169,6 +84267,8 @@ public class DescribePropertySoftwareDetailRequest : Tea.TeaModel {
     public var remark: String?
 
     public var softwareVersion: String?
+
+    public var useNextToken: Bool?
 
     public var uuid: String?
 
@@ -84201,6 +84301,9 @@ public class DescribePropertySoftwareDetailRequest : Tea.TeaModel {
         if self.name != nil {
             map["Name"] = self.name!
         }
+        if self.nextToken != nil {
+            map["NextToken"] = self.nextToken!
+        }
         if self.pageSize != nil {
             map["PageSize"] = self.pageSize!
         }
@@ -84212,6 +84315,9 @@ public class DescribePropertySoftwareDetailRequest : Tea.TeaModel {
         }
         if self.softwareVersion != nil {
             map["SoftwareVersion"] = self.softwareVersion!
+        }
+        if self.useNextToken != nil {
+            map["UseNextToken"] = self.useNextToken!
         }
         if self.uuid != nil {
             map["Uuid"] = self.uuid!
@@ -84236,6 +84342,9 @@ public class DescribePropertySoftwareDetailRequest : Tea.TeaModel {
         if let value = dict["Name"] as? String {
             self.name = value
         }
+        if let value = dict["NextToken"] as? String {
+            self.nextToken = value
+        }
         if let value = dict["PageSize"] as? Int32 {
             self.pageSize = value
         }
@@ -84248,6 +84357,9 @@ public class DescribePropertySoftwareDetailRequest : Tea.TeaModel {
         if let value = dict["SoftwareVersion"] as? String {
             self.softwareVersion = value
         }
+        if let value = dict["UseNextToken"] as? Bool {
+            self.useNextToken = value
+        }
         if let value = dict["Uuid"] as? String {
             self.uuid = value
         }
@@ -84259,6 +84371,8 @@ public class DescribePropertySoftwareDetailResponseBody : Tea.TeaModel {
         public var count: Int32?
 
         public var currentPage: Int32?
+
+        public var nextToken: String?
 
         public var pageSize: Int32?
 
@@ -84284,6 +84398,9 @@ public class DescribePropertySoftwareDetailResponseBody : Tea.TeaModel {
             if self.currentPage != nil {
                 map["CurrentPage"] = self.currentPage!
             }
+            if self.nextToken != nil {
+                map["NextToken"] = self.nextToken!
+            }
             if self.pageSize != nil {
                 map["PageSize"] = self.pageSize!
             }
@@ -84300,6 +84417,9 @@ public class DescribePropertySoftwareDetailResponseBody : Tea.TeaModel {
             }
             if let value = dict["CurrentPage"] as? Int32 {
                 self.currentPage = value
+            }
+            if let value = dict["NextToken"] as? String {
+                self.nextToken = value
             }
             if let value = dict["PageSize"] as? Int32 {
                 self.pageSize = value
@@ -85253,9 +85373,13 @@ public class DescribePropertyUserDetailRequest : Tea.TeaModel {
 
     public var lastLoginTimeStart: Int64?
 
+    public var nextToken: String?
+
     public var pageSize: Int32?
 
     public var remark: String?
+
+    public var useNextToken: Bool?
 
     public var user: String?
 
@@ -85290,11 +85414,17 @@ public class DescribePropertyUserDetailRequest : Tea.TeaModel {
         if self.lastLoginTimeStart != nil {
             map["LastLoginTimeStart"] = self.lastLoginTimeStart!
         }
+        if self.nextToken != nil {
+            map["NextToken"] = self.nextToken!
+        }
         if self.pageSize != nil {
             map["PageSize"] = self.pageSize!
         }
         if self.remark != nil {
             map["Remark"] = self.remark!
+        }
+        if self.useNextToken != nil {
+            map["UseNextToken"] = self.useNextToken!
         }
         if self.user != nil {
             map["User"] = self.user!
@@ -85322,11 +85452,17 @@ public class DescribePropertyUserDetailRequest : Tea.TeaModel {
         if let value = dict["LastLoginTimeStart"] as? Int64 {
             self.lastLoginTimeStart = value
         }
+        if let value = dict["NextToken"] as? String {
+            self.nextToken = value
+        }
         if let value = dict["PageSize"] as? Int32 {
             self.pageSize = value
         }
         if let value = dict["Remark"] as? String {
             self.remark = value
+        }
+        if let value = dict["UseNextToken"] as? Bool {
+            self.useNextToken = value
         }
         if let value = dict["User"] as? String {
             self.user = value
@@ -85342,6 +85478,8 @@ public class DescribePropertyUserDetailResponseBody : Tea.TeaModel {
         public var count: Int32?
 
         public var currentPage: Int32?
+
+        public var nextToken: String?
 
         public var pageSize: Int32?
 
@@ -85367,6 +85505,9 @@ public class DescribePropertyUserDetailResponseBody : Tea.TeaModel {
             if self.currentPage != nil {
                 map["CurrentPage"] = self.currentPage!
             }
+            if self.nextToken != nil {
+                map["NextToken"] = self.nextToken!
+            }
             if self.pageSize != nil {
                 map["PageSize"] = self.pageSize!
             }
@@ -85383,6 +85524,9 @@ public class DescribePropertyUserDetailResponseBody : Tea.TeaModel {
             }
             if let value = dict["CurrentPage"] as? Int32 {
                 self.currentPage = value
+            }
+            if let value = dict["NextToken"] as? String {
+                self.nextToken = value
             }
             if let value = dict["PageSize"] as? Int32 {
                 self.pageSize = value
@@ -121001,11 +121145,15 @@ public class GetAssetsPropertyDetailRequest : Tea.TeaModel {
 
     public var lang: String?
 
+    public var nextToken: String?
+
     public var pageSize: Int32?
 
     public var remark: String?
 
     public var searchCriteriaList: [GetAssetsPropertyDetailRequest.SearchCriteriaList]?
+
+    public var useNextToken: Bool?
 
     public var uuid: String?
 
@@ -121035,6 +121183,9 @@ public class GetAssetsPropertyDetailRequest : Tea.TeaModel {
         if self.lang != nil {
             map["Lang"] = self.lang!
         }
+        if self.nextToken != nil {
+            map["NextToken"] = self.nextToken!
+        }
         if self.pageSize != nil {
             map["PageSize"] = self.pageSize!
         }
@@ -121047,6 +121198,9 @@ public class GetAssetsPropertyDetailRequest : Tea.TeaModel {
                 tmp.append(k.toMap())
             }
             map["SearchCriteriaList"] = tmp
+        }
+        if self.useNextToken != nil {
+            map["UseNextToken"] = self.useNextToken!
         }
         if self.uuid != nil {
             map["Uuid"] = self.uuid!
@@ -121068,6 +121222,9 @@ public class GetAssetsPropertyDetailRequest : Tea.TeaModel {
         if let value = dict["Lang"] as? String {
             self.lang = value
         }
+        if let value = dict["NextToken"] as? String {
+            self.nextToken = value
+        }
         if let value = dict["PageSize"] as? Int32 {
             self.pageSize = value
         }
@@ -121087,6 +121244,9 @@ public class GetAssetsPropertyDetailRequest : Tea.TeaModel {
             }
             self.searchCriteriaList = tmp
         }
+        if let value = dict["UseNextToken"] as? Bool {
+            self.useNextToken = value
+        }
         if let value = dict["Uuid"] as? String {
             self.uuid = value
         }
@@ -121098,6 +121258,8 @@ public class GetAssetsPropertyDetailResponseBody : Tea.TeaModel {
         public var count: Int32?
 
         public var currentPage: Int32?
+
+        public var nextToken: String?
 
         public var pageSize: Int32?
 
@@ -121123,6 +121285,9 @@ public class GetAssetsPropertyDetailResponseBody : Tea.TeaModel {
             if self.currentPage != nil {
                 map["CurrentPage"] = self.currentPage!
             }
+            if self.nextToken != nil {
+                map["NextToken"] = self.nextToken!
+            }
             if self.pageSize != nil {
                 map["PageSize"] = self.pageSize!
             }
@@ -121139,6 +121304,9 @@ public class GetAssetsPropertyDetailResponseBody : Tea.TeaModel {
             }
             if let value = dict["CurrentPage"] as? Int32 {
                 self.currentPage = value
+            }
+            if let value = dict["NextToken"] as? String {
+                self.nextToken = value
             }
             if let value = dict["PageSize"] as? Int32 {
                 self.pageSize = value
