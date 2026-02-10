@@ -73307,6 +73307,8 @@ public class DescribeImageSensitiveFileListRequest : Tea.TeaModel {
 
     public var scanRange: [String]?
 
+    public var sensitiveKeyList: [String]?
+
     public override init() {
         super.init()
     }
@@ -73345,6 +73347,9 @@ public class DescribeImageSensitiveFileListRequest : Tea.TeaModel {
         if self.scanRange != nil {
             map["ScanRange"] = self.scanRange!
         }
+        if self.sensitiveKeyList != nil {
+            map["SensitiveKeyList"] = self.sensitiveKeyList!
+        }
         return map
     }
 
@@ -73374,6 +73379,9 @@ public class DescribeImageSensitiveFileListRequest : Tea.TeaModel {
         if let value = dict["ScanRange"] as? [String] {
             self.scanRange = value
         }
+        if let value = dict["SensitiveKeyList"] as? [String] {
+            self.sensitiveKeyList = value
+        }
     }
 }
 
@@ -73393,6 +73401,8 @@ public class DescribeImageSensitiveFileListShrinkRequest : Tea.TeaModel {
     public var riskLevel: String?
 
     public var scanRangeShrink: String?
+
+    public var sensitiveKeyList: [String]?
 
     public override init() {
         super.init()
@@ -73432,6 +73442,9 @@ public class DescribeImageSensitiveFileListShrinkRequest : Tea.TeaModel {
         if self.scanRangeShrink != nil {
             map["ScanRange"] = self.scanRangeShrink!
         }
+        if self.sensitiveKeyList != nil {
+            map["SensitiveKeyList"] = self.sensitiveKeyList!
+        }
         return map
     }
 
@@ -73460,6 +73473,9 @@ public class DescribeImageSensitiveFileListShrinkRequest : Tea.TeaModel {
         }
         if let value = dict["ScanRange"] as? String {
             self.scanRangeShrink = value
+        }
+        if let value = dict["SensitiveKeyList"] as? [String] {
+            self.sensitiveKeyList = value
         }
     }
 }
@@ -82881,6 +82897,44 @@ public class DescribePropertyProcItemResponse : Tea.TeaModel {
 }
 
 public class DescribePropertyScaDetailRequest : Tea.TeaModel {
+    public class SearchCriteriaList : Tea.TeaModel {
+        public var name: String?
+
+        public var value: String?
+
+        public override init() {
+            super.init()
+        }
+
+        public init(_ dict: [String: Any]) {
+            super.init()
+            self.fromMap(dict)
+        }
+
+        public override func validate() throws -> Void {
+        }
+
+        public override func toMap() -> [String : Any] {
+            var map = super.toMap()
+            if self.name != nil {
+                map["Name"] = self.name!
+            }
+            if self.value != nil {
+                map["Value"] = self.value!
+            }
+            return map
+        }
+
+        public override func fromMap(_ dict: [String: Any?]?) -> Void {
+            guard let dict else { return }
+            if let value = dict["Name"] as? String {
+                self.name = value
+            }
+            if let value = dict["Value"] as? String {
+                self.value = value
+            }
+        }
+    }
     public var biz: String?
 
     public var bizType: String?
@@ -82910,6 +82964,8 @@ public class DescribePropertyScaDetailRequest : Tea.TeaModel {
     public var scaNamePattern: String?
 
     public var scaVersion: String?
+
+    public var searchCriteriaList: [DescribePropertyScaDetailRequest.SearchCriteriaList]?
 
     public var searchInfo: String?
 
@@ -82984,6 +83040,13 @@ public class DescribePropertyScaDetailRequest : Tea.TeaModel {
         if self.scaVersion != nil {
             map["ScaVersion"] = self.scaVersion!
         }
+        if self.searchCriteriaList != nil {
+            var tmp : [Any] = []
+            for k in self.searchCriteriaList! {
+                tmp.append(k.toMap())
+            }
+            map["SearchCriteriaList"] = tmp
+        }
         if self.searchInfo != nil {
             map["SearchInfo"] = self.searchInfo!
         }
@@ -83054,6 +83117,19 @@ public class DescribePropertyScaDetailRequest : Tea.TeaModel {
         }
         if let value = dict["ScaVersion"] as? String {
             self.scaVersion = value
+        }
+        if let value = dict["SearchCriteriaList"] as? [Any?] {
+            var tmp : [DescribePropertyScaDetailRequest.SearchCriteriaList] = []
+            for v in value {
+                if v != nil {
+                    var model = DescribePropertyScaDetailRequest.SearchCriteriaList()
+                    if v != nil {
+                        model.fromMap(v as? [String: Any?])
+                    }
+                    tmp.append(model)
+                }
+            }
+            self.searchCriteriaList = tmp
         }
         if let value = dict["SearchInfo"] as? String {
             self.searchInfo = value
@@ -105220,6 +105296,8 @@ public class DescribeVersionConfigResponseBody : Tea.TeaModel {
 
     public var instanceId: String?
 
+    public var intelligentAnalysisFlow: Int32?
+
     public var isNewContainerVersion: Bool?
 
     public var isNewMultiVersion: Bool?
@@ -105241,6 +105319,8 @@ public class DescribeVersionConfigResponseBody : Tea.TeaModel {
     public var multiVersion: String?
 
     public var newThreatAnalysis: Int32?
+
+    public var onboardedAssets: Int32?
 
     public var openTime: Int64?
 
@@ -105340,6 +105420,9 @@ public class DescribeVersionConfigResponseBody : Tea.TeaModel {
         if self.instanceId != nil {
             map["InstanceId"] = self.instanceId!
         }
+        if self.intelligentAnalysisFlow != nil {
+            map["IntelligentAnalysisFlow"] = self.intelligentAnalysisFlow!
+        }
         if self.isNewContainerVersion != nil {
             map["IsNewContainerVersion"] = self.isNewContainerVersion!
         }
@@ -105372,6 +105455,9 @@ public class DescribeVersionConfigResponseBody : Tea.TeaModel {
         }
         if self.newThreatAnalysis != nil {
             map["NewThreatAnalysis"] = self.newThreatAnalysis!
+        }
+        if self.onboardedAssets != nil {
+            map["OnboardedAssets"] = self.onboardedAssets!
         }
         if self.openTime != nil {
             map["OpenTime"] = self.openTime!
@@ -105483,6 +105569,9 @@ public class DescribeVersionConfigResponseBody : Tea.TeaModel {
         if let value = dict["InstanceId"] as? String {
             self.instanceId = value
         }
+        if let value = dict["IntelligentAnalysisFlow"] as? Int32 {
+            self.intelligentAnalysisFlow = value
+        }
         if let value = dict["IsNewContainerVersion"] as? Bool {
             self.isNewContainerVersion = value
         }
@@ -105515,6 +105604,9 @@ public class DescribeVersionConfigResponseBody : Tea.TeaModel {
         }
         if let value = dict["NewThreatAnalysis"] as? Int32 {
             self.newThreatAnalysis = value
+        }
+        if let value = dict["OnboardedAssets"] as? Int32 {
+            self.onboardedAssets = value
         }
         if let value = dict["OpenTime"] as? Int64 {
             self.openTime = value
@@ -116757,6 +116849,44 @@ public class ExportSuspEventsResponse : Tea.TeaModel {
 }
 
 public class ExportVulRequest : Tea.TeaModel {
+    public class VulEntityList : Tea.TeaModel {
+        public var entityName: String?
+
+        public var entityVersion: String?
+
+        public override init() {
+            super.init()
+        }
+
+        public init(_ dict: [String: Any]) {
+            super.init()
+            self.fromMap(dict)
+        }
+
+        public override func validate() throws -> Void {
+        }
+
+        public override func toMap() -> [String : Any] {
+            var map = super.toMap()
+            if self.entityName != nil {
+                map["EntityName"] = self.entityName!
+            }
+            if self.entityVersion != nil {
+                map["EntityVersion"] = self.entityVersion!
+            }
+            return map
+        }
+
+        public override func fromMap(_ dict: [String: Any?]?) -> Void {
+            guard let dict else { return }
+            if let value = dict["EntityName"] as? String {
+                self.entityName = value
+            }
+            if let value = dict["EntityVersion"] as? String {
+                self.entityVersion = value
+            }
+        }
+    }
     public var aliasName: String?
 
     public var attachTypes: String?
@@ -116790,6 +116920,8 @@ public class ExportVulRequest : Tea.TeaModel {
     public var uuids: String?
 
     public var vpcInstanceIds: String?
+
+    public var vulEntityList: [ExportVulRequest.VulEntityList]?
 
     public override init() {
         super.init()
@@ -116856,6 +116988,13 @@ public class ExportVulRequest : Tea.TeaModel {
         if self.vpcInstanceIds != nil {
             map["VpcInstanceIds"] = self.vpcInstanceIds!
         }
+        if self.vulEntityList != nil {
+            var tmp : [Any] = []
+            for k in self.vulEntityList! {
+                tmp.append(k.toMap())
+            }
+            map["VulEntityList"] = tmp
+        }
         return map
     }
 
@@ -116911,6 +117050,19 @@ public class ExportVulRequest : Tea.TeaModel {
         }
         if let value = dict["VpcInstanceIds"] as? String {
             self.vpcInstanceIds = value
+        }
+        if let value = dict["VulEntityList"] as? [Any?] {
+            var tmp : [ExportVulRequest.VulEntityList] = []
+            for v in value {
+                if v != nil {
+                    var model = ExportVulRequest.VulEntityList()
+                    if v != nil {
+                        model.fromMap(v as? [String: Any?])
+                    }
+                    tmp.append(model)
+                }
+            }
+            self.vulEntityList = tmp
         }
     }
 }
@@ -121365,6 +121517,8 @@ public class GetAssetsPropertyDetailResponseBody : Tea.TeaModel {
 
         public var filepath: String?
 
+        public var imageDigest: String?
+
         public var imageName: String?
 
         public var installationPath: String?
@@ -121403,11 +121557,17 @@ public class GetAssetsPropertyDetailResponseBody : Tea.TeaModel {
 
         public var regionId: String?
 
+        public var repoName: String?
+
+        public var repoNamespace: String?
+
         public var serverType: String?
 
         public var size: Int32?
 
         public var skillsName: String?
+
+        public var tag: String?
 
         public var transportName: String?
 
@@ -121456,6 +121616,9 @@ public class GetAssetsPropertyDetailResponseBody : Tea.TeaModel {
             }
             if self.filepath != nil {
                 map["Filepath"] = self.filepath!
+            }
+            if self.imageDigest != nil {
+                map["ImageDigest"] = self.imageDigest!
             }
             if self.imageName != nil {
                 map["ImageName"] = self.imageName!
@@ -121514,6 +121677,12 @@ public class GetAssetsPropertyDetailResponseBody : Tea.TeaModel {
             if self.regionId != nil {
                 map["RegionId"] = self.regionId!
             }
+            if self.repoName != nil {
+                map["RepoName"] = self.repoName!
+            }
+            if self.repoNamespace != nil {
+                map["RepoNamespace"] = self.repoNamespace!
+            }
             if self.serverType != nil {
                 map["ServerType"] = self.serverType!
             }
@@ -121522,6 +121691,9 @@ public class GetAssetsPropertyDetailResponseBody : Tea.TeaModel {
             }
             if self.skillsName != nil {
                 map["SkillsName"] = self.skillsName!
+            }
+            if self.tag != nil {
+                map["Tag"] = self.tag!
             }
             if self.transportName != nil {
                 map["TransportName"] = self.transportName!
@@ -121566,6 +121738,9 @@ public class GetAssetsPropertyDetailResponseBody : Tea.TeaModel {
             }
             if let value = dict["Filepath"] as? String {
                 self.filepath = value
+            }
+            if let value = dict["ImageDigest"] as? String {
+                self.imageDigest = value
             }
             if let value = dict["ImageName"] as? String {
                 self.imageName = value
@@ -121624,6 +121799,12 @@ public class GetAssetsPropertyDetailResponseBody : Tea.TeaModel {
             if let value = dict["RegionId"] as? String {
                 self.regionId = value
             }
+            if let value = dict["RepoName"] as? String {
+                self.repoName = value
+            }
+            if let value = dict["RepoNamespace"] as? String {
+                self.repoNamespace = value
+            }
             if let value = dict["ServerType"] as? String {
                 self.serverType = value
             }
@@ -121632,6 +121813,9 @@ public class GetAssetsPropertyDetailResponseBody : Tea.TeaModel {
             }
             if let value = dict["SkillsName"] as? String {
                 self.skillsName = value
+            }
+            if let value = dict["Tag"] as? String {
+                self.tag = value
             }
             if let value = dict["TransportName"] as? String {
                 self.transportName = value
@@ -125178,6 +125362,8 @@ public class GetCheckConfigResponse : Tea.TeaModel {
 }
 
 public class GetCheckCountStatisticRequest : Tea.TeaModel {
+    public var lang: String?
+
     public var statisticType: String?
 
     public var taskSources: [String]?
@@ -125198,6 +125384,9 @@ public class GetCheckCountStatisticRequest : Tea.TeaModel {
 
     public override func toMap() -> [String : Any] {
         var map = super.toMap()
+        if self.lang != nil {
+            map["Lang"] = self.lang!
+        }
         if self.statisticType != nil {
             map["StatisticType"] = self.statisticType!
         }
@@ -125212,6 +125401,9 @@ public class GetCheckCountStatisticRequest : Tea.TeaModel {
 
     public override func fromMap(_ dict: [String: Any?]?) -> Void {
         guard let dict else { return }
+        if let value = dict["Lang"] as? String {
+            self.lang = value
+        }
         if let value = dict["StatisticType"] as? String {
             self.statisticType = value
         }
@@ -125227,6 +125419,8 @@ public class GetCheckCountStatisticRequest : Tea.TeaModel {
 public class GetCheckCountStatisticResponseBody : Tea.TeaModel {
     public class CheckCountStatisticDTO : Tea.TeaModel {
         public class CheckCountStatisticItems : Tea.TeaModel {
+            public var checkShowName: String?
+
             public var cores: Int32?
 
             public var instanceId: String?
@@ -125255,6 +125449,8 @@ public class GetCheckCountStatisticResponseBody : Tea.TeaModel {
 
             public var vendor: Int32?
 
+            public var vendorShowName: String?
+
             public var vpcInstanceId: String?
 
             public override init() {
@@ -125271,6 +125467,9 @@ public class GetCheckCountStatisticResponseBody : Tea.TeaModel {
 
             public override func toMap() -> [String : Any] {
                 var map = super.toMap()
+                if self.checkShowName != nil {
+                    map["CheckShowName"] = self.checkShowName!
+                }
                 if self.cores != nil {
                     map["Cores"] = self.cores!
                 }
@@ -125313,6 +125512,9 @@ public class GetCheckCountStatisticResponseBody : Tea.TeaModel {
                 if self.vendor != nil {
                     map["Vendor"] = self.vendor!
                 }
+                if self.vendorShowName != nil {
+                    map["VendorShowName"] = self.vendorShowName!
+                }
                 if self.vpcInstanceId != nil {
                     map["VpcInstanceId"] = self.vpcInstanceId!
                 }
@@ -125321,6 +125523,9 @@ public class GetCheckCountStatisticResponseBody : Tea.TeaModel {
 
             public override func fromMap(_ dict: [String: Any?]?) -> Void {
                 guard let dict else { return }
+                if let value = dict["CheckShowName"] as? String {
+                    self.checkShowName = value
+                }
                 if let value = dict["Cores"] as? Int32 {
                     self.cores = value
                 }
@@ -125362,6 +125567,9 @@ public class GetCheckCountStatisticResponseBody : Tea.TeaModel {
                 }
                 if let value = dict["Vendor"] as? Int32 {
                     self.vendor = value
+                }
+                if let value = dict["VendorShowName"] as? String {
+                    self.vendorShowName = value
                 }
                 if let value = dict["VpcInstanceId"] as? String {
                     self.vpcInstanceId = value
@@ -197721,6 +197929,8 @@ public class ModifyPostPayModuleSwitchRequest : Tea.TeaModel {
     public class PostPayModuleSwitchObj : Tea.TeaModel {
         public var agentless: Int32?
 
+        public var aiDigital: Int32?
+
         public var antiRansomware: Int32?
 
         public var basicService: Int32?
@@ -197759,6 +197969,9 @@ public class ModifyPostPayModuleSwitchRequest : Tea.TeaModel {
             var map = super.toMap()
             if self.agentless != nil {
                 map["Agentless"] = self.agentless!
+            }
+            if self.aiDigital != nil {
+                map["AiDigital"] = self.aiDigital!
             }
             if self.antiRansomware != nil {
                 map["AntiRansomware"] = self.antiRansomware!
@@ -197800,6 +198013,9 @@ public class ModifyPostPayModuleSwitchRequest : Tea.TeaModel {
             guard let dict else { return }
             if let value = dict["Agentless"] as? Int32 {
                 self.agentless = value
+            }
+            if let value = dict["AiDigital"] as? Int32 {
+                self.aiDigital = value
             }
             if let value = dict["AntiRansomware"] as? Int32 {
                 self.antiRansomware = value
