@@ -194866,7 +194866,7 @@ public class ModifyCreateVulWhitelistResponseBody : Tea.TeaModel {
     }
     public var requestId: String?
 
-    public var vulWhitelistList: [ModifyCreateVulWhitelistResponseBody.VulWhitelistList]?
+    public var vulWhitelistList: ModifyCreateVulWhitelistResponseBody.VulWhitelistList?
 
     public override init() {
         super.init()
@@ -194878,6 +194878,7 @@ public class ModifyCreateVulWhitelistResponseBody : Tea.TeaModel {
     }
 
     public override func validate() throws -> Void {
+        try self.vulWhitelistList?.validate()
     }
 
     public override func toMap() -> [String : Any] {
@@ -194886,11 +194887,7 @@ public class ModifyCreateVulWhitelistResponseBody : Tea.TeaModel {
             map["RequestId"] = self.requestId!
         }
         if self.vulWhitelistList != nil {
-            var tmp : [Any] = []
-            for k in self.vulWhitelistList! {
-                tmp.append(k.toMap())
-            }
-            map["VulWhitelistList"] = tmp
+            map["VulWhitelistList"] = self.vulWhitelistList?.toMap()
         }
         return map
     }
@@ -194900,18 +194897,10 @@ public class ModifyCreateVulWhitelistResponseBody : Tea.TeaModel {
         if let value = dict["RequestId"] as? String {
             self.requestId = value
         }
-        if let value = dict["VulWhitelistList"] as? [Any?] {
-            var tmp : [ModifyCreateVulWhitelistResponseBody.VulWhitelistList] = []
-            for v in value {
-                if v != nil {
-                    var model = ModifyCreateVulWhitelistResponseBody.VulWhitelistList()
-                    if v != nil {
-                        model.fromMap(v as? [String: Any?])
-                    }
-                    tmp.append(model)
-                }
-            }
-            self.vulWhitelistList = tmp
+        if let value = dict["VulWhitelistList"] as? [String: Any?] {
+            var model = ModifyCreateVulWhitelistResponseBody.VulWhitelistList()
+            model.fromMap(value)
+            self.vulWhitelistList = model
         }
     }
 }
