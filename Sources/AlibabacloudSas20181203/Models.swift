@@ -98805,6 +98805,8 @@ public class DescribeSuspEventsRequest : Tea.TeaModel {
 
     public var dealed: String?
 
+    public var detectSource: String?
+
     public var eventNames: String?
 
     public var from: String?
@@ -98897,6 +98899,9 @@ public class DescribeSuspEventsRequest : Tea.TeaModel {
         }
         if self.dealed != nil {
             map["Dealed"] = self.dealed!
+        }
+        if self.detectSource != nil {
+            map["DetectSource"] = self.detectSource!
         }
         if self.eventNames != nil {
             map["EventNames"] = self.eventNames!
@@ -99011,6 +99016,9 @@ public class DescribeSuspEventsRequest : Tea.TeaModel {
         if let value = dict["Dealed"] as? String {
             self.dealed = value
         }
+        if let value = dict["DetectSource"] as? String {
+            self.detectSource = value
+        }
         if let value = dict["EventNames"] as? String {
             self.eventNames = value
         }
@@ -99116,6 +99124,8 @@ public class DescribeSuspEventsShrinkRequest : Tea.TeaModel {
 
     public var dealed: String?
 
+    public var detectSource: String?
+
     public var eventNames: String?
 
     public var from: String?
@@ -99208,6 +99218,9 @@ public class DescribeSuspEventsShrinkRequest : Tea.TeaModel {
         }
         if self.dealed != nil {
             map["Dealed"] = self.dealed!
+        }
+        if self.detectSource != nil {
+            map["DetectSource"] = self.detectSource!
         }
         if self.eventNames != nil {
             map["EventNames"] = self.eventNames!
@@ -99321,6 +99334,9 @@ public class DescribeSuspEventsShrinkRequest : Tea.TeaModel {
         }
         if let value = dict["Dealed"] as? String {
             self.dealed = value
+        }
+        if let value = dict["DetectSource"] as? String {
+            self.detectSource = value
         }
         if let value = dict["EventNames"] as? String {
             self.eventNames = value
@@ -99586,6 +99602,8 @@ public class DescribeSuspEventsResponseBody : Tea.TeaModel {
 
         public var details: [DescribeSuspEventsResponseBody.SuspEvents.Details]?
 
+        public var detectSource: String?
+
         public var displaySandboxResult: Bool?
 
         public var eventNotes: [DescribeSuspEventsResponseBody.SuspEvents.EventNotes]?
@@ -99732,6 +99750,9 @@ public class DescribeSuspEventsResponseBody : Tea.TeaModel {
                     tmp.append(k.toMap())
                 }
                 map["Details"] = tmp
+            }
+            if self.detectSource != nil {
+                map["DetectSource"] = self.detectSource!
             }
             if self.displaySandboxResult != nil {
                 map["DisplaySandboxResult"] = self.displaySandboxResult!
@@ -99923,6 +99944,9 @@ public class DescribeSuspEventsResponseBody : Tea.TeaModel {
                     }
                 }
                 self.details = tmp
+            }
+            if let value = dict["DetectSource"] as? String {
+                self.detectSource = value
             }
             if let value = dict["DisplaySandboxResult"] as? Bool {
                 self.displaySandboxResult = value
