@@ -147855,6 +147855,8 @@ public class GetSupportedModulesResponseBody : Tea.TeaModel {
         public class SupportedModules : Tea.TeaModel {
             public var module: String?
 
+            public var moduleAuth: Bool?
+
             public var moduleDisp: String?
 
             public override init() {
@@ -147874,6 +147876,9 @@ public class GetSupportedModulesResponseBody : Tea.TeaModel {
                 if self.module != nil {
                     map["Module"] = self.module!
                 }
+                if self.moduleAuth != nil {
+                    map["ModuleAuth"] = self.moduleAuth!
+                }
                 if self.moduleDisp != nil {
                     map["ModuleDisp"] = self.moduleDisp!
                 }
@@ -147884,6 +147889,9 @@ public class GetSupportedModulesResponseBody : Tea.TeaModel {
                 guard let dict else { return }
                 if let value = dict["Module"] as? String {
                     self.module = value
+                }
+                if let value = dict["ModuleAuth"] as? Bool {
+                    self.moduleAuth = value
                 }
                 if let value = dict["ModuleDisp"] as? String {
                     self.moduleDisp = value
