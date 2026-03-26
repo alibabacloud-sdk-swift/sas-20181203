@@ -70477,6 +70477,8 @@ public class DescribeImageListBySensitiveFileResponseBody : Tea.TeaModel {
 
         public var instanceId: String?
 
+        public var instanceName: String?
+
         public var lastScanTime: Int64?
 
         public var regionId: String?
@@ -70516,6 +70518,9 @@ public class DescribeImageListBySensitiveFileResponseBody : Tea.TeaModel {
             if self.instanceId != nil {
                 map["InstanceId"] = self.instanceId!
             }
+            if self.instanceName != nil {
+                map["InstanceName"] = self.instanceName!
+            }
             if self.lastScanTime != nil {
                 map["LastScanTime"] = self.lastScanTime!
             }
@@ -70553,6 +70558,9 @@ public class DescribeImageListBySensitiveFileResponseBody : Tea.TeaModel {
             }
             if let value = dict["InstanceId"] as? String {
                 self.instanceId = value
+            }
+            if let value = dict["InstanceName"] as? String {
+                self.instanceName = value
             }
             if let value = dict["LastScanTime"] as? Int64 {
                 self.lastScanTime = value
@@ -200319,6 +200327,8 @@ public class ModifyLoginSwitchConfigResponse : Tea.TeaModel {
 public class ModifyNoticeConfigRequest : Tea.TeaModel {
     public var bizType: String?
 
+    public var focusLevel: String?
+
     public var project: String?
 
     public var route: Int32?
@@ -200344,6 +200354,9 @@ public class ModifyNoticeConfigRequest : Tea.TeaModel {
         if self.bizType != nil {
             map["BizType"] = self.bizType!
         }
+        if self.focusLevel != nil {
+            map["FocusLevel"] = self.focusLevel!
+        }
         if self.project != nil {
             map["Project"] = self.project!
         }
@@ -200363,6 +200376,9 @@ public class ModifyNoticeConfigRequest : Tea.TeaModel {
         guard let dict else { return }
         if let value = dict["BizType"] as? String {
             self.bizType = value
+        }
+        if let value = dict["FocusLevel"] as? String {
+            self.focusLevel = value
         }
         if let value = dict["Project"] as? String {
             self.project = value
