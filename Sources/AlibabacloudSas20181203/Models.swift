@@ -58268,6 +58268,8 @@ public class DescribeFieldStatisticsResponseBody : Tea.TeaModel {
 
         public var azureInstanceCount: Int32?
 
+        public var baiduInstanceCount: Int32?
+
         public var exposedInstanceCoreCount: Int64?
 
         public var exposedInstanceCount: Int32?
@@ -58289,6 +58291,8 @@ public class DescribeFieldStatisticsResponseBody : Tea.TeaModel {
         public var instanceCount: Int32?
 
         public var instanceSyncTaskCount: Int32?
+
+        public var kingsoftInstanceCount: Int32?
 
         public var newInstanceCoreCount: Int64?
 
@@ -58314,11 +58318,15 @@ public class DescribeFieldStatisticsResponseBody : Tea.TeaModel {
 
         public var riskInstanceCount: Int32?
 
+        public var stateCloudInstanceCount: Int32?
+
         public var tencentInstanceCount: Int32?
 
         public var testAssetCount: Int32?
 
         public var tripartiteInstanceCount: Int32?
+
+        public var ucloudInstanceCount: Int32?
 
         public var unKnowStatusInstanceCount: Int32?
 
@@ -58353,6 +58361,9 @@ public class DescribeFieldStatisticsResponseBody : Tea.TeaModel {
             if self.azureInstanceCount != nil {
                 map["AzureInstanceCount"] = self.azureInstanceCount!
             }
+            if self.baiduInstanceCount != nil {
+                map["BaiduInstanceCount"] = self.baiduInstanceCount!
+            }
             if self.exposedInstanceCoreCount != nil {
                 map["ExposedInstanceCoreCount"] = self.exposedInstanceCoreCount!
             }
@@ -58385,6 +58396,9 @@ public class DescribeFieldStatisticsResponseBody : Tea.TeaModel {
             }
             if self.instanceSyncTaskCount != nil {
                 map["InstanceSyncTaskCount"] = self.instanceSyncTaskCount!
+            }
+            if self.kingsoftInstanceCount != nil {
+                map["KingsoftInstanceCount"] = self.kingsoftInstanceCount!
             }
             if self.newInstanceCoreCount != nil {
                 map["NewInstanceCoreCount"] = self.newInstanceCoreCount!
@@ -58422,6 +58436,9 @@ public class DescribeFieldStatisticsResponseBody : Tea.TeaModel {
             if self.riskInstanceCount != nil {
                 map["RiskInstanceCount"] = self.riskInstanceCount!
             }
+            if self.stateCloudInstanceCount != nil {
+                map["StateCloudInstanceCount"] = self.stateCloudInstanceCount!
+            }
             if self.tencentInstanceCount != nil {
                 map["TencentInstanceCount"] = self.tencentInstanceCount!
             }
@@ -58430,6 +58447,9 @@ public class DescribeFieldStatisticsResponseBody : Tea.TeaModel {
             }
             if self.tripartiteInstanceCount != nil {
                 map["TripartiteInstanceCount"] = self.tripartiteInstanceCount!
+            }
+            if self.ucloudInstanceCount != nil {
+                map["UcloudInstanceCount"] = self.ucloudInstanceCount!
             }
             if self.unKnowStatusInstanceCount != nil {
                 map["UnKnowStatusInstanceCount"] = self.unKnowStatusInstanceCount!
@@ -58459,6 +58479,9 @@ public class DescribeFieldStatisticsResponseBody : Tea.TeaModel {
             }
             if let value = dict["AzureInstanceCount"] as? Int32 {
                 self.azureInstanceCount = value
+            }
+            if let value = dict["BaiduInstanceCount"] as? Int32 {
+                self.baiduInstanceCount = value
             }
             if let value = dict["ExposedInstanceCoreCount"] as? Int64 {
                 self.exposedInstanceCoreCount = value
@@ -58492,6 +58515,9 @@ public class DescribeFieldStatisticsResponseBody : Tea.TeaModel {
             }
             if let value = dict["InstanceSyncTaskCount"] as? Int32 {
                 self.instanceSyncTaskCount = value
+            }
+            if let value = dict["KingsoftInstanceCount"] as? Int32 {
+                self.kingsoftInstanceCount = value
             }
             if let value = dict["NewInstanceCoreCount"] as? Int64 {
                 self.newInstanceCoreCount = value
@@ -58529,6 +58555,9 @@ public class DescribeFieldStatisticsResponseBody : Tea.TeaModel {
             if let value = dict["RiskInstanceCount"] as? Int32 {
                 self.riskInstanceCount = value
             }
+            if let value = dict["StateCloudInstanceCount"] as? Int32 {
+                self.stateCloudInstanceCount = value
+            }
             if let value = dict["TencentInstanceCount"] as? Int32 {
                 self.tencentInstanceCount = value
             }
@@ -58537,6 +58566,9 @@ public class DescribeFieldStatisticsResponseBody : Tea.TeaModel {
             }
             if let value = dict["TripartiteInstanceCount"] as? Int32 {
                 self.tripartiteInstanceCount = value
+            }
+            if let value = dict["UcloudInstanceCount"] as? Int32 {
+                self.ucloudInstanceCount = value
             }
             if let value = dict["UnKnowStatusInstanceCount"] as? Int32 {
                 self.unKnowStatusInstanceCount = value
