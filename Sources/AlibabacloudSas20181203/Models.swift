@@ -107964,6 +107964,8 @@ public class DescribeVulDetailsResponse : Tea.TeaModel {
 public class DescribeVulExportInfoRequest : Tea.TeaModel {
     public var exportId: Int64?
 
+    public var resourceDirectoryAccountId: Int64?
+
     public override init() {
         super.init()
     }
@@ -107981,6 +107983,9 @@ public class DescribeVulExportInfoRequest : Tea.TeaModel {
         if self.exportId != nil {
             map["ExportId"] = self.exportId!
         }
+        if self.resourceDirectoryAccountId != nil {
+            map["ResourceDirectoryAccountId"] = self.resourceDirectoryAccountId!
+        }
         return map
     }
 
@@ -107988,6 +107993,9 @@ public class DescribeVulExportInfoRequest : Tea.TeaModel {
         guard let dict else { return }
         if let value = dict["ExportId"] as? Int64 {
             self.exportId = value
+        }
+        if let value = dict["ResourceDirectoryAccountId"] as? Int64 {
+            self.resourceDirectoryAccountId = value
         }
     }
 }
@@ -117216,6 +117224,8 @@ public class ExportVulRequest : Tea.TeaModel {
 
     public var raspDefend: Int32?
 
+    public var resourceDirectoryAccountId: Int64?
+
     public var searchTags: String?
 
     public var type: String?
@@ -117279,6 +117289,9 @@ public class ExportVulRequest : Tea.TeaModel {
         if self.raspDefend != nil {
             map["RaspDefend"] = self.raspDefend!
         }
+        if self.resourceDirectoryAccountId != nil {
+            map["ResourceDirectoryAccountId"] = self.resourceDirectoryAccountId!
+        }
         if self.searchTags != nil {
             map["SearchTags"] = self.searchTags!
         }
@@ -117341,6 +117354,9 @@ public class ExportVulRequest : Tea.TeaModel {
         }
         if let value = dict["RaspDefend"] as? Int32 {
             self.raspDefend = value
+        }
+        if let value = dict["ResourceDirectoryAccountId"] as? Int64 {
+            self.resourceDirectoryAccountId = value
         }
         if let value = dict["SearchTags"] as? String {
             self.searchTags = value
