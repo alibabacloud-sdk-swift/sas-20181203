@@ -152109,6 +152109,226 @@ public class HandleMaliciousFilesResponse : Tea.TeaModel {
     }
 }
 
+public class HandleObjectScanEventRequest : Tea.TeaModel {
+    public class RuleConditionList : Tea.TeaModel {
+        public var key: String?
+
+        public var operate: String?
+
+        public var value: String?
+
+        public override init() {
+            super.init()
+        }
+
+        public init(_ dict: [String: Any]) {
+            super.init()
+            self.fromMap(dict)
+        }
+
+        public override func validate() throws -> Void {
+        }
+
+        public override func toMap() -> [String : Any] {
+            var map = super.toMap()
+            if self.key != nil {
+                map["Key"] = self.key!
+            }
+            if self.operate != nil {
+                map["Operate"] = self.operate!
+            }
+            if self.value != nil {
+                map["Value"] = self.value!
+            }
+            return map
+        }
+
+        public override func fromMap(_ dict: [String: Any?]?) -> Void {
+            guard let dict else { return }
+            if let value = dict["Key"] as? String {
+                self.key = value
+            }
+            if let value = dict["Operate"] as? String {
+                self.operate = value
+            }
+            if let value = dict["Value"] as? String {
+                self.value = value
+            }
+        }
+    }
+    public var batchType: String?
+
+    public var eventId: String?
+
+    public var eventIdList: [Int64]?
+
+    public var lang: String?
+
+    public var remark: String?
+
+    public var ruleConditionList: [HandleObjectScanEventRequest.RuleConditionList]?
+
+    public var status: Int32?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.batchType != nil {
+            map["BatchType"] = self.batchType!
+        }
+        if self.eventId != nil {
+            map["EventId"] = self.eventId!
+        }
+        if self.eventIdList != nil {
+            map["EventIdList"] = self.eventIdList!
+        }
+        if self.lang != nil {
+            map["Lang"] = self.lang!
+        }
+        if self.remark != nil {
+            map["Remark"] = self.remark!
+        }
+        if self.ruleConditionList != nil {
+            var tmp : [Any] = []
+            for k in self.ruleConditionList! {
+                tmp.append(k.toMap())
+            }
+            map["RuleConditionList"] = tmp
+        }
+        if self.status != nil {
+            map["Status"] = self.status!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["BatchType"] as? String {
+            self.batchType = value
+        }
+        if let value = dict["EventId"] as? String {
+            self.eventId = value
+        }
+        if let value = dict["EventIdList"] as? [Int64] {
+            self.eventIdList = value
+        }
+        if let value = dict["Lang"] as? String {
+            self.lang = value
+        }
+        if let value = dict["Remark"] as? String {
+            self.remark = value
+        }
+        if let value = dict["RuleConditionList"] as? [Any?] {
+            var tmp : [HandleObjectScanEventRequest.RuleConditionList] = []
+            for v in value {
+                if v != nil {
+                    var model = HandleObjectScanEventRequest.RuleConditionList()
+                    if v != nil {
+                        model.fromMap(v as? [String: Any?])
+                    }
+                    tmp.append(model)
+                }
+            }
+            self.ruleConditionList = tmp
+        }
+        if let value = dict["Status"] as? Int32 {
+            self.status = value
+        }
+    }
+}
+
+public class HandleObjectScanEventResponseBody : Tea.TeaModel {
+    public var requestId: String?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.requestId != nil {
+            map["RequestId"] = self.requestId!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["RequestId"] as? String {
+            self.requestId = value
+        }
+    }
+}
+
+public class HandleObjectScanEventResponse : Tea.TeaModel {
+    public var headers: [String: String]?
+
+    public var statusCode: Int32?
+
+    public var body: HandleObjectScanEventResponseBody?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.body?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.headers != nil {
+            map["headers"] = self.headers!
+        }
+        if self.statusCode != nil {
+            map["statusCode"] = self.statusCode!
+        }
+        if self.body != nil {
+            map["body"] = self.body?.toMap()
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["headers"] as? [String: String] {
+            self.headers = value
+        }
+        if let value = dict["statusCode"] as? Int32 {
+            self.statusCode = value
+        }
+        if let value = dict["body"] as? [String: Any?] {
+            var model = HandleObjectScanEventResponseBody()
+            model.fromMap(value)
+            self.body = model
+        }
+    }
+}
+
 public class HandleSecurityEventsRequest : Tea.TeaModel {
     public var markBatch: String?
 
