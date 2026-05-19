@@ -2340,6 +2340,134 @@ public class AddContainerPluginRuleResponse : Tea.TeaModel {
     }
 }
 
+public class AddFileProtectBindMachineRequest : Tea.TeaModel {
+    public var alertUuids: [String]?
+
+    public var blockUuids: [String]?
+
+    public var noneUuids: [String]?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.alertUuids != nil {
+            map["AlertUuids"] = self.alertUuids!
+        }
+        if self.blockUuids != nil {
+            map["BlockUuids"] = self.blockUuids!
+        }
+        if self.noneUuids != nil {
+            map["NoneUuids"] = self.noneUuids!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["AlertUuids"] as? [String] {
+            self.alertUuids = value
+        }
+        if let value = dict["BlockUuids"] as? [String] {
+            self.blockUuids = value
+        }
+        if let value = dict["NoneUuids"] as? [String] {
+            self.noneUuids = value
+        }
+    }
+}
+
+public class AddFileProtectBindMachineResponseBody : Tea.TeaModel {
+    public var requestId: String?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.requestId != nil {
+            map["RequestId"] = self.requestId!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["RequestId"] as? String {
+            self.requestId = value
+        }
+    }
+}
+
+public class AddFileProtectBindMachineResponse : Tea.TeaModel {
+    public var headers: [String: String]?
+
+    public var statusCode: Int32?
+
+    public var body: AddFileProtectBindMachineResponseBody?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.body?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.headers != nil {
+            map["headers"] = self.headers!
+        }
+        if self.statusCode != nil {
+            map["statusCode"] = self.statusCode!
+        }
+        if self.body != nil {
+            map["body"] = self.body?.toMap()
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["headers"] as? [String: String] {
+            self.headers = value
+        }
+        if let value = dict["statusCode"] as? Int32 {
+            self.statusCode = value
+        }
+        if let value = dict["body"] as? [String: Any?] {
+            var model = AddFileProtectBindMachineResponseBody()
+            model.fromMap(value)
+            self.body = model
+        }
+    }
+}
+
 public class AddIdcProbeRequest : Tea.TeaModel {
     public var idcName: String?
 
@@ -13449,6 +13577,214 @@ public class CreateFileDetectUploadUrlResponse : Tea.TeaModel {
     }
 }
 
+public class CreateFileProtectClientRuleRequest : Tea.TeaModel {
+    public var alertLevel: Int32?
+
+    public var clientToken: String?
+
+    public var excludeUsers: [String]?
+
+    public var fileOps: [String]?
+
+    public var filePaths: [String]?
+
+    public var fileTypes: [String]?
+
+    public var platform: String?
+
+    public var procPaths: [String]?
+
+    public var ruleAction: String?
+
+    public var ruleName: String?
+
+    public var status: Int32?
+
+    public var switchId: String?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.alertLevel != nil {
+            map["AlertLevel"] = self.alertLevel!
+        }
+        if self.clientToken != nil {
+            map["ClientToken"] = self.clientToken!
+        }
+        if self.excludeUsers != nil {
+            map["ExcludeUsers"] = self.excludeUsers!
+        }
+        if self.fileOps != nil {
+            map["FileOps"] = self.fileOps!
+        }
+        if self.filePaths != nil {
+            map["FilePaths"] = self.filePaths!
+        }
+        if self.fileTypes != nil {
+            map["FileTypes"] = self.fileTypes!
+        }
+        if self.platform != nil {
+            map["Platform"] = self.platform!
+        }
+        if self.procPaths != nil {
+            map["ProcPaths"] = self.procPaths!
+        }
+        if self.ruleAction != nil {
+            map["RuleAction"] = self.ruleAction!
+        }
+        if self.ruleName != nil {
+            map["RuleName"] = self.ruleName!
+        }
+        if self.status != nil {
+            map["Status"] = self.status!
+        }
+        if self.switchId != nil {
+            map["SwitchId"] = self.switchId!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["AlertLevel"] as? Int32 {
+            self.alertLevel = value
+        }
+        if let value = dict["ClientToken"] as? String {
+            self.clientToken = value
+        }
+        if let value = dict["ExcludeUsers"] as? [String] {
+            self.excludeUsers = value
+        }
+        if let value = dict["FileOps"] as? [String] {
+            self.fileOps = value
+        }
+        if let value = dict["FilePaths"] as? [String] {
+            self.filePaths = value
+        }
+        if let value = dict["FileTypes"] as? [String] {
+            self.fileTypes = value
+        }
+        if let value = dict["Platform"] as? String {
+            self.platform = value
+        }
+        if let value = dict["ProcPaths"] as? [String] {
+            self.procPaths = value
+        }
+        if let value = dict["RuleAction"] as? String {
+            self.ruleAction = value
+        }
+        if let value = dict["RuleName"] as? String {
+            self.ruleName = value
+        }
+        if let value = dict["Status"] as? Int32 {
+            self.status = value
+        }
+        if let value = dict["SwitchId"] as? String {
+            self.switchId = value
+        }
+    }
+}
+
+public class CreateFileProtectClientRuleResponseBody : Tea.TeaModel {
+    public var id: Int64?
+
+    public var requestId: String?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.id != nil {
+            map["Id"] = self.id!
+        }
+        if self.requestId != nil {
+            map["RequestId"] = self.requestId!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["Id"] as? Int64 {
+            self.id = value
+        }
+        if let value = dict["RequestId"] as? String {
+            self.requestId = value
+        }
+    }
+}
+
+public class CreateFileProtectClientRuleResponse : Tea.TeaModel {
+    public var headers: [String: String]?
+
+    public var statusCode: Int32?
+
+    public var body: CreateFileProtectClientRuleResponseBody?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.body?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.headers != nil {
+            map["headers"] = self.headers!
+        }
+        if self.statusCode != nil {
+            map["statusCode"] = self.statusCode!
+        }
+        if self.body != nil {
+            map["body"] = self.body?.toMap()
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["headers"] as? [String: String] {
+            self.headers = value
+        }
+        if let value = dict["statusCode"] as? Int32 {
+            self.statusCode = value
+        }
+        if let value = dict["body"] as? [String: Any?] {
+            var model = CreateFileProtectClientRuleResponseBody()
+            model.fromMap(value)
+            self.body = model
+        }
+    }
+}
+
 public class CreateFileProtectRuleRequest : Tea.TeaModel {
     public var alertLevel: Int32?
 
@@ -24166,6 +24502,166 @@ public class DeleteDingTalkResponse : Tea.TeaModel {
         }
         if let value = dict["body"] as? [String: Any?] {
             var model = DeleteDingTalkResponseBody()
+            model.fromMap(value)
+            self.body = model
+        }
+    }
+}
+
+public class DeleteFileProtectClientRuleRequest : Tea.TeaModel {
+    public var alertLevel: Int32?
+
+    public var excludeIdList: [Int64]?
+
+    public var idList: [Int64]?
+
+    public var platform: String?
+
+    public var ruleAction: String?
+
+    public var ruleName: String?
+
+    public var selectAll: Bool?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.alertLevel != nil {
+            map["AlertLevel"] = self.alertLevel!
+        }
+        if self.excludeIdList != nil {
+            map["ExcludeIdList"] = self.excludeIdList!
+        }
+        if self.idList != nil {
+            map["IdList"] = self.idList!
+        }
+        if self.platform != nil {
+            map["Platform"] = self.platform!
+        }
+        if self.ruleAction != nil {
+            map["RuleAction"] = self.ruleAction!
+        }
+        if self.ruleName != nil {
+            map["RuleName"] = self.ruleName!
+        }
+        if self.selectAll != nil {
+            map["SelectAll"] = self.selectAll!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["AlertLevel"] as? Int32 {
+            self.alertLevel = value
+        }
+        if let value = dict["ExcludeIdList"] as? [Int64] {
+            self.excludeIdList = value
+        }
+        if let value = dict["IdList"] as? [Int64] {
+            self.idList = value
+        }
+        if let value = dict["Platform"] as? String {
+            self.platform = value
+        }
+        if let value = dict["RuleAction"] as? String {
+            self.ruleAction = value
+        }
+        if let value = dict["RuleName"] as? String {
+            self.ruleName = value
+        }
+        if let value = dict["SelectAll"] as? Bool {
+            self.selectAll = value
+        }
+    }
+}
+
+public class DeleteFileProtectClientRuleResponseBody : Tea.TeaModel {
+    public var requestId: String?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.requestId != nil {
+            map["RequestId"] = self.requestId!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["RequestId"] as? String {
+            self.requestId = value
+        }
+    }
+}
+
+public class DeleteFileProtectClientRuleResponse : Tea.TeaModel {
+    public var headers: [String: String]?
+
+    public var statusCode: Int32?
+
+    public var body: DeleteFileProtectClientRuleResponseBody?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.body?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.headers != nil {
+            map["headers"] = self.headers!
+        }
+        if self.statusCode != nil {
+            map["statusCode"] = self.statusCode!
+        }
+        if self.body != nil {
+            map["body"] = self.body?.toMap()
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["headers"] as? [String: String] {
+            self.headers = value
+        }
+        if let value = dict["statusCode"] as? Int32 {
+            self.statusCode = value
+        }
+        if let value = dict["body"] as? [String: Any?] {
+            var model = DeleteFileProtectClientRuleResponseBody()
             model.fromMap(value)
             self.body = model
         }
@@ -135828,6 +136324,1119 @@ public class GetFileDetectResultResponse : Tea.TeaModel {
     }
 }
 
+public class GetFileProtectClientEventRequest : Tea.TeaModel {
+    public var id: Int64?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.id != nil {
+            map["Id"] = self.id!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["Id"] as? Int64 {
+            self.id = value
+        }
+    }
+}
+
+public class GetFileProtectClientEventResponseBody : Tea.TeaModel {
+    public class Data : Tea.TeaModel {
+        public var alertLevel: Int32?
+
+        public var cmdLine: String?
+
+        public var count: Int32?
+
+        public var filePath: String?
+
+        public var filePermission: String?
+
+        public var firstTime: Int64?
+
+        public var handleTime: Int64?
+
+        public var id: Int64?
+
+        public var instanceName: String?
+
+        public var internetIp: String?
+
+        public var intranetIp: String?
+
+        public var latestTime: Int64?
+
+        public var operation: String?
+
+        public var platform: String?
+
+        public var procPath: String?
+
+        public var processId: String?
+
+        public var remark: String?
+
+        public var ruleAction: String?
+
+        public var ruleName: String?
+
+        public var status: Int32?
+
+        public var userId: String?
+
+        public var userName: String?
+
+        public var uuid: String?
+
+        public override init() {
+            super.init()
+        }
+
+        public init(_ dict: [String: Any]) {
+            super.init()
+            self.fromMap(dict)
+        }
+
+        public override func validate() throws -> Void {
+        }
+
+        public override func toMap() -> [String : Any] {
+            var map = super.toMap()
+            if self.alertLevel != nil {
+                map["AlertLevel"] = self.alertLevel!
+            }
+            if self.cmdLine != nil {
+                map["CmdLine"] = self.cmdLine!
+            }
+            if self.count != nil {
+                map["Count"] = self.count!
+            }
+            if self.filePath != nil {
+                map["FilePath"] = self.filePath!
+            }
+            if self.filePermission != nil {
+                map["FilePermission"] = self.filePermission!
+            }
+            if self.firstTime != nil {
+                map["FirstTime"] = self.firstTime!
+            }
+            if self.handleTime != nil {
+                map["HandleTime"] = self.handleTime!
+            }
+            if self.id != nil {
+                map["Id"] = self.id!
+            }
+            if self.instanceName != nil {
+                map["InstanceName"] = self.instanceName!
+            }
+            if self.internetIp != nil {
+                map["InternetIp"] = self.internetIp!
+            }
+            if self.intranetIp != nil {
+                map["IntranetIp"] = self.intranetIp!
+            }
+            if self.latestTime != nil {
+                map["LatestTime"] = self.latestTime!
+            }
+            if self.operation != nil {
+                map["Operation"] = self.operation!
+            }
+            if self.platform != nil {
+                map["Platform"] = self.platform!
+            }
+            if self.procPath != nil {
+                map["ProcPath"] = self.procPath!
+            }
+            if self.processId != nil {
+                map["ProcessId"] = self.processId!
+            }
+            if self.remark != nil {
+                map["Remark"] = self.remark!
+            }
+            if self.ruleAction != nil {
+                map["RuleAction"] = self.ruleAction!
+            }
+            if self.ruleName != nil {
+                map["RuleName"] = self.ruleName!
+            }
+            if self.status != nil {
+                map["Status"] = self.status!
+            }
+            if self.userId != nil {
+                map["UserId"] = self.userId!
+            }
+            if self.userName != nil {
+                map["UserName"] = self.userName!
+            }
+            if self.uuid != nil {
+                map["Uuid"] = self.uuid!
+            }
+            return map
+        }
+
+        public override func fromMap(_ dict: [String: Any?]?) -> Void {
+            guard let dict else { return }
+            if let value = dict["AlertLevel"] as? Int32 {
+                self.alertLevel = value
+            }
+            if let value = dict["CmdLine"] as? String {
+                self.cmdLine = value
+            }
+            if let value = dict["Count"] as? Int32 {
+                self.count = value
+            }
+            if let value = dict["FilePath"] as? String {
+                self.filePath = value
+            }
+            if let value = dict["FilePermission"] as? String {
+                self.filePermission = value
+            }
+            if let value = dict["FirstTime"] as? Int64 {
+                self.firstTime = value
+            }
+            if let value = dict["HandleTime"] as? Int64 {
+                self.handleTime = value
+            }
+            if let value = dict["Id"] as? Int64 {
+                self.id = value
+            }
+            if let value = dict["InstanceName"] as? String {
+                self.instanceName = value
+            }
+            if let value = dict["InternetIp"] as? String {
+                self.internetIp = value
+            }
+            if let value = dict["IntranetIp"] as? String {
+                self.intranetIp = value
+            }
+            if let value = dict["LatestTime"] as? Int64 {
+                self.latestTime = value
+            }
+            if let value = dict["Operation"] as? String {
+                self.operation = value
+            }
+            if let value = dict["Platform"] as? String {
+                self.platform = value
+            }
+            if let value = dict["ProcPath"] as? String {
+                self.procPath = value
+            }
+            if let value = dict["ProcessId"] as? String {
+                self.processId = value
+            }
+            if let value = dict["Remark"] as? String {
+                self.remark = value
+            }
+            if let value = dict["RuleAction"] as? String {
+                self.ruleAction = value
+            }
+            if let value = dict["RuleName"] as? String {
+                self.ruleName = value
+            }
+            if let value = dict["Status"] as? Int32 {
+                self.status = value
+            }
+            if let value = dict["UserId"] as? String {
+                self.userId = value
+            }
+            if let value = dict["UserName"] as? String {
+                self.userName = value
+            }
+            if let value = dict["Uuid"] as? String {
+                self.uuid = value
+            }
+        }
+    }
+    public var data: GetFileProtectClientEventResponseBody.Data?
+
+    public var requestId: String?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.data?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.data != nil {
+            map["Data"] = self.data?.toMap()
+        }
+        if self.requestId != nil {
+            map["RequestId"] = self.requestId!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["Data"] as? [String: Any?] {
+            var model = GetFileProtectClientEventResponseBody.Data()
+            model.fromMap(value)
+            self.data = model
+        }
+        if let value = dict["RequestId"] as? String {
+            self.requestId = value
+        }
+    }
+}
+
+public class GetFileProtectClientEventResponse : Tea.TeaModel {
+    public var headers: [String: String]?
+
+    public var statusCode: Int32?
+
+    public var body: GetFileProtectClientEventResponseBody?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.body?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.headers != nil {
+            map["headers"] = self.headers!
+        }
+        if self.statusCode != nil {
+            map["statusCode"] = self.statusCode!
+        }
+        if self.body != nil {
+            map["body"] = self.body?.toMap()
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["headers"] as? [String: String] {
+            self.headers = value
+        }
+        if let value = dict["statusCode"] as? Int32 {
+            self.statusCode = value
+        }
+        if let value = dict["body"] as? [String: Any?] {
+            var model = GetFileProtectClientEventResponseBody()
+            model.fromMap(value)
+            self.body = model
+        }
+    }
+}
+
+public class GetFileProtectClientEventDashboardRequest : Tea.TeaModel {
+    public var currentPage: String?
+
+    public var endTime: Int64?
+
+    public var pageSize: String?
+
+    public var startTime: Int64?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.currentPage != nil {
+            map["CurrentPage"] = self.currentPage!
+        }
+        if self.endTime != nil {
+            map["EndTime"] = self.endTime!
+        }
+        if self.pageSize != nil {
+            map["PageSize"] = self.pageSize!
+        }
+        if self.startTime != nil {
+            map["StartTime"] = self.startTime!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["CurrentPage"] as? String {
+            self.currentPage = value
+        }
+        if let value = dict["EndTime"] as? Int64 {
+            self.endTime = value
+        }
+        if let value = dict["PageSize"] as? String {
+            self.pageSize = value
+        }
+        if let value = dict["StartTime"] as? Int64 {
+            self.startTime = value
+        }
+    }
+}
+
+public class GetFileProtectClientEventDashboardResponseBody : Tea.TeaModel {
+    public class Data : Tea.TeaModel {
+        public class FilePathStats : Tea.TeaModel {
+            public var key: String?
+
+            public var num: Int64?
+
+            public override init() {
+                super.init()
+            }
+
+            public init(_ dict: [String: Any]) {
+                super.init()
+                self.fromMap(dict)
+            }
+
+            public override func validate() throws -> Void {
+            }
+
+            public override func toMap() -> [String : Any] {
+                var map = super.toMap()
+                if self.key != nil {
+                    map["Key"] = self.key!
+                }
+                if self.num != nil {
+                    map["Num"] = self.num!
+                }
+                return map
+            }
+
+            public override func fromMap(_ dict: [String: Any?]?) -> Void {
+                guard let dict else { return }
+                if let value = dict["Key"] as? String {
+                    self.key = value
+                }
+                if let value = dict["Num"] as? Int64 {
+                    self.num = value
+                }
+            }
+        }
+        public class FileTypeStats : Tea.TeaModel {
+            public var key: String?
+
+            public var num: Int64?
+
+            public override init() {
+                super.init()
+            }
+
+            public init(_ dict: [String: Any]) {
+                super.init()
+                self.fromMap(dict)
+            }
+
+            public override func validate() throws -> Void {
+            }
+
+            public override func toMap() -> [String : Any] {
+                var map = super.toMap()
+                if self.key != nil {
+                    map["Key"] = self.key!
+                }
+                if self.num != nil {
+                    map["Num"] = self.num!
+                }
+                return map
+            }
+
+            public override func fromMap(_ dict: [String: Any?]?) -> Void {
+                guard let dict else { return }
+                if let value = dict["Key"] as? String {
+                    self.key = value
+                }
+                if let value = dict["Num"] as? Int64 {
+                    self.num = value
+                }
+            }
+        }
+        public class ProcessNameStats : Tea.TeaModel {
+            public var key: String?
+
+            public var num: Int64?
+
+            public override init() {
+                super.init()
+            }
+
+            public init(_ dict: [String: Any]) {
+                super.init()
+                self.fromMap(dict)
+            }
+
+            public override func validate() throws -> Void {
+            }
+
+            public override func toMap() -> [String : Any] {
+                var map = super.toMap()
+                if self.key != nil {
+                    map["Key"] = self.key!
+                }
+                if self.num != nil {
+                    map["Num"] = self.num!
+                }
+                return map
+            }
+
+            public override func fromMap(_ dict: [String: Any?]?) -> Void {
+                guard let dict else { return }
+                if let value = dict["Key"] as? String {
+                    self.key = value
+                }
+                if let value = dict["Num"] as? Int64 {
+                    self.num = value
+                }
+            }
+        }
+        public var filePathStats: [GetFileProtectClientEventDashboardResponseBody.Data.FilePathStats]?
+
+        public var fileTypeStats: [GetFileProtectClientEventDashboardResponseBody.Data.FileTypeStats]?
+
+        public var oneDayFileChangeCount: Int32?
+
+        public var processNameStats: [GetFileProtectClientEventDashboardResponseBody.Data.ProcessNameStats]?
+
+        public var recentFileChangeCount: Int32?
+
+        public var serverCount: Int32?
+
+        public override init() {
+            super.init()
+        }
+
+        public init(_ dict: [String: Any]) {
+            super.init()
+            self.fromMap(dict)
+        }
+
+        public override func validate() throws -> Void {
+        }
+
+        public override func toMap() -> [String : Any] {
+            var map = super.toMap()
+            if self.filePathStats != nil {
+                var tmp : [Any] = []
+                for k in self.filePathStats! {
+                    tmp.append(k.toMap())
+                }
+                map["FilePathStats"] = tmp
+            }
+            if self.fileTypeStats != nil {
+                var tmp : [Any] = []
+                for k in self.fileTypeStats! {
+                    tmp.append(k.toMap())
+                }
+                map["FileTypeStats"] = tmp
+            }
+            if self.oneDayFileChangeCount != nil {
+                map["OneDayFileChangeCount"] = self.oneDayFileChangeCount!
+            }
+            if self.processNameStats != nil {
+                var tmp : [Any] = []
+                for k in self.processNameStats! {
+                    tmp.append(k.toMap())
+                }
+                map["ProcessNameStats"] = tmp
+            }
+            if self.recentFileChangeCount != nil {
+                map["RecentFileChangeCount"] = self.recentFileChangeCount!
+            }
+            if self.serverCount != nil {
+                map["ServerCount"] = self.serverCount!
+            }
+            return map
+        }
+
+        public override func fromMap(_ dict: [String: Any?]?) -> Void {
+            guard let dict else { return }
+            if let value = dict["FilePathStats"] as? [Any?] {
+                var tmp : [GetFileProtectClientEventDashboardResponseBody.Data.FilePathStats] = []
+                for v in value {
+                    if v != nil {
+                        var model = GetFileProtectClientEventDashboardResponseBody.Data.FilePathStats()
+                        if v != nil {
+                            model.fromMap(v as? [String: Any?])
+                        }
+                        tmp.append(model)
+                    }
+                }
+                self.filePathStats = tmp
+            }
+            if let value = dict["FileTypeStats"] as? [Any?] {
+                var tmp : [GetFileProtectClientEventDashboardResponseBody.Data.FileTypeStats] = []
+                for v in value {
+                    if v != nil {
+                        var model = GetFileProtectClientEventDashboardResponseBody.Data.FileTypeStats()
+                        if v != nil {
+                            model.fromMap(v as? [String: Any?])
+                        }
+                        tmp.append(model)
+                    }
+                }
+                self.fileTypeStats = tmp
+            }
+            if let value = dict["OneDayFileChangeCount"] as? Int32 {
+                self.oneDayFileChangeCount = value
+            }
+            if let value = dict["ProcessNameStats"] as? [Any?] {
+                var tmp : [GetFileProtectClientEventDashboardResponseBody.Data.ProcessNameStats] = []
+                for v in value {
+                    if v != nil {
+                        var model = GetFileProtectClientEventDashboardResponseBody.Data.ProcessNameStats()
+                        if v != nil {
+                            model.fromMap(v as? [String: Any?])
+                        }
+                        tmp.append(model)
+                    }
+                }
+                self.processNameStats = tmp
+            }
+            if let value = dict["RecentFileChangeCount"] as? Int32 {
+                self.recentFileChangeCount = value
+            }
+            if let value = dict["ServerCount"] as? Int32 {
+                self.serverCount = value
+            }
+        }
+    }
+    public var data: GetFileProtectClientEventDashboardResponseBody.Data?
+
+    public var requestId: String?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.data?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.data != nil {
+            map["Data"] = self.data?.toMap()
+        }
+        if self.requestId != nil {
+            map["RequestId"] = self.requestId!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["Data"] as? [String: Any?] {
+            var model = GetFileProtectClientEventDashboardResponseBody.Data()
+            model.fromMap(value)
+            self.data = model
+        }
+        if let value = dict["RequestId"] as? String {
+            self.requestId = value
+        }
+    }
+}
+
+public class GetFileProtectClientEventDashboardResponse : Tea.TeaModel {
+    public var headers: [String: String]?
+
+    public var statusCode: Int32?
+
+    public var body: GetFileProtectClientEventDashboardResponseBody?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.body?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.headers != nil {
+            map["headers"] = self.headers!
+        }
+        if self.statusCode != nil {
+            map["statusCode"] = self.statusCode!
+        }
+        if self.body != nil {
+            map["body"] = self.body?.toMap()
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["headers"] as? [String: String] {
+            self.headers = value
+        }
+        if let value = dict["statusCode"] as? Int32 {
+            self.statusCode = value
+        }
+        if let value = dict["body"] as? [String: Any?] {
+            var model = GetFileProtectClientEventDashboardResponseBody()
+            model.fromMap(value)
+            self.body = model
+        }
+    }
+}
+
+public class GetFileProtectClientRuleRequest : Tea.TeaModel {
+    public var id: Int64?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.id != nil {
+            map["Id"] = self.id!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["Id"] as? Int64 {
+            self.id = value
+        }
+    }
+}
+
+public class GetFileProtectClientRuleResponseBody : Tea.TeaModel {
+    public class Data : Tea.TeaModel {
+        public var alertLevel: Int32?
+
+        public var excludeUsers: [String]?
+
+        public var fileOps: [String]?
+
+        public var filePaths: [String]?
+
+        public var fileTypes: [String]?
+
+        public var id: Int64?
+
+        public var platform: String?
+
+        public var procPaths: [String]?
+
+        public var ruleAction: String?
+
+        public var ruleName: String?
+
+        public var status: Int32?
+
+        public var switchId: String?
+
+        public override init() {
+            super.init()
+        }
+
+        public init(_ dict: [String: Any]) {
+            super.init()
+            self.fromMap(dict)
+        }
+
+        public override func validate() throws -> Void {
+        }
+
+        public override func toMap() -> [String : Any] {
+            var map = super.toMap()
+            if self.alertLevel != nil {
+                map["AlertLevel"] = self.alertLevel!
+            }
+            if self.excludeUsers != nil {
+                map["ExcludeUsers"] = self.excludeUsers!
+            }
+            if self.fileOps != nil {
+                map["FileOps"] = self.fileOps!
+            }
+            if self.filePaths != nil {
+                map["FilePaths"] = self.filePaths!
+            }
+            if self.fileTypes != nil {
+                map["FileTypes"] = self.fileTypes!
+            }
+            if self.id != nil {
+                map["Id"] = self.id!
+            }
+            if self.platform != nil {
+                map["Platform"] = self.platform!
+            }
+            if self.procPaths != nil {
+                map["ProcPaths"] = self.procPaths!
+            }
+            if self.ruleAction != nil {
+                map["RuleAction"] = self.ruleAction!
+            }
+            if self.ruleName != nil {
+                map["RuleName"] = self.ruleName!
+            }
+            if self.status != nil {
+                map["Status"] = self.status!
+            }
+            if self.switchId != nil {
+                map["SwitchId"] = self.switchId!
+            }
+            return map
+        }
+
+        public override func fromMap(_ dict: [String: Any?]?) -> Void {
+            guard let dict else { return }
+            if let value = dict["AlertLevel"] as? Int32 {
+                self.alertLevel = value
+            }
+            if let value = dict["ExcludeUsers"] as? [String] {
+                self.excludeUsers = value
+            }
+            if let value = dict["FileOps"] as? [String] {
+                self.fileOps = value
+            }
+            if let value = dict["FilePaths"] as? [String] {
+                self.filePaths = value
+            }
+            if let value = dict["FileTypes"] as? [String] {
+                self.fileTypes = value
+            }
+            if let value = dict["Id"] as? Int64 {
+                self.id = value
+            }
+            if let value = dict["Platform"] as? String {
+                self.platform = value
+            }
+            if let value = dict["ProcPaths"] as? [String] {
+                self.procPaths = value
+            }
+            if let value = dict["RuleAction"] as? String {
+                self.ruleAction = value
+            }
+            if let value = dict["RuleName"] as? String {
+                self.ruleName = value
+            }
+            if let value = dict["Status"] as? Int32 {
+                self.status = value
+            }
+            if let value = dict["SwitchId"] as? String {
+                self.switchId = value
+            }
+        }
+    }
+    public var data: GetFileProtectClientRuleResponseBody.Data?
+
+    public var requestId: String?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.data?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.data != nil {
+            map["Data"] = self.data?.toMap()
+        }
+        if self.requestId != nil {
+            map["RequestId"] = self.requestId!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["Data"] as? [String: Any?] {
+            var model = GetFileProtectClientRuleResponseBody.Data()
+            model.fromMap(value)
+            self.data = model
+        }
+        if let value = dict["RequestId"] as? String {
+            self.requestId = value
+        }
+    }
+}
+
+public class GetFileProtectClientRuleResponse : Tea.TeaModel {
+    public var headers: [String: String]?
+
+    public var statusCode: Int32?
+
+    public var body: GetFileProtectClientRuleResponseBody?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.body?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.headers != nil {
+            map["headers"] = self.headers!
+        }
+        if self.statusCode != nil {
+            map["statusCode"] = self.statusCode!
+        }
+        if self.body != nil {
+            map["body"] = self.body?.toMap()
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["headers"] as? [String: String] {
+            self.headers = value
+        }
+        if let value = dict["statusCode"] as? Int32 {
+            self.statusCode = value
+        }
+        if let value = dict["body"] as? [String: Any?] {
+            var model = GetFileProtectClientRuleResponseBody()
+            model.fromMap(value)
+            self.body = model
+        }
+    }
+}
+
+public class GetFileProtectClientRuleDashboardRequest : Tea.TeaModel {
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+    }
+}
+
+public class GetFileProtectClientRuleDashboardResponseBody : Tea.TeaModel {
+    public class Data : Tea.TeaModel {
+        public var authTotal: String?
+
+        public var bindCount: Int32?
+
+        public var protectedDirectoriesCount: Int32?
+
+        public var protectedInstancesCount: Int32?
+
+        public override init() {
+            super.init()
+        }
+
+        public init(_ dict: [String: Any]) {
+            super.init()
+            self.fromMap(dict)
+        }
+
+        public override func validate() throws -> Void {
+        }
+
+        public override func toMap() -> [String : Any] {
+            var map = super.toMap()
+            if self.authTotal != nil {
+                map["AuthTotal"] = self.authTotal!
+            }
+            if self.bindCount != nil {
+                map["BindCount"] = self.bindCount!
+            }
+            if self.protectedDirectoriesCount != nil {
+                map["ProtectedDirectoriesCount"] = self.protectedDirectoriesCount!
+            }
+            if self.protectedInstancesCount != nil {
+                map["ProtectedInstancesCount"] = self.protectedInstancesCount!
+            }
+            return map
+        }
+
+        public override func fromMap(_ dict: [String: Any?]?) -> Void {
+            guard let dict else { return }
+            if let value = dict["AuthTotal"] as? String {
+                self.authTotal = value
+            }
+            if let value = dict["BindCount"] as? Int32 {
+                self.bindCount = value
+            }
+            if let value = dict["ProtectedDirectoriesCount"] as? Int32 {
+                self.protectedDirectoriesCount = value
+            }
+            if let value = dict["ProtectedInstancesCount"] as? Int32 {
+                self.protectedInstancesCount = value
+            }
+        }
+    }
+    public var data: GetFileProtectClientRuleDashboardResponseBody.Data?
+
+    public var requestId: String?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.data?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.data != nil {
+            map["Data"] = self.data?.toMap()
+        }
+        if self.requestId != nil {
+            map["RequestId"] = self.requestId!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["Data"] as? [String: Any?] {
+            var model = GetFileProtectClientRuleDashboardResponseBody.Data()
+            model.fromMap(value)
+            self.data = model
+        }
+        if let value = dict["RequestId"] as? String {
+            self.requestId = value
+        }
+    }
+}
+
+public class GetFileProtectClientRuleDashboardResponse : Tea.TeaModel {
+    public var headers: [String: String]?
+
+    public var statusCode: Int32?
+
+    public var body: GetFileProtectClientRuleDashboardResponseBody?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.body?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.headers != nil {
+            map["headers"] = self.headers!
+        }
+        if self.statusCode != nil {
+            map["statusCode"] = self.statusCode!
+        }
+        if self.body != nil {
+            map["body"] = self.body?.toMap()
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["headers"] as? [String: String] {
+            self.headers = value
+        }
+        if let value = dict["statusCode"] as? Int32 {
+            self.statusCode = value
+        }
+        if let value = dict["body"] as? [String: Any?] {
+            var model = GetFileProtectClientRuleDashboardResponseBody()
+            model.fromMap(value)
+            self.body = model
+        }
+    }
+}
+
 public class GetFileProtectDashboardResponseBody : Tea.TeaModel {
     public class Data : Tea.TeaModel {
         public var enableRuleCount: Int32?
@@ -171486,6 +173095,1162 @@ public class ListDockerhubImageResponse : Tea.TeaModel {
         }
         if let value = dict["body"] as? [String: Any?] {
             var model = ListDockerhubImageResponseBody()
+            model.fromMap(value)
+            self.body = model
+        }
+    }
+}
+
+public class ListFileProtectBindMachineRequest : Tea.TeaModel {
+    public var currentPage: Int32?
+
+    public var pageSize: Int32?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.currentPage != nil {
+            map["CurrentPage"] = self.currentPage!
+        }
+        if self.pageSize != nil {
+            map["PageSize"] = self.pageSize!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["CurrentPage"] as? Int32 {
+            self.currentPage = value
+        }
+        if let value = dict["PageSize"] as? Int32 {
+            self.pageSize = value
+        }
+    }
+}
+
+public class ListFileProtectBindMachineResponseBody : Tea.TeaModel {
+    public class PageInfo : Tea.TeaModel {
+        public var count: Int64?
+
+        public var totalCount: Int64?
+
+        public override init() {
+            super.init()
+        }
+
+        public init(_ dict: [String: Any]) {
+            super.init()
+            self.fromMap(dict)
+        }
+
+        public override func validate() throws -> Void {
+        }
+
+        public override func toMap() -> [String : Any] {
+            var map = super.toMap()
+            if self.count != nil {
+                map["Count"] = self.count!
+            }
+            if self.totalCount != nil {
+                map["TotalCount"] = self.totalCount!
+            }
+            return map
+        }
+
+        public override func fromMap(_ dict: [String: Any?]?) -> Void {
+            guard let dict else { return }
+            if let value = dict["Count"] as? Int64 {
+                self.count = value
+            }
+            if let value = dict["TotalCount"] as? Int64 {
+                self.totalCount = value
+            }
+        }
+    }
+    public var list: [String]?
+
+    public var pageInfo: ListFileProtectBindMachineResponseBody.PageInfo?
+
+    public var requestId: String?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.pageInfo?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.list != nil {
+            map["List"] = self.list!
+        }
+        if self.pageInfo != nil {
+            map["PageInfo"] = self.pageInfo?.toMap()
+        }
+        if self.requestId != nil {
+            map["RequestId"] = self.requestId!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["List"] as? [String] {
+            self.list = value
+        }
+        if let value = dict["PageInfo"] as? [String: Any?] {
+            var model = ListFileProtectBindMachineResponseBody.PageInfo()
+            model.fromMap(value)
+            self.pageInfo = model
+        }
+        if let value = dict["RequestId"] as? String {
+            self.requestId = value
+        }
+    }
+}
+
+public class ListFileProtectBindMachineResponse : Tea.TeaModel {
+    public var headers: [String: String]?
+
+    public var statusCode: Int32?
+
+    public var body: ListFileProtectBindMachineResponseBody?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.body?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.headers != nil {
+            map["headers"] = self.headers!
+        }
+        if self.statusCode != nil {
+            map["statusCode"] = self.statusCode!
+        }
+        if self.body != nil {
+            map["body"] = self.body?.toMap()
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["headers"] as? [String: String] {
+            self.headers = value
+        }
+        if let value = dict["statusCode"] as? Int32 {
+            self.statusCode = value
+        }
+        if let value = dict["body"] as? [String: Any?] {
+            var model = ListFileProtectBindMachineResponseBody()
+            model.fromMap(value)
+            self.body = model
+        }
+    }
+}
+
+public class ListFileProtectClientEventRequest : Tea.TeaModel {
+    public var alertLevels: [Int32]?
+
+    public var currentPage: Int32?
+
+    public var endTime: Int64?
+
+    public var filePath: String?
+
+    public var instanceId: String?
+
+    public var instanceName: String?
+
+    public var internetIp: String?
+
+    public var intranetIp: String?
+
+    public var operation: String?
+
+    public var pageSize: Int32?
+
+    public var procPath: String?
+
+    public var ruleName: String?
+
+    public var startTime: Int64?
+
+    public var status: String?
+
+    public var uuid: String?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.alertLevels != nil {
+            map["AlertLevels"] = self.alertLevels!
+        }
+        if self.currentPage != nil {
+            map["CurrentPage"] = self.currentPage!
+        }
+        if self.endTime != nil {
+            map["EndTime"] = self.endTime!
+        }
+        if self.filePath != nil {
+            map["FilePath"] = self.filePath!
+        }
+        if self.instanceId != nil {
+            map["InstanceId"] = self.instanceId!
+        }
+        if self.instanceName != nil {
+            map["InstanceName"] = self.instanceName!
+        }
+        if self.internetIp != nil {
+            map["InternetIp"] = self.internetIp!
+        }
+        if self.intranetIp != nil {
+            map["IntranetIp"] = self.intranetIp!
+        }
+        if self.operation != nil {
+            map["Operation"] = self.operation!
+        }
+        if self.pageSize != nil {
+            map["PageSize"] = self.pageSize!
+        }
+        if self.procPath != nil {
+            map["ProcPath"] = self.procPath!
+        }
+        if self.ruleName != nil {
+            map["RuleName"] = self.ruleName!
+        }
+        if self.startTime != nil {
+            map["StartTime"] = self.startTime!
+        }
+        if self.status != nil {
+            map["Status"] = self.status!
+        }
+        if self.uuid != nil {
+            map["Uuid"] = self.uuid!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["AlertLevels"] as? [Int32] {
+            self.alertLevels = value
+        }
+        if let value = dict["CurrentPage"] as? Int32 {
+            self.currentPage = value
+        }
+        if let value = dict["EndTime"] as? Int64 {
+            self.endTime = value
+        }
+        if let value = dict["FilePath"] as? String {
+            self.filePath = value
+        }
+        if let value = dict["InstanceId"] as? String {
+            self.instanceId = value
+        }
+        if let value = dict["InstanceName"] as? String {
+            self.instanceName = value
+        }
+        if let value = dict["InternetIp"] as? String {
+            self.internetIp = value
+        }
+        if let value = dict["IntranetIp"] as? String {
+            self.intranetIp = value
+        }
+        if let value = dict["Operation"] as? String {
+            self.operation = value
+        }
+        if let value = dict["PageSize"] as? Int32 {
+            self.pageSize = value
+        }
+        if let value = dict["ProcPath"] as? String {
+            self.procPath = value
+        }
+        if let value = dict["RuleName"] as? String {
+            self.ruleName = value
+        }
+        if let value = dict["StartTime"] as? Int64 {
+            self.startTime = value
+        }
+        if let value = dict["Status"] as? String {
+            self.status = value
+        }
+        if let value = dict["Uuid"] as? String {
+            self.uuid = value
+        }
+    }
+}
+
+public class ListFileProtectClientEventResponseBody : Tea.TeaModel {
+    public class EventList : Tea.TeaModel {
+        public var alertLevel: Int32?
+
+        public var cmdLine: String?
+
+        public var count: Int32?
+
+        public var filePath: String?
+
+        public var firstTime: Int64?
+
+        public var handleTime: Int64?
+
+        public var id: Int64?
+
+        public var instanceName: String?
+
+        public var internetIp: String?
+
+        public var intranetIp: String?
+
+        public var latestTime: Int64?
+
+        public var operation: String?
+
+        public var platform: String?
+
+        public var procPath: String?
+
+        public var procPermission: String?
+
+        public var processId: String?
+
+        public var remark: String?
+
+        public var ruleAction: String?
+
+        public var ruleName: String?
+
+        public var status: Int32?
+
+        public var uuid: String?
+
+        public override init() {
+            super.init()
+        }
+
+        public init(_ dict: [String: Any]) {
+            super.init()
+            self.fromMap(dict)
+        }
+
+        public override func validate() throws -> Void {
+        }
+
+        public override func toMap() -> [String : Any] {
+            var map = super.toMap()
+            if self.alertLevel != nil {
+                map["AlertLevel"] = self.alertLevel!
+            }
+            if self.cmdLine != nil {
+                map["CmdLine"] = self.cmdLine!
+            }
+            if self.count != nil {
+                map["Count"] = self.count!
+            }
+            if self.filePath != nil {
+                map["FilePath"] = self.filePath!
+            }
+            if self.firstTime != nil {
+                map["FirstTime"] = self.firstTime!
+            }
+            if self.handleTime != nil {
+                map["HandleTime"] = self.handleTime!
+            }
+            if self.id != nil {
+                map["Id"] = self.id!
+            }
+            if self.instanceName != nil {
+                map["InstanceName"] = self.instanceName!
+            }
+            if self.internetIp != nil {
+                map["InternetIp"] = self.internetIp!
+            }
+            if self.intranetIp != nil {
+                map["IntranetIp"] = self.intranetIp!
+            }
+            if self.latestTime != nil {
+                map["LatestTime"] = self.latestTime!
+            }
+            if self.operation != nil {
+                map["Operation"] = self.operation!
+            }
+            if self.platform != nil {
+                map["Platform"] = self.platform!
+            }
+            if self.procPath != nil {
+                map["ProcPath"] = self.procPath!
+            }
+            if self.procPermission != nil {
+                map["ProcPermission"] = self.procPermission!
+            }
+            if self.processId != nil {
+                map["ProcessId"] = self.processId!
+            }
+            if self.remark != nil {
+                map["Remark"] = self.remark!
+            }
+            if self.ruleAction != nil {
+                map["RuleAction"] = self.ruleAction!
+            }
+            if self.ruleName != nil {
+                map["RuleName"] = self.ruleName!
+            }
+            if self.status != nil {
+                map["Status"] = self.status!
+            }
+            if self.uuid != nil {
+                map["Uuid"] = self.uuid!
+            }
+            return map
+        }
+
+        public override func fromMap(_ dict: [String: Any?]?) -> Void {
+            guard let dict else { return }
+            if let value = dict["AlertLevel"] as? Int32 {
+                self.alertLevel = value
+            }
+            if let value = dict["CmdLine"] as? String {
+                self.cmdLine = value
+            }
+            if let value = dict["Count"] as? Int32 {
+                self.count = value
+            }
+            if let value = dict["FilePath"] as? String {
+                self.filePath = value
+            }
+            if let value = dict["FirstTime"] as? Int64 {
+                self.firstTime = value
+            }
+            if let value = dict["HandleTime"] as? Int64 {
+                self.handleTime = value
+            }
+            if let value = dict["Id"] as? Int64 {
+                self.id = value
+            }
+            if let value = dict["InstanceName"] as? String {
+                self.instanceName = value
+            }
+            if let value = dict["InternetIp"] as? String {
+                self.internetIp = value
+            }
+            if let value = dict["IntranetIp"] as? String {
+                self.intranetIp = value
+            }
+            if let value = dict["LatestTime"] as? Int64 {
+                self.latestTime = value
+            }
+            if let value = dict["Operation"] as? String {
+                self.operation = value
+            }
+            if let value = dict["Platform"] as? String {
+                self.platform = value
+            }
+            if let value = dict["ProcPath"] as? String {
+                self.procPath = value
+            }
+            if let value = dict["ProcPermission"] as? String {
+                self.procPermission = value
+            }
+            if let value = dict["ProcessId"] as? String {
+                self.processId = value
+            }
+            if let value = dict["Remark"] as? String {
+                self.remark = value
+            }
+            if let value = dict["RuleAction"] as? String {
+                self.ruleAction = value
+            }
+            if let value = dict["RuleName"] as? String {
+                self.ruleName = value
+            }
+            if let value = dict["Status"] as? Int32 {
+                self.status = value
+            }
+            if let value = dict["Uuid"] as? String {
+                self.uuid = value
+            }
+        }
+    }
+    public class PageInfo : Tea.TeaModel {
+        public var currentPage: Int32?
+
+        public var pageSize: Int32?
+
+        public var totalCount: Int32?
+
+        public override init() {
+            super.init()
+        }
+
+        public init(_ dict: [String: Any]) {
+            super.init()
+            self.fromMap(dict)
+        }
+
+        public override func validate() throws -> Void {
+        }
+
+        public override func toMap() -> [String : Any] {
+            var map = super.toMap()
+            if self.currentPage != nil {
+                map["CurrentPage"] = self.currentPage!
+            }
+            if self.pageSize != nil {
+                map["PageSize"] = self.pageSize!
+            }
+            if self.totalCount != nil {
+                map["TotalCount"] = self.totalCount!
+            }
+            return map
+        }
+
+        public override func fromMap(_ dict: [String: Any?]?) -> Void {
+            guard let dict else { return }
+            if let value = dict["CurrentPage"] as? Int32 {
+                self.currentPage = value
+            }
+            if let value = dict["PageSize"] as? Int32 {
+                self.pageSize = value
+            }
+            if let value = dict["TotalCount"] as? Int32 {
+                self.totalCount = value
+            }
+        }
+    }
+    public var eventList: [ListFileProtectClientEventResponseBody.EventList]?
+
+    public var pageInfo: ListFileProtectClientEventResponseBody.PageInfo?
+
+    public var requestId: String?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.pageInfo?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.eventList != nil {
+            var tmp : [Any] = []
+            for k in self.eventList! {
+                tmp.append(k.toMap())
+            }
+            map["EventList"] = tmp
+        }
+        if self.pageInfo != nil {
+            map["PageInfo"] = self.pageInfo?.toMap()
+        }
+        if self.requestId != nil {
+            map["RequestId"] = self.requestId!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["EventList"] as? [Any?] {
+            var tmp : [ListFileProtectClientEventResponseBody.EventList] = []
+            for v in value {
+                if v != nil {
+                    var model = ListFileProtectClientEventResponseBody.EventList()
+                    if v != nil {
+                        model.fromMap(v as? [String: Any?])
+                    }
+                    tmp.append(model)
+                }
+            }
+            self.eventList = tmp
+        }
+        if let value = dict["PageInfo"] as? [String: Any?] {
+            var model = ListFileProtectClientEventResponseBody.PageInfo()
+            model.fromMap(value)
+            self.pageInfo = model
+        }
+        if let value = dict["RequestId"] as? String {
+            self.requestId = value
+        }
+    }
+}
+
+public class ListFileProtectClientEventResponse : Tea.TeaModel {
+    public var headers: [String: String]?
+
+    public var statusCode: Int32?
+
+    public var body: ListFileProtectClientEventResponseBody?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.body?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.headers != nil {
+            map["headers"] = self.headers!
+        }
+        if self.statusCode != nil {
+            map["statusCode"] = self.statusCode!
+        }
+        if self.body != nil {
+            map["body"] = self.body?.toMap()
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["headers"] as? [String: String] {
+            self.headers = value
+        }
+        if let value = dict["statusCode"] as? Int32 {
+            self.statusCode = value
+        }
+        if let value = dict["body"] as? [String: Any?] {
+            var model = ListFileProtectClientEventResponseBody()
+            model.fromMap(value)
+            self.body = model
+        }
+    }
+}
+
+public class ListFileProtectClientRuleRequest : Tea.TeaModel {
+    public var alertLevel: Int32?
+
+    public var currentPage: Int32?
+
+    public var pageSize: Int32?
+
+    public var platform: String?
+
+    public var ruleAction: String?
+
+    public var ruleName: String?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.alertLevel != nil {
+            map["AlertLevel"] = self.alertLevel!
+        }
+        if self.currentPage != nil {
+            map["CurrentPage"] = self.currentPage!
+        }
+        if self.pageSize != nil {
+            map["PageSize"] = self.pageSize!
+        }
+        if self.platform != nil {
+            map["Platform"] = self.platform!
+        }
+        if self.ruleAction != nil {
+            map["RuleAction"] = self.ruleAction!
+        }
+        if self.ruleName != nil {
+            map["RuleName"] = self.ruleName!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["AlertLevel"] as? Int32 {
+            self.alertLevel = value
+        }
+        if let value = dict["CurrentPage"] as? Int32 {
+            self.currentPage = value
+        }
+        if let value = dict["PageSize"] as? Int32 {
+            self.pageSize = value
+        }
+        if let value = dict["Platform"] as? String {
+            self.platform = value
+        }
+        if let value = dict["RuleAction"] as? String {
+            self.ruleAction = value
+        }
+        if let value = dict["RuleName"] as? String {
+            self.ruleName = value
+        }
+    }
+}
+
+public class ListFileProtectClientRuleResponseBody : Tea.TeaModel {
+    public class FileProtectList : Tea.TeaModel {
+        public var alertLevel: Int32?
+
+        public var effectInstanceCount: Int64?
+
+        public var excludeUsers: [String]?
+
+        public var fileOps: [String]?
+
+        public var filePaths: [String]?
+
+        public var fileTypes: [String]?
+
+        public var gmtCreate: Int64?
+
+        public var gmtModified: Int64?
+
+        public var id: Int64?
+
+        public var platform: String?
+
+        public var procPaths: [String]?
+
+        public var ruleAction: String?
+
+        public var ruleName: String?
+
+        public var status: Int32?
+
+        public var switchId: String?
+
+        public override init() {
+            super.init()
+        }
+
+        public init(_ dict: [String: Any]) {
+            super.init()
+            self.fromMap(dict)
+        }
+
+        public override func validate() throws -> Void {
+        }
+
+        public override func toMap() -> [String : Any] {
+            var map = super.toMap()
+            if self.alertLevel != nil {
+                map["AlertLevel"] = self.alertLevel!
+            }
+            if self.effectInstanceCount != nil {
+                map["EffectInstanceCount"] = self.effectInstanceCount!
+            }
+            if self.excludeUsers != nil {
+                map["ExcludeUsers"] = self.excludeUsers!
+            }
+            if self.fileOps != nil {
+                map["FileOps"] = self.fileOps!
+            }
+            if self.filePaths != nil {
+                map["FilePaths"] = self.filePaths!
+            }
+            if self.fileTypes != nil {
+                map["FileTypes"] = self.fileTypes!
+            }
+            if self.gmtCreate != nil {
+                map["GmtCreate"] = self.gmtCreate!
+            }
+            if self.gmtModified != nil {
+                map["GmtModified"] = self.gmtModified!
+            }
+            if self.id != nil {
+                map["Id"] = self.id!
+            }
+            if self.platform != nil {
+                map["Platform"] = self.platform!
+            }
+            if self.procPaths != nil {
+                map["ProcPaths"] = self.procPaths!
+            }
+            if self.ruleAction != nil {
+                map["RuleAction"] = self.ruleAction!
+            }
+            if self.ruleName != nil {
+                map["RuleName"] = self.ruleName!
+            }
+            if self.status != nil {
+                map["Status"] = self.status!
+            }
+            if self.switchId != nil {
+                map["SwitchId"] = self.switchId!
+            }
+            return map
+        }
+
+        public override func fromMap(_ dict: [String: Any?]?) -> Void {
+            guard let dict else { return }
+            if let value = dict["AlertLevel"] as? Int32 {
+                self.alertLevel = value
+            }
+            if let value = dict["EffectInstanceCount"] as? Int64 {
+                self.effectInstanceCount = value
+            }
+            if let value = dict["ExcludeUsers"] as? [String] {
+                self.excludeUsers = value
+            }
+            if let value = dict["FileOps"] as? [String] {
+                self.fileOps = value
+            }
+            if let value = dict["FilePaths"] as? [String] {
+                self.filePaths = value
+            }
+            if let value = dict["FileTypes"] as? [String] {
+                self.fileTypes = value
+            }
+            if let value = dict["GmtCreate"] as? Int64 {
+                self.gmtCreate = value
+            }
+            if let value = dict["GmtModified"] as? Int64 {
+                self.gmtModified = value
+            }
+            if let value = dict["Id"] as? Int64 {
+                self.id = value
+            }
+            if let value = dict["Platform"] as? String {
+                self.platform = value
+            }
+            if let value = dict["ProcPaths"] as? [String] {
+                self.procPaths = value
+            }
+            if let value = dict["RuleAction"] as? String {
+                self.ruleAction = value
+            }
+            if let value = dict["RuleName"] as? String {
+                self.ruleName = value
+            }
+            if let value = dict["Status"] as? Int32 {
+                self.status = value
+            }
+            if let value = dict["SwitchId"] as? String {
+                self.switchId = value
+            }
+        }
+    }
+    public class PageInfo : Tea.TeaModel {
+        public var currentPage: Int32?
+
+        public var pageSize: Int32?
+
+        public var totalCount: Int32?
+
+        public override init() {
+            super.init()
+        }
+
+        public init(_ dict: [String: Any]) {
+            super.init()
+            self.fromMap(dict)
+        }
+
+        public override func validate() throws -> Void {
+        }
+
+        public override func toMap() -> [String : Any] {
+            var map = super.toMap()
+            if self.currentPage != nil {
+                map["CurrentPage"] = self.currentPage!
+            }
+            if self.pageSize != nil {
+                map["PageSize"] = self.pageSize!
+            }
+            if self.totalCount != nil {
+                map["TotalCount"] = self.totalCount!
+            }
+            return map
+        }
+
+        public override func fromMap(_ dict: [String: Any?]?) -> Void {
+            guard let dict else { return }
+            if let value = dict["CurrentPage"] as? Int32 {
+                self.currentPage = value
+            }
+            if let value = dict["PageSize"] as? Int32 {
+                self.pageSize = value
+            }
+            if let value = dict["TotalCount"] as? Int32 {
+                self.totalCount = value
+            }
+        }
+    }
+    public var fileProtectList: [ListFileProtectClientRuleResponseBody.FileProtectList]?
+
+    public var pageInfo: ListFileProtectClientRuleResponseBody.PageInfo?
+
+    public var requestId: String?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.pageInfo?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.fileProtectList != nil {
+            var tmp : [Any] = []
+            for k in self.fileProtectList! {
+                tmp.append(k.toMap())
+            }
+            map["FileProtectList"] = tmp
+        }
+        if self.pageInfo != nil {
+            map["PageInfo"] = self.pageInfo?.toMap()
+        }
+        if self.requestId != nil {
+            map["RequestId"] = self.requestId!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["FileProtectList"] as? [Any?] {
+            var tmp : [ListFileProtectClientRuleResponseBody.FileProtectList] = []
+            for v in value {
+                if v != nil {
+                    var model = ListFileProtectClientRuleResponseBody.FileProtectList()
+                    if v != nil {
+                        model.fromMap(v as? [String: Any?])
+                    }
+                    tmp.append(model)
+                }
+            }
+            self.fileProtectList = tmp
+        }
+        if let value = dict["PageInfo"] as? [String: Any?] {
+            var model = ListFileProtectClientRuleResponseBody.PageInfo()
+            model.fromMap(value)
+            self.pageInfo = model
+        }
+        if let value = dict["RequestId"] as? String {
+            self.requestId = value
+        }
+    }
+}
+
+public class ListFileProtectClientRuleResponse : Tea.TeaModel {
+    public var headers: [String: String]?
+
+    public var statusCode: Int32?
+
+    public var body: ListFileProtectClientRuleResponseBody?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.body?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.headers != nil {
+            map["headers"] = self.headers!
+        }
+        if self.statusCode != nil {
+            map["statusCode"] = self.statusCode!
+        }
+        if self.body != nil {
+            map["body"] = self.body?.toMap()
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["headers"] as? [String: String] {
+            self.headers = value
+        }
+        if let value = dict["statusCode"] as? Int32 {
+            self.statusCode = value
+        }
+        if let value = dict["body"] as? [String: Any?] {
+            var model = ListFileProtectClientRuleResponseBody()
+            model.fromMap(value)
+            self.body = model
+        }
+    }
+}
+
+public class ListFileProtectClientRuleFileTypeRequest : Tea.TeaModel {
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+    }
+}
+
+public class ListFileProtectClientRuleFileTypeResponseBody : Tea.TeaModel {
+    public var fileTypes: [String]?
+
+    public var requestId: String?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.fileTypes != nil {
+            map["FileTypes"] = self.fileTypes!
+        }
+        if self.requestId != nil {
+            map["RequestId"] = self.requestId!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["FileTypes"] as? [String] {
+            self.fileTypes = value
+        }
+        if let value = dict["RequestId"] as? String {
+            self.requestId = value
+        }
+    }
+}
+
+public class ListFileProtectClientRuleFileTypeResponse : Tea.TeaModel {
+    public var headers: [String: String]?
+
+    public var statusCode: Int32?
+
+    public var body: ListFileProtectClientRuleFileTypeResponseBody?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.body?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.headers != nil {
+            map["headers"] = self.headers!
+        }
+        if self.statusCode != nil {
+            map["statusCode"] = self.statusCode!
+        }
+        if self.body != nil {
+            map["body"] = self.body?.toMap()
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["headers"] as? [String: String] {
+            self.headers = value
+        }
+        if let value = dict["statusCode"] as? Int32 {
+            self.statusCode = value
+        }
+        if let value = dict["body"] as? [String: Any?] {
+            var model = ListFileProtectClientRuleFileTypeResponseBody()
             model.fromMap(value)
             self.body = model
         }
@@ -222528,6 +225293,606 @@ public class UpdateCustomizeReportStatusResponse : Tea.TeaModel {
         }
         if let value = dict["body"] as? [String: Any?] {
             var model = UpdateCustomizeReportStatusResponseBody()
+            model.fromMap(value)
+            self.body = model
+        }
+    }
+}
+
+public class UpdateFileProtectClientEventRequest : Tea.TeaModel {
+    public var alertLevels: [Int32]?
+
+    public var endTime: Int64?
+
+    public var excludeIdList: [Int64]?
+
+    public var filePath: String?
+
+    public var idList: [Int64]?
+
+    public var instanceId: String?
+
+    public var instanceName: String?
+
+    public var internetIp: String?
+
+    public var intranetIp: String?
+
+    public var newStatus: Int32?
+
+    public var operation: String?
+
+    public var procPath: String?
+
+    public var remark: [String]?
+
+    public var ruleName: String?
+
+    public var selectAll: Bool?
+
+    public var startTime: Int64?
+
+    public var status: String?
+
+    public var uuid: String?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.alertLevels != nil {
+            map["AlertLevels"] = self.alertLevels!
+        }
+        if self.endTime != nil {
+            map["EndTime"] = self.endTime!
+        }
+        if self.excludeIdList != nil {
+            map["ExcludeIdList"] = self.excludeIdList!
+        }
+        if self.filePath != nil {
+            map["FilePath"] = self.filePath!
+        }
+        if self.idList != nil {
+            map["IdList"] = self.idList!
+        }
+        if self.instanceId != nil {
+            map["InstanceId"] = self.instanceId!
+        }
+        if self.instanceName != nil {
+            map["InstanceName"] = self.instanceName!
+        }
+        if self.internetIp != nil {
+            map["InternetIp"] = self.internetIp!
+        }
+        if self.intranetIp != nil {
+            map["IntranetIp"] = self.intranetIp!
+        }
+        if self.newStatus != nil {
+            map["NewStatus"] = self.newStatus!
+        }
+        if self.operation != nil {
+            map["Operation"] = self.operation!
+        }
+        if self.procPath != nil {
+            map["ProcPath"] = self.procPath!
+        }
+        if self.remark != nil {
+            map["Remark"] = self.remark!
+        }
+        if self.ruleName != nil {
+            map["RuleName"] = self.ruleName!
+        }
+        if self.selectAll != nil {
+            map["SelectAll"] = self.selectAll!
+        }
+        if self.startTime != nil {
+            map["StartTime"] = self.startTime!
+        }
+        if self.status != nil {
+            map["Status"] = self.status!
+        }
+        if self.uuid != nil {
+            map["Uuid"] = self.uuid!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["AlertLevels"] as? [Int32] {
+            self.alertLevels = value
+        }
+        if let value = dict["EndTime"] as? Int64 {
+            self.endTime = value
+        }
+        if let value = dict["ExcludeIdList"] as? [Int64] {
+            self.excludeIdList = value
+        }
+        if let value = dict["FilePath"] as? String {
+            self.filePath = value
+        }
+        if let value = dict["IdList"] as? [Int64] {
+            self.idList = value
+        }
+        if let value = dict["InstanceId"] as? String {
+            self.instanceId = value
+        }
+        if let value = dict["InstanceName"] as? String {
+            self.instanceName = value
+        }
+        if let value = dict["InternetIp"] as? String {
+            self.internetIp = value
+        }
+        if let value = dict["IntranetIp"] as? String {
+            self.intranetIp = value
+        }
+        if let value = dict["NewStatus"] as? Int32 {
+            self.newStatus = value
+        }
+        if let value = dict["Operation"] as? String {
+            self.operation = value
+        }
+        if let value = dict["ProcPath"] as? String {
+            self.procPath = value
+        }
+        if let value = dict["Remark"] as? [String] {
+            self.remark = value
+        }
+        if let value = dict["RuleName"] as? String {
+            self.ruleName = value
+        }
+        if let value = dict["SelectAll"] as? Bool {
+            self.selectAll = value
+        }
+        if let value = dict["StartTime"] as? Int64 {
+            self.startTime = value
+        }
+        if let value = dict["Status"] as? String {
+            self.status = value
+        }
+        if let value = dict["Uuid"] as? String {
+            self.uuid = value
+        }
+    }
+}
+
+public class UpdateFileProtectClientEventResponseBody : Tea.TeaModel {
+    public var requestId: String?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.requestId != nil {
+            map["RequestId"] = self.requestId!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["RequestId"] as? String {
+            self.requestId = value
+        }
+    }
+}
+
+public class UpdateFileProtectClientEventResponse : Tea.TeaModel {
+    public var headers: [String: String]?
+
+    public var statusCode: Int32?
+
+    public var body: UpdateFileProtectClientEventResponseBody?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.body?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.headers != nil {
+            map["headers"] = self.headers!
+        }
+        if self.statusCode != nil {
+            map["statusCode"] = self.statusCode!
+        }
+        if self.body != nil {
+            map["body"] = self.body?.toMap()
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["headers"] as? [String: String] {
+            self.headers = value
+        }
+        if let value = dict["statusCode"] as? Int32 {
+            self.statusCode = value
+        }
+        if let value = dict["body"] as? [String: Any?] {
+            var model = UpdateFileProtectClientEventResponseBody()
+            model.fromMap(value)
+            self.body = model
+        }
+    }
+}
+
+public class UpdateFileProtectClientRuleRequest : Tea.TeaModel {
+    public var alertLevel: Int32?
+
+    public var excludeUsers: [String]?
+
+    public var fileOps: [String]?
+
+    public var filePaths: [String]?
+
+    public var fileTypes: [String]?
+
+    public var id: Int64?
+
+    public var procPaths: [String]?
+
+    public var ruleAction: String?
+
+    public var ruleName: String?
+
+    public var status: Int32?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.alertLevel != nil {
+            map["AlertLevel"] = self.alertLevel!
+        }
+        if self.excludeUsers != nil {
+            map["ExcludeUsers"] = self.excludeUsers!
+        }
+        if self.fileOps != nil {
+            map["FileOps"] = self.fileOps!
+        }
+        if self.filePaths != nil {
+            map["FilePaths"] = self.filePaths!
+        }
+        if self.fileTypes != nil {
+            map["FileTypes"] = self.fileTypes!
+        }
+        if self.id != nil {
+            map["Id"] = self.id!
+        }
+        if self.procPaths != nil {
+            map["ProcPaths"] = self.procPaths!
+        }
+        if self.ruleAction != nil {
+            map["RuleAction"] = self.ruleAction!
+        }
+        if self.ruleName != nil {
+            map["RuleName"] = self.ruleName!
+        }
+        if self.status != nil {
+            map["Status"] = self.status!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["AlertLevel"] as? Int32 {
+            self.alertLevel = value
+        }
+        if let value = dict["ExcludeUsers"] as? [String] {
+            self.excludeUsers = value
+        }
+        if let value = dict["FileOps"] as? [String] {
+            self.fileOps = value
+        }
+        if let value = dict["FilePaths"] as? [String] {
+            self.filePaths = value
+        }
+        if let value = dict["FileTypes"] as? [String] {
+            self.fileTypes = value
+        }
+        if let value = dict["Id"] as? Int64 {
+            self.id = value
+        }
+        if let value = dict["ProcPaths"] as? [String] {
+            self.procPaths = value
+        }
+        if let value = dict["RuleAction"] as? String {
+            self.ruleAction = value
+        }
+        if let value = dict["RuleName"] as? String {
+            self.ruleName = value
+        }
+        if let value = dict["Status"] as? Int32 {
+            self.status = value
+        }
+    }
+}
+
+public class UpdateFileProtectClientRuleResponseBody : Tea.TeaModel {
+    public var requestId: String?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.requestId != nil {
+            map["RequestId"] = self.requestId!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["RequestId"] as? String {
+            self.requestId = value
+        }
+    }
+}
+
+public class UpdateFileProtectClientRuleResponse : Tea.TeaModel {
+    public var headers: [String: String]?
+
+    public var statusCode: Int32?
+
+    public var body: UpdateFileProtectClientRuleResponseBody?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.body?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.headers != nil {
+            map["headers"] = self.headers!
+        }
+        if self.statusCode != nil {
+            map["statusCode"] = self.statusCode!
+        }
+        if self.body != nil {
+            map["body"] = self.body?.toMap()
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["headers"] as? [String: String] {
+            self.headers = value
+        }
+        if let value = dict["statusCode"] as? Int32 {
+            self.statusCode = value
+        }
+        if let value = dict["body"] as? [String: Any?] {
+            var model = UpdateFileProtectClientRuleResponseBody()
+            model.fromMap(value)
+            self.body = model
+        }
+    }
+}
+
+public class UpdateFileProtectClientRuleStatusRequest : Tea.TeaModel {
+    public var alertLevel: Int32?
+
+    public var excludeIdList: [Int64]?
+
+    public var idList: [Int64]?
+
+    public var platform: String?
+
+    public var ruleAction: String?
+
+    public var ruleName: String?
+
+    public var selectAll: Bool?
+
+    public var status: Int32?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.alertLevel != nil {
+            map["AlertLevel"] = self.alertLevel!
+        }
+        if self.excludeIdList != nil {
+            map["ExcludeIdList"] = self.excludeIdList!
+        }
+        if self.idList != nil {
+            map["IdList"] = self.idList!
+        }
+        if self.platform != nil {
+            map["Platform"] = self.platform!
+        }
+        if self.ruleAction != nil {
+            map["RuleAction"] = self.ruleAction!
+        }
+        if self.ruleName != nil {
+            map["RuleName"] = self.ruleName!
+        }
+        if self.selectAll != nil {
+            map["SelectAll"] = self.selectAll!
+        }
+        if self.status != nil {
+            map["Status"] = self.status!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["AlertLevel"] as? Int32 {
+            self.alertLevel = value
+        }
+        if let value = dict["ExcludeIdList"] as? [Int64] {
+            self.excludeIdList = value
+        }
+        if let value = dict["IdList"] as? [Int64] {
+            self.idList = value
+        }
+        if let value = dict["Platform"] as? String {
+            self.platform = value
+        }
+        if let value = dict["RuleAction"] as? String {
+            self.ruleAction = value
+        }
+        if let value = dict["RuleName"] as? String {
+            self.ruleName = value
+        }
+        if let value = dict["SelectAll"] as? Bool {
+            self.selectAll = value
+        }
+        if let value = dict["Status"] as? Int32 {
+            self.status = value
+        }
+    }
+}
+
+public class UpdateFileProtectClientRuleStatusResponseBody : Tea.TeaModel {
+    public var requestId: String?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.requestId != nil {
+            map["RequestId"] = self.requestId!
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["RequestId"] as? String {
+            self.requestId = value
+        }
+    }
+}
+
+public class UpdateFileProtectClientRuleStatusResponse : Tea.TeaModel {
+    public var headers: [String: String]?
+
+    public var statusCode: Int32?
+
+    public var body: UpdateFileProtectClientRuleStatusResponseBody?
+
+    public override init() {
+        super.init()
+    }
+
+    public init(_ dict: [String: Any]) {
+        super.init()
+        self.fromMap(dict)
+    }
+
+    public override func validate() throws -> Void {
+        try self.body?.validate()
+    }
+
+    public override func toMap() -> [String : Any] {
+        var map = super.toMap()
+        if self.headers != nil {
+            map["headers"] = self.headers!
+        }
+        if self.statusCode != nil {
+            map["statusCode"] = self.statusCode!
+        }
+        if self.body != nil {
+            map["body"] = self.body?.toMap()
+        }
+        return map
+    }
+
+    public override func fromMap(_ dict: [String: Any?]?) -> Void {
+        guard let dict else { return }
+        if let value = dict["headers"] as? [String: String] {
+            self.headers = value
+        }
+        if let value = dict["statusCode"] as? Int32 {
+            self.statusCode = value
+        }
+        if let value = dict["body"] as? [String: Any?] {
+            var model = UpdateFileProtectClientRuleStatusResponseBody()
             model.fromMap(value)
             self.body = model
         }
