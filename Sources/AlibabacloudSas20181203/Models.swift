@@ -157022,6 +157022,8 @@ public class ListAgentlessAssetRequest : Tea.TeaModel {
 
     public var instanceId: String?
 
+    public var instanceIds: [String]?
+
     public var instanceName: String?
 
     public var pageSize: Int32?
@@ -157055,6 +157057,9 @@ public class ListAgentlessAssetRequest : Tea.TeaModel {
         if self.instanceId != nil {
             map["InstanceId"] = self.instanceId!
         }
+        if self.instanceIds != nil {
+            map["InstanceIds"] = self.instanceIds!
+        }
         if self.instanceName != nil {
             map["InstanceName"] = self.instanceName!
         }
@@ -157083,6 +157088,9 @@ public class ListAgentlessAssetRequest : Tea.TeaModel {
         }
         if let value = dict["InstanceId"] as? String {
             self.instanceId = value
+        }
+        if let value = dict["InstanceIds"] as? [String] {
+            self.instanceIds = value
         }
         if let value = dict["InstanceName"] as? String {
             self.instanceName = value
