@@ -862,6 +862,8 @@ public class AddClientUserDefineRuleRequest : Tea.TeaModel {
 
     public var registryKey: String?
 
+    public var targetDefault: String?
+
     public var type: Int32?
 
     public override init() {
@@ -926,6 +928,9 @@ public class AddClientUserDefineRuleRequest : Tea.TeaModel {
         if self.registryKey != nil {
             map["RegistryKey"] = self.registryKey!
         }
+        if self.targetDefault != nil {
+            map["TargetDefault"] = self.targetDefault!
+        }
         if self.type != nil {
             map["Type"] = self.type!
         }
@@ -981,6 +986,9 @@ public class AddClientUserDefineRuleRequest : Tea.TeaModel {
         }
         if let value = dict["RegistryKey"] as? String {
             self.registryKey = value
+        }
+        if let value = dict["TargetDefault"] as? String {
+            self.targetDefault = value
         }
         if let value = dict["Type"] as? Int32 {
             self.type = value
@@ -152035,6 +152043,8 @@ public class GetUnknownThreatDetectStatisticRequest : Tea.TeaModel {
 
 public class GetUnknownThreatDetectStatisticResponseBody : Tea.TeaModel {
     public class Data : Tea.TeaModel {
+        public var blockEventMachineCount: Int32?
+
         public var blockMachineCount: Int32?
 
         public var machineCount: Int32?
@@ -152059,6 +152069,9 @@ public class GetUnknownThreatDetectStatisticResponseBody : Tea.TeaModel {
 
         public override func toMap() -> [String : Any] {
             var map = super.toMap()
+            if self.blockEventMachineCount != nil {
+                map["BlockEventMachineCount"] = self.blockEventMachineCount!
+            }
             if self.blockMachineCount != nil {
                 map["BlockMachineCount"] = self.blockMachineCount!
             }
@@ -152079,6 +152092,9 @@ public class GetUnknownThreatDetectStatisticResponseBody : Tea.TeaModel {
 
         public override func fromMap(_ dict: [String: Any?]?) -> Void {
             guard let dict else { return }
+            if let value = dict["BlockEventMachineCount"] as? Int32 {
+                self.blockEventMachineCount = value
+            }
             if let value = dict["BlockMachineCount"] as? Int32 {
                 self.blockMachineCount = value
             }
@@ -194674,9 +194690,13 @@ public class ListUninstallAegisMachinesResponse : Tea.TeaModel {
 }
 
 public class ListUnknownThreatDetectEventRequest : Tea.TeaModel {
+    public var analyzeResult: String?
+
     public var currentPage: Int32?
 
     public var hashKey: String?
+
+    public var lang: String?
 
     public var pageSize: Int32?
 
@@ -194704,11 +194724,17 @@ public class ListUnknownThreatDetectEventRequest : Tea.TeaModel {
 
     public override func toMap() -> [String : Any] {
         var map = super.toMap()
+        if self.analyzeResult != nil {
+            map["AnalyzeResult"] = self.analyzeResult!
+        }
         if self.currentPage != nil {
             map["CurrentPage"] = self.currentPage!
         }
         if self.hashKey != nil {
             map["HashKey"] = self.hashKey!
+        }
+        if self.lang != nil {
+            map["Lang"] = self.lang!
         }
         if self.pageSize != nil {
             map["PageSize"] = self.pageSize!
@@ -194733,11 +194759,17 @@ public class ListUnknownThreatDetectEventRequest : Tea.TeaModel {
 
     public override func fromMap(_ dict: [String: Any?]?) -> Void {
         guard let dict else { return }
+        if let value = dict["AnalyzeResult"] as? String {
+            self.analyzeResult = value
+        }
         if let value = dict["CurrentPage"] as? Int32 {
             self.currentPage = value
         }
         if let value = dict["HashKey"] as? String {
             self.hashKey = value
+        }
+        if let value = dict["Lang"] as? String {
+            self.lang = value
         }
         if let value = dict["PageSize"] as? Int32 {
             self.pageSize = value
@@ -194762,6 +194794,10 @@ public class ListUnknownThreatDetectEventRequest : Tea.TeaModel {
 
 public class ListUnknownThreatDetectEventResponseBody : Tea.TeaModel {
     public class Data : Tea.TeaModel {
+        public var analyzeDesc: String?
+
+        public var analyzeResult: String?
+
         public var cmdChain: String?
 
         public var cmdline: String?
@@ -194814,6 +194850,12 @@ public class ListUnknownThreatDetectEventResponseBody : Tea.TeaModel {
 
         public override func toMap() -> [String : Any] {
             var map = super.toMap()
+            if self.analyzeDesc != nil {
+                map["AnalyzeDesc"] = self.analyzeDesc!
+            }
+            if self.analyzeResult != nil {
+                map["AnalyzeResult"] = self.analyzeResult!
+            }
             if self.cmdChain != nil {
                 map["CmdChain"] = self.cmdChain!
             }
@@ -194876,6 +194918,12 @@ public class ListUnknownThreatDetectEventResponseBody : Tea.TeaModel {
 
         public override func fromMap(_ dict: [String: Any?]?) -> Void {
             guard let dict else { return }
+            if let value = dict["AnalyzeDesc"] as? String {
+                self.analyzeDesc = value
+            }
+            if let value = dict["AnalyzeResult"] as? String {
+                self.analyzeResult = value
+            }
             if let value = dict["CmdChain"] as? String {
                 self.cmdChain = value
             }
@@ -195191,17 +195239,23 @@ public class ListUnknownThreatDetectMachineRequest : Tea.TeaModel {
 
 public class ListUnknownThreatDetectMachineResponseBody : Tea.TeaModel {
     public class Data : Tea.TeaModel {
+        public var effectDays: Int64?
+
         public var instanceName: String?
 
         public var internetIp: String?
 
         public var intranetIp: String?
 
+        public var pluginStatus: String?
+
         public var processCount: Int32?
 
         public var status: String?
 
         public var studyMode: String?
+
+        public var studyRemainDays: Int64?
 
         public var studyStartTime: Int64?
 
@@ -195221,6 +195275,9 @@ public class ListUnknownThreatDetectMachineResponseBody : Tea.TeaModel {
 
         public override func toMap() -> [String : Any] {
             var map = super.toMap()
+            if self.effectDays != nil {
+                map["EffectDays"] = self.effectDays!
+            }
             if self.instanceName != nil {
                 map["InstanceName"] = self.instanceName!
             }
@@ -195230,6 +195287,9 @@ public class ListUnknownThreatDetectMachineResponseBody : Tea.TeaModel {
             if self.intranetIp != nil {
                 map["IntranetIp"] = self.intranetIp!
             }
+            if self.pluginStatus != nil {
+                map["PluginStatus"] = self.pluginStatus!
+            }
             if self.processCount != nil {
                 map["ProcessCount"] = self.processCount!
             }
@@ -195238,6 +195298,9 @@ public class ListUnknownThreatDetectMachineResponseBody : Tea.TeaModel {
             }
             if self.studyMode != nil {
                 map["StudyMode"] = self.studyMode!
+            }
+            if self.studyRemainDays != nil {
+                map["StudyRemainDays"] = self.studyRemainDays!
             }
             if self.studyStartTime != nil {
                 map["StudyStartTime"] = self.studyStartTime!
@@ -195250,6 +195313,9 @@ public class ListUnknownThreatDetectMachineResponseBody : Tea.TeaModel {
 
         public override func fromMap(_ dict: [String: Any?]?) -> Void {
             guard let dict else { return }
+            if let value = dict["EffectDays"] as? Int64 {
+                self.effectDays = value
+            }
             if let value = dict["InstanceName"] as? String {
                 self.instanceName = value
             }
@@ -195259,6 +195325,9 @@ public class ListUnknownThreatDetectMachineResponseBody : Tea.TeaModel {
             if let value = dict["IntranetIp"] as? String {
                 self.intranetIp = value
             }
+            if let value = dict["PluginStatus"] as? String {
+                self.pluginStatus = value
+            }
             if let value = dict["ProcessCount"] as? Int32 {
                 self.processCount = value
             }
@@ -195267,6 +195336,9 @@ public class ListUnknownThreatDetectMachineResponseBody : Tea.TeaModel {
             }
             if let value = dict["StudyMode"] as? String {
                 self.studyMode = value
+            }
+            if let value = dict["StudyRemainDays"] as? Int64 {
+                self.studyRemainDays = value
             }
             if let value = dict["StudyStartTime"] as? Int64 {
                 self.studyStartTime = value
@@ -195558,6 +195630,10 @@ public class ListUnknownThreatDetectProcessResponseBody : Tea.TeaModel {
     public class Data : Tea.TeaModel {
         public var analyzeResult: String?
 
+        public var explanationEn: String?
+
+        public var explanationZh: String?
+
         public var firstTime: Int64?
 
         public var md5: String?
@@ -195587,6 +195663,12 @@ public class ListUnknownThreatDetectProcessResponseBody : Tea.TeaModel {
             if self.analyzeResult != nil {
                 map["AnalyzeResult"] = self.analyzeResult!
             }
+            if self.explanationEn != nil {
+                map["ExplanationEn"] = self.explanationEn!
+            }
+            if self.explanationZh != nil {
+                map["ExplanationZh"] = self.explanationZh!
+            }
             if self.firstTime != nil {
                 map["FirstTime"] = self.firstTime!
             }
@@ -195612,6 +195694,12 @@ public class ListUnknownThreatDetectProcessResponseBody : Tea.TeaModel {
             guard let dict else { return }
             if let value = dict["AnalyzeResult"] as? String {
                 self.analyzeResult = value
+            }
+            if let value = dict["ExplanationEn"] as? String {
+                self.explanationEn = value
+            }
+            if let value = dict["ExplanationZh"] as? String {
+                self.explanationZh = value
             }
             if let value = dict["FirstTime"] as? Int64 {
                 self.firstTime = value
