@@ -6218,6 +6218,8 @@ public class BindAuthToMachineRequest : Tea.TeaModel {
 
     public var preBindOrderId: Int64?
 
+    public var resourceDirectoryAccountId: Int64?
+
     public var unBind: [String]?
 
     public override init() {
@@ -6261,6 +6263,9 @@ public class BindAuthToMachineRequest : Tea.TeaModel {
         if self.preBindOrderId != nil {
             map["PreBindOrderId"] = self.preBindOrderId!
         }
+        if self.resourceDirectoryAccountId != nil {
+            map["ResourceDirectoryAccountId"] = self.resourceDirectoryAccountId!
+        }
         if self.unBind != nil {
             map["UnBind"] = self.unBind!
         }
@@ -6295,6 +6300,9 @@ public class BindAuthToMachineRequest : Tea.TeaModel {
         }
         if let value = dict["PreBindOrderId"] as? Int64 {
             self.preBindOrderId = value
+        }
+        if let value = dict["ResourceDirectoryAccountId"] as? Int64 {
+            self.resourceDirectoryAccountId = value
         }
         if let value = dict["UnBind"] as? [String] {
             self.unBind = value
@@ -106717,9 +106725,17 @@ public class DescribeVersionConfigResponseBody : Tea.TeaModel {
 
     public var cspmCapacity: Int64?
 
+    public var cspmInstanceCapacity: Int32?
+
     public var highestVersion: Int32?
 
     public var honeypotCapacity: Int64?
+
+    public var hybridPaidModuleSwitchMap: Int32?
+
+    public var hybridPaidStatus: Int32?
+
+    public var hybridSwitch: Int32?
 
     public var imageScanCapacity: Int64?
 
@@ -106748,6 +106764,8 @@ public class DescribeVersionConfigResponseBody : Tea.TeaModel {
     public var mergedVersion: Int32?
 
     public var multiVersion: String?
+
+    public var newPostPaidCspm: Int32?
 
     public var newThreatAnalysis: Int32?
 
@@ -106836,11 +106854,23 @@ public class DescribeVersionConfigResponseBody : Tea.TeaModel {
         if self.cspmCapacity != nil {
             map["CspmCapacity"] = self.cspmCapacity!
         }
+        if self.cspmInstanceCapacity != nil {
+            map["CspmInstanceCapacity"] = self.cspmInstanceCapacity!
+        }
         if self.highestVersion != nil {
             map["HighestVersion"] = self.highestVersion!
         }
         if self.honeypotCapacity != nil {
             map["HoneypotCapacity"] = self.honeypotCapacity!
+        }
+        if self.hybridPaidModuleSwitchMap != nil {
+            map["HybridPaidModuleSwitchMap"] = self.hybridPaidModuleSwitchMap!
+        }
+        if self.hybridPaidStatus != nil {
+            map["HybridPaidStatus"] = self.hybridPaidStatus!
+        }
+        if self.hybridSwitch != nil {
+            map["HybridSwitch"] = self.hybridSwitch!
         }
         if self.imageScanCapacity != nil {
             map["ImageScanCapacity"] = self.imageScanCapacity!
@@ -106883,6 +106913,9 @@ public class DescribeVersionConfigResponseBody : Tea.TeaModel {
         }
         if self.multiVersion != nil {
             map["MultiVersion"] = self.multiVersion!
+        }
+        if self.newPostPaidCspm != nil {
+            map["NewPostPaidCspm"] = self.newPostPaidCspm!
         }
         if self.newThreatAnalysis != nil {
             map["NewThreatAnalysis"] = self.newThreatAnalysis!
@@ -106985,11 +107018,23 @@ public class DescribeVersionConfigResponseBody : Tea.TeaModel {
         if let value = dict["CspmCapacity"] as? Int64 {
             self.cspmCapacity = value
         }
+        if let value = dict["CspmInstanceCapacity"] as? Int32 {
+            self.cspmInstanceCapacity = value
+        }
         if let value = dict["HighestVersion"] as? Int32 {
             self.highestVersion = value
         }
         if let value = dict["HoneypotCapacity"] as? Int64 {
             self.honeypotCapacity = value
+        }
+        if let value = dict["HybridPaidModuleSwitchMap"] as? Int32 {
+            self.hybridPaidModuleSwitchMap = value
+        }
+        if let value = dict["HybridPaidStatus"] as? Int32 {
+            self.hybridPaidStatus = value
+        }
+        if let value = dict["HybridSwitch"] as? Int32 {
+            self.hybridSwitch = value
         }
         if let value = dict["ImageScanCapacity"] as? Int64 {
             self.imageScanCapacity = value
@@ -107032,6 +107077,9 @@ public class DescribeVersionConfigResponseBody : Tea.TeaModel {
         }
         if let value = dict["MultiVersion"] as? String {
             self.multiVersion = value
+        }
+        if let value = dict["NewPostPaidCspm"] as? Int32 {
+            self.newPostPaidCspm = value
         }
         if let value = dict["NewThreatAnalysis"] as? Int32 {
             self.newThreatAnalysis = value
@@ -129103,6 +129151,14 @@ public class GetCheckSaleResponseBody : Tea.TeaModel {
     public class CheckSale : Tea.TeaModel {
         public var consumeCount: Int64?
 
+        public var instanceConsumeCount: Int64?
+
+        public var instanceHybridPostLatestCycledResourceCount: Int64?
+
+        public var instancePostConsumeCount: Int64?
+
+        public var instancePurchaseCount: Int64?
+
         public var loyalUser: Bool?
 
         public var purchaseCount: Int64?
@@ -129126,6 +129182,18 @@ public class GetCheckSaleResponseBody : Tea.TeaModel {
             if self.consumeCount != nil {
                 map["ConsumeCount"] = self.consumeCount!
             }
+            if self.instanceConsumeCount != nil {
+                map["InstanceConsumeCount"] = self.instanceConsumeCount!
+            }
+            if self.instanceHybridPostLatestCycledResourceCount != nil {
+                map["InstanceHybridPostLatestCycledResourceCount"] = self.instanceHybridPostLatestCycledResourceCount!
+            }
+            if self.instancePostConsumeCount != nil {
+                map["InstancePostConsumeCount"] = self.instancePostConsumeCount!
+            }
+            if self.instancePurchaseCount != nil {
+                map["InstancePurchaseCount"] = self.instancePurchaseCount!
+            }
             if self.loyalUser != nil {
                 map["LoyalUser"] = self.loyalUser!
             }
@@ -129142,6 +129210,18 @@ public class GetCheckSaleResponseBody : Tea.TeaModel {
             guard let dict else { return }
             if let value = dict["ConsumeCount"] as? Int64 {
                 self.consumeCount = value
+            }
+            if let value = dict["InstanceConsumeCount"] as? Int64 {
+                self.instanceConsumeCount = value
+            }
+            if let value = dict["InstanceHybridPostLatestCycledResourceCount"] as? Int64 {
+                self.instanceHybridPostLatestCycledResourceCount = value
+            }
+            if let value = dict["InstancePostConsumeCount"] as? Int64 {
+                self.instancePostConsumeCount = value
+            }
+            if let value = dict["InstancePurchaseCount"] as? Int64 {
+                self.instancePurchaseCount = value
             }
             if let value = dict["LoyalUser"] as? Bool {
                 self.loyalUser = value
@@ -132382,6 +132462,8 @@ public class GetCloudAssetSummaryRequest : Tea.TeaModel {
     }
     public var cloudAssetTypes: [GetCloudAssetSummaryRequest.CloudAssetTypes]?
 
+    public var isSaleData: Bool?
+
     public var vendors: [Int32]?
 
     public override init() {
@@ -132405,6 +132487,9 @@ public class GetCloudAssetSummaryRequest : Tea.TeaModel {
             }
             map["CloudAssetTypes"] = tmp
         }
+        if self.isSaleData != nil {
+            map["IsSaleData"] = self.isSaleData!
+        }
         if self.vendors != nil {
             map["Vendors"] = self.vendors!
         }
@@ -132426,6 +132511,9 @@ public class GetCloudAssetSummaryRequest : Tea.TeaModel {
             }
             self.cloudAssetTypes = tmp
         }
+        if let value = dict["IsSaleData"] as? Bool {
+            self.isSaleData = value
+        }
         if let value = dict["Vendors"] as? [Int32] {
             self.vendors = value
         }
@@ -132442,6 +132530,10 @@ public class GetCloudAssetSummaryResponseBody : Tea.TeaModel {
             public var instanceCount: Int32?
 
             public var instanceRiskCount: Int32?
+
+            public var instanceSaleCount: Int32?
+
+            public var isInstanceSale: Bool?
 
             public var vendor: Int32?
 
@@ -132471,6 +132563,12 @@ public class GetCloudAssetSummaryResponseBody : Tea.TeaModel {
                 if self.instanceRiskCount != nil {
                     map["InstanceRiskCount"] = self.instanceRiskCount!
                 }
+                if self.instanceSaleCount != nil {
+                    map["InstanceSaleCount"] = self.instanceSaleCount!
+                }
+                if self.isInstanceSale != nil {
+                    map["IsInstanceSale"] = self.isInstanceSale!
+                }
                 if self.vendor != nil {
                     map["Vendor"] = self.vendor!
                 }
@@ -132491,6 +132589,12 @@ public class GetCloudAssetSummaryResponseBody : Tea.TeaModel {
                 if let value = dict["InstanceRiskCount"] as? Int32 {
                     self.instanceRiskCount = value
                 }
+                if let value = dict["InstanceSaleCount"] as? Int32 {
+                    self.instanceSaleCount = value
+                }
+                if let value = dict["IsInstanceSale"] as? Bool {
+                    self.isInstanceSale = value
+                }
                 if let value = dict["Vendor"] as? Int32 {
                     self.vendor = value
                 }
@@ -132501,6 +132605,8 @@ public class GetCloudAssetSummaryResponseBody : Tea.TeaModel {
         public var instanceCountTotal: Int32?
 
         public var instanceRiskCountTotal: Int32?
+
+        public var instanceSaleCountTotal: Int32?
 
         public override init() {
             super.init()
@@ -132529,6 +132635,9 @@ public class GetCloudAssetSummaryResponseBody : Tea.TeaModel {
             if self.instanceRiskCountTotal != nil {
                 map["InstanceRiskCountTotal"] = self.instanceRiskCountTotal!
             }
+            if self.instanceSaleCountTotal != nil {
+                map["InstanceSaleCountTotal"] = self.instanceSaleCountTotal!
+            }
             return map
         }
 
@@ -132552,6 +132661,9 @@ public class GetCloudAssetSummaryResponseBody : Tea.TeaModel {
             }
             if let value = dict["InstanceRiskCountTotal"] as? Int32 {
                 self.instanceRiskCountTotal = value
+            }
+            if let value = dict["InstanceSaleCountTotal"] as? Int32 {
+                self.instanceSaleCountTotal = value
             }
         }
     }
@@ -169099,6 +169211,8 @@ public class ListCloudAssetInstancesRequest : Tea.TeaModel {
 
     public var currentPage: Int32?
 
+    public var isSaleData: Bool?
+
     public var logicalExp: String?
 
     public var pageSize: Int32?
@@ -169138,6 +169252,9 @@ public class ListCloudAssetInstancesRequest : Tea.TeaModel {
         }
         if self.currentPage != nil {
             map["CurrentPage"] = self.currentPage!
+        }
+        if self.isSaleData != nil {
+            map["IsSaleData"] = self.isSaleData!
         }
         if self.logicalExp != nil {
             map["LogicalExp"] = self.logicalExp!
@@ -169185,6 +169302,9 @@ public class ListCloudAssetInstancesRequest : Tea.TeaModel {
         if let value = dict["CurrentPage"] as? Int32 {
             self.currentPage = value
         }
+        if let value = dict["IsSaleData"] as? Bool {
+            self.isSaleData = value
+        }
         if let value = dict["LogicalExp"] as? String {
             self.logicalExp = value
         }
@@ -169209,6 +169329,8 @@ public class ListCloudAssetInstancesResponseBody : Tea.TeaModel {
 
         public var assetTypeName: String?
 
+        public var assetUuid: String?
+
         public var createdTime: Int64?
 
         public var instanceId: String?
@@ -169220,6 +169342,10 @@ public class ListCloudAssetInstancesResponseBody : Tea.TeaModel {
         public var regionId: String?
 
         public var riskStatus: String?
+
+        public var saleCspm: Int32?
+
+        public var saleType: Int32?
 
         public var securityInfo: String?
 
@@ -169260,6 +169386,9 @@ public class ListCloudAssetInstancesResponseBody : Tea.TeaModel {
             if self.assetTypeName != nil {
                 map["AssetTypeName"] = self.assetTypeName!
             }
+            if self.assetUuid != nil {
+                map["AssetUuid"] = self.assetUuid!
+            }
             if self.createdTime != nil {
                 map["CreatedTime"] = self.createdTime!
             }
@@ -169277,6 +169406,12 @@ public class ListCloudAssetInstancesResponseBody : Tea.TeaModel {
             }
             if self.riskStatus != nil {
                 map["RiskStatus"] = self.riskStatus!
+            }
+            if self.saleCspm != nil {
+                map["SaleCspm"] = self.saleCspm!
+            }
+            if self.saleType != nil {
+                map["SaleType"] = self.saleType!
             }
             if self.securityInfo != nil {
                 map["SecurityInfo"] = self.securityInfo!
@@ -169313,6 +169448,9 @@ public class ListCloudAssetInstancesResponseBody : Tea.TeaModel {
             if let value = dict["AssetTypeName"] as? String {
                 self.assetTypeName = value
             }
+            if let value = dict["AssetUuid"] as? String {
+                self.assetUuid = value
+            }
             if let value = dict["CreatedTime"] as? Int64 {
                 self.createdTime = value
             }
@@ -169330,6 +169468,12 @@ public class ListCloudAssetInstancesResponseBody : Tea.TeaModel {
             }
             if let value = dict["RiskStatus"] as? String {
                 self.riskStatus = value
+            }
+            if let value = dict["SaleCspm"] as? Int32 {
+                self.saleCspm = value
+            }
+            if let value = dict["SaleType"] as? Int32 {
+                self.saleType = value
             }
             if let value = dict["SecurityInfo"] as? String {
                 self.securityInfo = value
@@ -194806,6 +194950,8 @@ public class ListUnknownThreatDetectEventResponseBody : Tea.TeaModel {
 
         public var firstTime: Int64?
 
+        public var handleType: String?
+
         public var hashKey: String?
 
         public var id: String?
@@ -194867,6 +195013,9 @@ public class ListUnknownThreatDetectEventResponseBody : Tea.TeaModel {
             }
             if self.firstTime != nil {
                 map["FirstTime"] = self.firstTime!
+            }
+            if self.handleType != nil {
+                map["HandleType"] = self.handleType!
             }
             if self.hashKey != nil {
                 map["HashKey"] = self.hashKey!
@@ -194935,6 +195084,9 @@ public class ListUnknownThreatDetectEventResponseBody : Tea.TeaModel {
             }
             if let value = dict["FirstTime"] as? Int64 {
                 self.firstTime = value
+            }
+            if let value = dict["HandleType"] as? String {
+                self.handleType = value
             }
             if let value = dict["HashKey"] as? String {
                 self.hashKey = value
